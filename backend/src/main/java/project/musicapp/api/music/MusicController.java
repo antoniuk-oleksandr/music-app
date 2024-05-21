@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/music")
+@RequestMapping("/music")
 public class MusicController {
     @GetMapping("/recommended")
     public ResponseEntity<String> recommended() {
