@@ -20,7 +20,9 @@ public class SearchController {
     }
 
     @GetMapping
-    public ResponseEntity<SearchDTO> search(@RequestParam String value, @RequestParam int limit, @RequestParam int offset) {
+    public ResponseEntity<SearchDTO> search(@RequestParam String value,
+                                            @RequestParam int limit,
+                                            @RequestParam int offset) {
         return this.searchService.search(value, limit, offset);
     }
 }

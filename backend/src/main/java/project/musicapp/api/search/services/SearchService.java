@@ -29,7 +29,7 @@ public class SearchService {
     }
 
     private List<User> getUsers(String value, int limit, int offset){
-        return this.userRepository.findAllUsers(value, limit, offset);
+        return this.userRepository.findAllUsersByUsername(value, limit, offset);
     }
 
     public ResponseEntity<SearchDTO> search(String value, int limit, int offset) {
@@ -37,7 +37,6 @@ public class SearchService {
         List<User> users = getUsers(value, limit, offset);
 
         SearchMapper searchMapper = new SearchMapper(users, songs);
-
         return ResponseEntity.ok().body(searchMapper.toSearchDTO());
     }
 }

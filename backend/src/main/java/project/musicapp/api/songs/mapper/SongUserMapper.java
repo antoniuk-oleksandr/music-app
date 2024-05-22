@@ -24,17 +24,14 @@ public class SongUserMapper {
             UserDTO userDTO = getUserDTO(userSong);
 
             SongUsersDTO songUsersDTO = songUsers.get(songDTO.getId());
-
             if (songUsersDTO == null) {
                 songUsersDTO = new SongUsersDTO();
                 songUsersDTO.setSong(songDTO);
                 songUsersDTO.setUsers(new ArrayList<>());
                 songUsers.put(songDTO.getId(), songUsersDTO);
             }
-
             songUsersDTO.getUsers().add(userDTO);
         }
-
         return new ArrayList<>(songUsers.values());
     }
 
