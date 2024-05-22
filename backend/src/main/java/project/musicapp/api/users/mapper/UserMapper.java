@@ -1,20 +1,35 @@
 package project.musicapp.api.users.mapper;
 
 import project.musicapp.api.users.dto.UserDTO;
-import project.musicapp.api.users.models.User;
+import project.musicapp.api.users.model.User;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserMapper {
-    private final User user;
+    private final List<User> users;
 
-    public UserMapper(User user) {
-        this.user = user;
+    public UserMapper(List<User> users) {
+        this.users = users;
     }
 
-    public UserDTO toUserDTO() {
+    public List<UserDTO> toUserDTO() {
+        HashSet<UserDTO> uniqueUsers = new HashSet<>();
+        for (User userSong : users) {
+            UserDTO userDTO = mapToUserDTO(userSong);
+            uniqueUsers.add(userDTO);
+        }
+        return new ArrayList<>(uniqueUsers);
+    }
+
+    private UserDTO mapToUserDTO(User user) {
         return UserDTO.builder()
-                .username(this.user.getUsername())
-                .avatar(this.user.getAvatar())
-                .banner(this.user.getBanner())
+                .id(user.getId())
+                .username(user.getUsername())
+                .avatar(user.getAvatar())
+                .banner(user.getBanner())
                 .build();
     }
 }
