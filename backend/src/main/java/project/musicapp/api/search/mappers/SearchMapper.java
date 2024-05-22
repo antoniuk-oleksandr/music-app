@@ -19,10 +19,7 @@ public class SearchMapper {
     }
 
     public SearchDTO toSearchDTO(){
-        return SearchDTO.builder()
-                .users(getUsersDTO())
-                .songs(getSongUsersDTO())
-                .build();
+        return SearchDTO.builder().users(getUsersDTO()).songs(getSongUsersDTO()).build();
     }
 
     private List<UserDTO> getUsersDTO(){
