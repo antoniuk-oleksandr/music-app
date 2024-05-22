@@ -7,6 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
+    private Integer id;
     private String username;
     private String avatar;
     private String banner;
