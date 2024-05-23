@@ -1,6 +1,5 @@
 package project.musicapp.api.songs.mapper;
 
-import project.musicapp.api.songs.dto.SongDTO;
 import project.musicapp.api.songs.dto.SongUsersDTO;
 import project.musicapp.api.users.dto.UserDTO;
 
@@ -17,37 +16,39 @@ public class SongUserMapper {
     }
 
     public List<SongUsersDTO> toListSongUserDTO() {
-        HashMap<Integer, SongUsersDTO> songUsers = new HashMap<>();
+        HashMap<Integer, SongUsersDTO> songUsersMap = new HashMap<>();
 
-        for (Object[] userSong : userSongs) {
-            SongDTO songDTO = getSongDTO(userSong);
-            UserDTO userDTO = getUserDTO(userSong);
-            SongUsersDTO songUsersDTO = songUsers.get(songDTO.getId());
+        for (Object[] result : userSongs) {
+            int songId = (Integer) result[0];
+            SongUsersDTO songUsersDTO;
 
-            if (songUsersDTO == null) {
-                songUsersDTO = new SongUsersDTO();
-                songUsersDTO.setSong(songDTO);
-                songUsersDTO.setUsers(new ArrayList<>());
-                songUsers.put(songDTO.getId(), songUsersDTO);
+            if (songUsersMap.containsKey(songId)) {
+                songUsersDTO = songUsersMap.get(songId);
+            } else {
+                songUsersDTO = toSongUsersDTO(result);
+                songUsersMap.put(songId, songUsersDTO);
             }
 
+            UserDTO userDTO = toUserSearchDTO(result);
             songUsersDTO.getUsers().add(userDTO);
         }
-        return new ArrayList<>(songUsers.values());
+
+        return new ArrayList<>(songUsersMap.values());
     }
 
-    private SongDTO getSongDTO(Object[] result) {
-        return SongDTO.builder()
+    private SongUsersDTO toSongUsersDTO(Object[] result) {
+        return SongUsersDTO.builder()
                 .id((Integer) result[0])
                 .name((String) result[1])
                 .duration((Integer) result[2])
                 .releaseDate((Timestamp) result[3])
                 .songPath((String) result[4])
                 .imagePath((String) result[5])
+                .users(new ArrayList<>())
                 .build();
     }
 
-    private UserDTO getUserDTO(Object[] result) {
+    private UserDTO toUserSearchDTO(Object[] result) {
         return UserDTO.builder()
                 .id((Integer) result[6])
                 .username((String) result[7])
