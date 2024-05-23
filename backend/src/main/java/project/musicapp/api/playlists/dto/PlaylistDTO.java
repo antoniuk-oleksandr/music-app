@@ -1,7 +1,6 @@
 package project.musicapp.api.playlists.dto;
 
 import lombok.*;
-import project.musicapp.api.users.dto.UserDTO;
 
 import java.sql.Timestamp;
 
