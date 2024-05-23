@@ -13,11 +13,11 @@ public class UserMapper {
         this.users = users;
     }
 
-    public List<UserDTO> toUserDTO() {
-        return users.stream().map(this::mapToUserDTO).collect(Collectors.toList());
+    public List<UserDTO> toUserDTOs() {
+        return users.stream().map(this::toUserDTO).collect(Collectors.toList());
     }
 
-    private UserDTO mapToUserDTO(User user) {
+    private UserDTO toUserDTO(User user) {
         return UserDTO.builder()
                 .id(user.getId())
                 .username(user.getUsername())
