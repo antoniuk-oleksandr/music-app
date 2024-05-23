@@ -1,24 +1,46 @@
 import Progressbar from "../Progressbar/Progressbar";
 import VolumeIndicatorLayout from "./VolumeIndicatorLayout";
-import {IoVolumeHigh, IoVolumeMute} from "react-icons/io5";
+import VolumeIcon from "@/common-components/MusicPlayer/components/VolumeIcon";
+import {useVolume} from "@/common-components/MusicPlayer/use-effects/use-volume";
+import {useAudio} from "@/utils/AudioContext";
+import {MutableRefObject} from "react";
 
 type VolumeIndicatorProps = {
-    volume: number;
-    isMuted: boolean;
+    volumeBarRef: MutableRefObject<HTMLDivElement | null>
 }
 
 const VolumeIndicator = (props: VolumeIndicatorProps) => {
-    const {volume, isMuted} = props;
+    const {volumeBarRef} = props;
+    const {volume, muted} = useVolume();
+    const audioElement = useAudio() as HTMLAudioElement;
+
+    const setVolumePercentage = (volume: number) => {
+        if (volume <= 0) {
+            volume = 0;
+            audioElement.muted = true;
+            localStorage.setItem("muted", JSON.stringify(true));
+        }
+
+        audioElement.volume = volume / 100;
+        localStorage.setItem("volume", JSON.stringify(volume / 100));
+
+        if (volume !== 0 && audioElement.muted) {
+            audioElement.muted = false;
+            localStorage.setItem("muted", JSON.stringify(false));
+        }
+    }
 
     return (
         <VolumeIndicatorLayout>
-            {isMuted ?
-                <IoVolumeMute className={"text-2xl"}/> : <IoVolumeHigh className={"text-2xl"}/>
-            }
+            <VolumeIcon/>
             <Progressbar
+                showValueIndicator={false}
+                id={'volume-bar'}
+                barRef={volumeBarRef}
+                setPercentage={(v) => setVolumePercentage(v)}
                 rounded
                 isCursorShown
-                percentage={volume * 100}
+                percentage={muted ? 0 : volume * 100}
                 width={"w-25"}/>
         </VolumeIndicatorLayout>
     )

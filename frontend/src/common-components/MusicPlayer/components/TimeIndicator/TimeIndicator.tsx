@@ -1,13 +1,14 @@
 import TimeIndicatorLayout from "./TimeIndicatorLayout";
 import {formatTime} from "@/common-components/MusicPlayer/helpers";
+import {useAudio} from "@/utils/AudioContext";
+import {useSelector} from "react-redux";
+import {Song} from "@/types/Song";
 
-type TimeIndicatorProps = {
-    currentTime: number;
-    duration: number;
-}
+const TimeIndicator = () => {
+    let {currentTime, duration} = useAudio() as HTMLAudioElement;
+    const song: Song = useSelector(state => (state as any).musicPlayer.song);
 
-const TimeIndicator = (props: TimeIndicatorProps) => {
-    const { currentTime, duration } = props;
+    if (Number.isNaN(duration)) duration = song.duration;
 
     return (
         <TimeIndicatorLayout>

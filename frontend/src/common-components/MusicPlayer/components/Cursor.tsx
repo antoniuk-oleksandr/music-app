@@ -13,7 +13,7 @@ const Cursor = (props: CursorProps) => {
             {isShown &&
                 <motion.div
                     style={{left:`calc(${percentage}% - 0.375rem)`}}
-                    className={"w-3 h-3 rounded-full bg-red-500 absolute -top-1"}></motion.div>
+                    className={"w-3 h-3 rounded-full bg-red-500 absolute -top-1 z-10"}></motion.div>
             }
         </AnimatePresence>
     )
