@@ -18,6 +18,7 @@ public class SearchService {
 
     public ResponseEntity<SearchDTO> search(String searchTypeString, String value, int limit, int offset) {
         SearchType searchType = SearchType.valueOf(searchTypeString.toUpperCase());
+
         SearchMapper searchMapper = switch (searchType) {
             case PROFILES -> SearchMapper.builder()
                     .profiles(sqc.getProfiles(value, limit, offset))
@@ -31,6 +32,9 @@ public class SearchService {
             case ALBUMS -> SearchMapper.builder()
                     .albums(sqc.getAlbums(value, limit, offset))
                     .build();
+            case PLAYLISTS -> SearchMapper.builder()
+                    .playlists(sqc.getPlaylists(value, limit, offset))
+                    .build();
             default -> SearchMapper.builder()
                     .profiles(sqc.getProfiles(value, limit, offset))
                     .artists(sqc.getArtists(value, limit, offset))
@@ -39,6 +43,7 @@ public class SearchService {
                     .playlists(sqc.getPlaylists(value, limit, offset))
                     .build();
         };
+
         return ResponseEntity.ok().body(searchMapper.toSearchDTO());
     }
 }
