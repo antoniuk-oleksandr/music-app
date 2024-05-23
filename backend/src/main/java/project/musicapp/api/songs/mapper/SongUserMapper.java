@@ -42,16 +42,16 @@ public class SongUserMapper {
                 .name((String) result[1])
                 .duration((Integer) result[2])
                 .releaseDate((Timestamp) result[3])
-                .songURL((String) result[4])
+                .songPath((String) result[4])
+                .imagePath((String) result[5])
                 .build();
     }
 
     private UserDTO getUserDTO(Object[] result) {
         return UserDTO.builder()
-                .id((Integer) result[5])
-                .username((String) result[6])
-                .avatar((String) result[7])
-                .banner((String) result[8])
+                .id((Integer) result[6])
+                .username((String) result[7])
+                .avatarPath((String) result[8])
                 .build();
     }
 }

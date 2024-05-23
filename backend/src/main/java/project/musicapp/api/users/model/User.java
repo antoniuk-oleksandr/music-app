@@ -17,9 +17,9 @@ public class User {
     private String  password;
     private String  email;
 
-    @Column(name="avatar_url")
+    @Column(name="avatar_path")
     private String avatar;
 
-    @Column(name="banner_url")
+    @Column(name="banner_path")
     private String banner;
 }
