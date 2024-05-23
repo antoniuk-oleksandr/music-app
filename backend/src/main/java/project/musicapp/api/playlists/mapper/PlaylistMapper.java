@@ -15,7 +15,7 @@ public class PlaylistMapper {
     }
 
     public List<PlaylistDTO> toPlaylistDTOs() {
-        return playlists.stream().map(this::toPlaylistDTO).collect(Collectors.toList());
+        return this.playlists.stream().map(this::toPlaylistDTO).collect(Collectors.toList());
     }
 
     private PlaylistUserDTO getPlaylistUserDTO(Integer id, String username) {

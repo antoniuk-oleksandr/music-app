@@ -17,8 +17,12 @@ public class PlaylistService {
         this.playlistRepository = playlistRepository;
     }
 
+    private List<Object[]> getPlaylists(String value, int limit, int offset) {
+        return this.playlistRepository.findAllPlaylistsByName(value, limit, offset);
+    }
+
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){
-        List<Object[]> playlists = this.playlistRepository.findAllPlaylistsByName(value, limit, offset);
+        List<Object[]> playlists = getPlaylists(value, limit, offset);
         return new PlaylistMapper(playlists).toPlaylistDTOs();
     }
 }

@@ -11,8 +11,10 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
-    @Query(value = UserQuerySQL.FIND_ALL_USERS_BY_USERNAME, nativeQuery = true)
-    List<User> findAllUsersByUsername(@Param("value") String value,
-                                      @Param("limit") int limit,
-                                      @Param("offset") int offset);
+    @Query(value = UserQuerySQL.FIND_ALL_USERS_BY_USERNAME_AND_BY_IS_ARTIST, nativeQuery = true)
+    List<User> findAllUsersByUsernameAndByIsArtist(@Param("value") String value,
+                                                   @Param("limit") int limit,
+                                                   @Param("offset") int offset,
+                                                   @Param("isArtist") boolean isArtist
+    );
 }

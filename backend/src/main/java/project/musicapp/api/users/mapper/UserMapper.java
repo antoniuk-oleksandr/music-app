@@ -21,8 +21,7 @@ public class UserMapper {
         return UserDTO.builder()
                 .id(user.getId())
                 .username(user.getUsername())
-                .avatar(user.getAvatar())
-                .banner(user.getBanner())
+                .avatarPath(user.getAvatar())
                 .build();
     }
 }

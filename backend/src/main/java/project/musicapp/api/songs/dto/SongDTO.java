@@ -13,5 +13,6 @@ public class SongDTO {
     private String name;
     private Integer duration;
     private Timestamp releaseDate;
-    private String songURL;
+    private String songPath;
+    private String imagePath;
 }
