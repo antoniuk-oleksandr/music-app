@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 
 export const usePlayButton = () => {
     const [isPlaying, setIsPlaying] = useState(false);

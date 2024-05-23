@@ -5,7 +5,7 @@ export const getVolume = () => {
         localStorage.setItem("volume", "1");
         return 1;
     }
-    return volume;
+    return Number.parseFloat(volume);
 }
 
 export const getIsMuted = () => {

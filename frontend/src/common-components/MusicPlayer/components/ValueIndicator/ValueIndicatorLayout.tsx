@@ -17,7 +17,7 @@ const ValueIndicatorLayout = (props: ValueIndicatorLayoutProps) => {
         <div
             ref={indicatorRef}
             style={{left: `${leftOffset}px`}}
-            className="absolute z-10 bg-neutral-200 text-sm px-1 py-0.5  -top-[28px]">
+            className="absolute z-10 bg-neutral-200 text-sm px-1 py-0.5  -top-[28px] tabular-nums">
             {children}
         </div>
     )
