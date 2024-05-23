@@ -1,5 +1,7 @@
 export type User = {
     username: string,
     email: string,
-    usedId: number,
+    id: number,
+    avatarPath: string,
+    bannerPath: string,
 }

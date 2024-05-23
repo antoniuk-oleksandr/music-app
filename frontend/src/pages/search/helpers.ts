@@ -1,6 +1,10 @@
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {SearchTab} from "@/types/SearchTab";
 import {SearchResult} from "@/types/SearchResult";
+import {Song} from "@/types/Song";
+import {User} from "@/types/User";
+import {Album} from "@/types/Album";
+import {Playlist} from "@/types/Playlist";
 
 export const changeSearchTab = (router: AppRouterInstance, tab: SearchTab, searchQuery: string) => {
     router.push(`/search?q=${searchQuery}&tab=${tab}`);
@@ -16,3 +20,14 @@ export const filterResults = (searchResult: SearchResult): SearchResult => {
     }, {}) as SearchResult;
 }
 
+export const getName = (item: Song | User | Album | Playlist) => {
+    if ('username' in item) return item.username;
+    if ('song' in item) return (item.song as Song).name;
+    if ('name' in item) return item.name;
+}
+
+export const getImage = (item: Song | User | Album | Playlist) => {
+    if ('username' in item) return item.avatarPath;
+    // if ('song' in item) return (item.song as Song).name;
+    if ('name' in item) return item.imagePath;
+}
