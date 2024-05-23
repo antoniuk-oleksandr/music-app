@@ -22,7 +22,7 @@ export const useSearch = () => {
         if (!query.q) return;
 
         const getSearchResult = async () => {
-            const result = await searchRequest(query.q as string, 10, 0) as SearchResult;
+            const result = await searchRequest(query.q as string, 10, 0, query.tab as SearchTab) as SearchResult;
 
             setSearchData({
                 searchResult: filterResults(result),
