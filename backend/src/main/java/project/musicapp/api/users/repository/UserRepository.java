@@ -1,4 +1,4 @@
-package project.musicapp.api.users.repositories;
+package project.musicapp.api.users.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

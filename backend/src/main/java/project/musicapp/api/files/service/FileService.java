@@ -1,11 +1,11 @@
-package project.musicapp.api.files.services;
+package project.musicapp.api.files.service;
 
+import lombok.SneakyThrows;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 
@@ -20,13 +20,15 @@ public class FileService {
         return new ClassPathResource(path);
     }
 
-    private byte[] getBytesFromResource(ClassPathResource resource) throws IOException {
+    @SneakyThrows
+    private byte[] getBytesFromResource(ClassPathResource resource) {
         try (InputStream inputStream = resource.getInputStream()) {
             return FileCopyUtils.copyToByteArray(inputStream);
         }
     }
 
-    public ResponseEntity<byte[]> getFile(String folder, String fileName) throws IOException {
+    @SneakyThrows
+    public ResponseEntity<byte[]> getFile(String folder, String fileName)  {
         ClassPathResource resource = getResource(folder, fileName);
 
         if (!resource.exists())
