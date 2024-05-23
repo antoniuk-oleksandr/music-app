@@ -1,20 +1,22 @@
 import SongInfoLayout from "./SongInfoLayout";
-import Image from "next/image"
 import {IoHeartOutline} from "react-icons/io5";
+import {useSelector} from "react-redux";
+import {Song} from "@/types/Song";
+import SongDetails from "@/common-components/MusicPlayer/components/SongDetails/SongDetails";
 
 const SongInfo = () => {
+    const song: Song = useSelector((state: any) => state.musicPlayer.song);
+
     return (
         <SongInfoLayout>
-            <Image
-                className="rounded-md"
+            <img
                 width={48}
                 height={48}
-                src={"/eminem.webp"}
-                alt={"cover"}/>
-            <div className="flex flex-col px-1 h-full justify-center">
-                <span className={"text-lg font-semibold select-text"}>Song Name</span>
-                <span className={"text-sm select-text hover:underline cursor-pointer w-fit ease-out duration-200"}>Artist</span>
-            </div>
+                src={song.src}
+                alt={"cover"}
+                className="rounded-md object-center object-cover aspect-square"
+            />
+            <SongDetails/>
             <IoHeartOutline className="text-2xl cursor-pointer font-semibold ml-4"/>
         </SongInfoLayout>
     )

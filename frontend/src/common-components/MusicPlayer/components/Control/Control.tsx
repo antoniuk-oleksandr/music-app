@@ -1,14 +1,21 @@
 import ControlLayout from "./ControlLayout";
 import SongInfo from "@/common-components/MusicPlayer/components/SongInfo/SongInfo";
-import Play from "@/common-components/MusicPlayer/components/Play/Play";
+import PlayController from "@/common-components/MusicPlayer/components/Play/PlayController";
 import Indicators from "@/common-components/MusicPlayer/components/Indicators/Indicators";
+import {MutableRefObject} from "react";
 
-const Control = () => {
+type ControlProps = {
+    volumeBarRef: MutableRefObject<HTMLDivElement | null>
+}
+
+const Control = (props: ControlProps) => {
+    const {volumeBarRef} = props;
+
     return (
         <ControlLayout>
             <SongInfo/>
-            <Play isStopped={true}/>
-            <Indicators/>
+            <PlayController/>
+            <Indicators volumeBarRef={volumeBarRef}/>
         </ControlLayout>
     )
 }
