@@ -1,6 +1,6 @@
 import ValueIndicatorLayout from "./ValueIndicatorLayout";
 import {formatTime} from "@/common-components/MusicPlayer/helpers";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {MutableRefObject, useRef} from "react";
 
 type ValueIndicatorProps = {

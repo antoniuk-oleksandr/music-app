@@ -11,12 +11,19 @@ const config: Config = {
                 "gradient-conic":
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
+            minWidth: {
+                67.5: "16.875rem",
+            },
             width: {
                 67.5: "16.875rem",
-                25: "6.25rem"
+                25: "6.25rem",
+                96.5: "24.125rem",
             },
             height: {
                 30: "7.5rem"
+            },
+            colors: {
+
             }
         },
     },

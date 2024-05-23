@@ -1,6 +1,6 @@
 import {IoPauseCircle, IoPlayCircle} from "react-icons/io5";
 import {useDispatch} from "react-redux";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {usePlayButton} from "@/common-components/MusicPlayer/use-effects/use-play-button";
 import {handlePlayButtonClick} from "@/common-components/MusicPlayer/handlers";
 

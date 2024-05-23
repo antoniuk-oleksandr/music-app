@@ -1,21 +1,29 @@
 import SearchLayout from "./SearchLayout";
-import {useRouter} from "next/router";
-import {handleSongClick} from "@/pages/search/handlers";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {useDispatch} from "react-redux";
+import {useSearch} from "@/pages/search/use-search";
+import TabsBlock from "@/pages/search/components/TabsBlock/TabsBlock";
+import {handleSongClick} from "@/pages/search/handlers";
+import SearchResultSection from "@/pages/search/components/SearchResultSection/SearchResultSection";
 
 const SearchPage = () => {
-    // const router = useRouter();
-    // const query = router.query.q;
     const audioElement = useAudio();
-
     const dispatch = useDispatch();
+    const searchData = useSearch();
+
+    if (!searchData) return null;
 
     return (
         <SearchLayout>
-            <button onClick={() => handleSongClick(audioElement, dispatch)}
-            >Lil Uzi Vert
-            </button>
+            <TabsBlock
+                searchResult={searchData.searchResult}
+                searchQuery={searchData.searchQuery}
+                selectedTab={searchData.tab}
+            />
+            <SearchResultSection searchResult={searchData.searchResult} />
+            {/*<button onClick={() => handleSongClick(audioElement, dispatch)}*/}
+            {/*>Lil Uzi Vert*/}
+            {/*</button>*/}
         </SearchLayout>
     )
 }

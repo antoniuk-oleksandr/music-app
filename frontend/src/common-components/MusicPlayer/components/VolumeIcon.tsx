@@ -1,5 +1,5 @@
 import {IoVolumeHigh, IoVolumeMute} from "react-icons/io5";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {handleVolumeButtonClick} from "@/common-components/MusicPlayer/handlers";
 
 const VolumeIcon = () => {

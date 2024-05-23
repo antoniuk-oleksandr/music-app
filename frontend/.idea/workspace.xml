@@ -5,48 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/file-request.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton/PlayButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Progressbar/BackBarLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongDetails/SongDetails.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongDetails/SongDetailsLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/ValueIndicator/ValueIndicator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/ValueIndicator/ValueIndicatorLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/VolumeIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/cusor-dragging-handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-bar-dragging.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-music-time.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/search/SearchLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/search/handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/search/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/music-player-slice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/stores/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/BarObject.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/AudioContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/local-storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/SongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/static/songs/Eminem - Sing for the moment.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/static/songs/1.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/search-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/HeaderLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/components/Input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/components/LeftSide/LeftSide.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/components/LeftSide/LeftSideLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/components/RightSide/RightSide.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/components/RightSide/RightSideLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/use-scrollbar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/PageWrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Searchbar/Searchbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Searchbar/SearchbarLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/ResetTab/ResetTab.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/ResetTab/ResetTabLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultBlock/SearchResultBlock.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultBlock/SearchResultBlockLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultHeader/SearchResultHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultHeader/SearchResultHeaderLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultRow/SearchResultRow.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultRow/SearchResultRowLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultSection/SearchResultSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultSection/SearchResultSectionLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/TabElement/SearchTabElement.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/TabElement/SearchTabElementLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/TabsBlock/TabsBlock.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/TabsBlock/TabsBlockLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/use-search.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/SearchResult.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/SearchTab.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayerLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayerLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Control/Control.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Control/Control.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Cursor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Indicators/Indicators.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Indicators/Indicators.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Play/Play.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Play/PlayController.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Progressbar/BackBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Progressbar/BackBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Progressbar/Progressbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Progressbar/Progressbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongInfo/SongInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongInfo/SongInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton/PlayButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton/PlayButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/TimeIndicator/TimeIndicator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/TimeIndicator/TimeIndicator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/ValueIndicator/ValueIndicator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/ValueIndicator/ValueIndicator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/ValueIndicator/ValueIndicatorLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/ValueIndicator/ValueIndicatorLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/VolumeIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/VolumeIcon.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/VolumeIndicator/VolumeIndicator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/VolumeIndicator/VolumeIndicator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Navbar/NavbarLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Navbar/NavbarLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Navbar/components/LogoContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Navbar/components/LogoContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AppLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/Song.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Song.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/SearchLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/SearchLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AudioContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/AudioContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/local-storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/local-storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +67,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -79,7 +90,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;player&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;search-page&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -93,11 +104,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/common-components" />
       <recent name="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects" />
       <recent name="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton" />
       <recent name="$PROJECT_DIR$/src/redux/reducers" />
       <recent name="$PROJECT_DIR$/src/redux/stores" />
-      <recent name="$PROJECT_DIR$/src/common-components/Navbar/components/PlaylistsHeader" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -127,6 +138,9 @@
       <workItem from="1716385604714" duration="2493000" />
       <workItem from="1716400532088" duration="149000" />
       <workItem from="1716403170272" duration="20017000" />
+      <workItem from="1716449672452" duration="22058000" />
+      <workItem from="1716485928410" duration="3000" />
+      <workItem from="1716486147632" duration="627000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 import TimeIndicatorLayout from "./TimeIndicatorLayout";
 import {formatTime} from "@/common-components/MusicPlayer/helpers";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {useSelector} from "react-redux";
 import {Song} from "@/types/Song";
 

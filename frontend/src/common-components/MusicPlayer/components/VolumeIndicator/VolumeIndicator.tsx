@@ -2,7 +2,7 @@ import Progressbar from "../Progressbar/Progressbar";
 import VolumeIndicatorLayout from "./VolumeIndicatorLayout";
 import VolumeIcon from "@/common-components/MusicPlayer/components/VolumeIcon";
 import {useVolume} from "@/common-components/MusicPlayer/use-effects/use-volume";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {MutableRefObject} from "react";
 
 type VolumeIndicatorProps = {

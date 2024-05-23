@@ -1,5 +1,6 @@
 import {createContext, useContext, useEffect, useRef, useState} from "react";
 import {getIsMuted, getVolume} from "@/utils/local-storage";
+import {LayoutProps} from "@/types/LayoutProps";
 
 const AudioContext = createContext<HTMLAudioElement | null>(null);
 
@@ -7,9 +8,9 @@ export const useAudio = () => {
     return useContext(AudioContext);
 }
 
-export const AudioProvider = ({children}) => {
+export const AudioProvider = ({children}: LayoutProps) => {
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [audioElement, setAudioElement] = useState();
+    const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         if (!audioRef.current) return;
@@ -20,16 +21,10 @@ export const AudioProvider = ({children}) => {
         setAudioElement(audioRef.current);
     }, [audioRef]);
 
-    if (!audioElement) return (
-        <AudioContext.Provider value={audioElement}>
-            <audio ref={audioRef}/>
-        </AudioContext.Provider>
-    )
-
     return (
         <AudioContext.Provider value={audioElement}>
             <audio ref={audioRef}/>
-            {children}
+            {audioElement ? children: null}
         </AudioContext.Provider>
     )
 }

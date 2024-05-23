@@ -2,7 +2,7 @@ import MusicPlayerLayout from "./MusicPlayerLayout";
 import Progressbar from "@/common-components/MusicPlayer/components/Progressbar/Progressbar";
 import Control from "@/common-components/MusicPlayer/components/Control/Control";
 import {useDispatch, useSelector} from "react-redux";
-import {useAudio} from "@/utils/AudioContext";
+import {useAudio} from "@/common-components/AudioContext";
 import {useMusicTime} from "@/common-components/MusicPlayer/use-effects/use-music-time";
 import {useBarDragging} from "@/common-components/MusicPlayer/use-effects/use-bar-dragging";
 import {MutableRefObject} from "react";
