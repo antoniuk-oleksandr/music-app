@@ -9,11 +9,11 @@ import project.musicapp.api.search.type.SearchType;
 
 @Service
 public class SearchService {
-    private final SearchQueryService sqc;
+    private final SearchQueryService searchQueryService;
 
     @Autowired
     public SearchService(SearchQueryService searchQueryService) {
-        this.sqc = searchQueryService;
+        this.searchQueryService = searchQueryService;
     }
 
     public ResponseEntity<SearchDTO> search(String searchTypeString, String value, int limit, int offset) {
@@ -21,26 +21,26 @@ public class SearchService {
 
         SearchMapper searchMapper = switch (searchType) {
             case PROFILES -> SearchMapper.builder()
-                    .profiles(sqc.getProfiles(value, limit, offset))
+                    .profiles(searchQueryService.getProfiles(value, limit, offset))
                     .build();
             case ARTISTS -> SearchMapper.builder()
-                    .artists(sqc.getArtists(value, limit, offset))
+                    .artists(searchQueryService.getArtists(value, limit, offset))
                     .build();
             case SONGS -> SearchMapper.builder()
-                    .songs(sqc.getSongs(value, limit, offset))
+                    .songs(searchQueryService.getSongs(value, limit, offset))
                     .build();
             case ALBUMS -> SearchMapper.builder()
-                    .albums(sqc.getAlbums(value, limit, offset))
+                    .albums(searchQueryService.getAlbums(value, limit, offset))
                     .build();
             case PLAYLISTS -> SearchMapper.builder()
-                    .playlists(sqc.getPlaylists(value, limit, offset))
+                    .playlists(searchQueryService.getPlaylists(value, limit, offset))
                     .build();
             default -> SearchMapper.builder()
-                    .profiles(sqc.getProfiles(value, limit, offset))
-                    .artists(sqc.getArtists(value, limit, offset))
-                    .songs(sqc.getSongs(value, limit, offset))
-                    .albums(sqc.getAlbums(value, limit, offset))
-                    .playlists(sqc.getPlaylists(value, limit, offset))
+                    .profiles(searchQueryService.getProfiles(value, limit, offset))
+                    .artists(searchQueryService.getArtists(value, limit, offset))
+                    .songs(searchQueryService.getSongs(value, limit, offset))
+                    .albums(searchQueryService.getAlbums(value, limit, offset))
+                    .playlists(searchQueryService.getPlaylists(value, limit, offset))
                     .build();
         };
 

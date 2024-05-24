@@ -9,4 +9,5 @@ public class SongsQuerySQL {
             "JOIN users AS u ON us.user_id = u.user_id " +
             "WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :value, '%')) " +
             "LIMIT :limit OFFSET :offset";
+
 }

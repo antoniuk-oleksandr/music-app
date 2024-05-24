@@ -6,7 +6,7 @@ import project.musicapp.api.albums.dto.AlbumDTO;
 import project.musicapp.api.albums.service.AlbumService;
 import project.musicapp.api.playlists.dto.PlaylistDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
-import project.musicapp.api.songs.dto.SongUsersDTO;
+import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.users.dto.UserDTO;
 import project.musicapp.api.users.service.UserService;
@@ -29,7 +29,7 @@ public class SearchQueryService {
         return this.userService.findAllUsersByUsernameAndFlag(value, limit, offset, true);
     }
 
-    public List<SongUsersDTO> getSongs(String value, int limit, int offset) {
+    public List<SongUserDTO> getSongs(String value, int limit, int offset) {
         return this.songService.findAllSongUsersBySongName(value, limit, offset);
     }
 

@@ -1,6 +1,6 @@
 package project.musicapp.api.songs.mapper;
 
-import project.musicapp.api.songs.dto.SongUsersDTO;
+import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.users.dto.UserDTO;
 
 import java.sql.Timestamp;
@@ -15,12 +15,12 @@ public class SongUserMapper {
         this.userSongs = userSongs;
     }
 
-    public List<SongUsersDTO> toListSongUserDTO() {
-        HashMap<Integer, SongUsersDTO> songUsersMap = new HashMap<>();
+    public List<SongUserDTO> toListSongUserDTO() {
+        HashMap<Integer, SongUserDTO> songUsersMap = new HashMap<>();
 
         for (Object[] result : userSongs) {
             int songId = (Integer) result[0];
-            SongUsersDTO songUsersDTO;
+            SongUserDTO songUsersDTO;
 
             if (songUsersMap.containsKey(songId)) {
                 songUsersDTO = songUsersMap.get(songId);
@@ -36,8 +36,8 @@ public class SongUserMapper {
         return new ArrayList<>(songUsersMap.values());
     }
 
-    private SongUsersDTO toSongUsersDTO(Object[] result) {
-        return SongUsersDTO.builder()
+    private SongUserDTO toSongUsersDTO(Object[] result) {
+        return SongUserDTO.builder()
                 .id((Integer) result[0])
                 .name((String) result[1])
                 .duration((Integer) result[2])

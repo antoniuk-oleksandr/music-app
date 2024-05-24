@@ -1,7 +1,7 @@
 package project.musicapp.api.albums.mapper;
 
 import project.musicapp.api.albums.dto.AlbumDTO;
-import project.musicapp.api.albums.dto.AlbumUserDTO;
+import project.musicapp.api.albums.dto.PlaylistCreatorDTO;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -15,7 +15,9 @@ public class AlbumMapper {
     }
 
     public List<AlbumDTO> toAlbumDTOs() {
-        return this.albums.stream().map(this::toAlbumDTO).collect(Collectors.toList());
+        return this.albums.stream()
+                .map((this::toAlbumDTO))
+                .collect(Collectors.toList());
     }
 
     private AlbumDTO toAlbumDTO(Object[] album) {
@@ -24,7 +26,7 @@ public class AlbumMapper {
                 .name((String) album[1])
                 .creatingDate((Timestamp) album[2])
                 .imagePath((String) album[3])
-                .user(new AlbumUserDTO(
+                .user(new PlaylistCreatorDTO(
                         (Integer) album[4],
                         (String) album[5]
                 )).build();
