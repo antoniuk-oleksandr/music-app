@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import project.musicapp.api.albums.utils.AlbumQuerySQL;
 import project.musicapp.api.playlists.model.Playlist;
 import project.musicapp.api.playlists.utils.PlaylistQuerySQL;
 
@@ -15,4 +16,7 @@ public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
     List<Object[]> findAllPlaylistsByName(@Param("value") String value,
                                           @Param("limit") int limit,
                                           @Param("offset") int offset);
+
+    @Query(value = PlaylistQuerySQL.FIND_ALL_SONGS_BY_PLAYLIST_ID, nativeQuery = true)
+    List<Object[]> findAllSongsByPlaylistId(@Param("id") int id);
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SongUsersDTO {
+public class SongUserDTO {
     private Integer id;
     private String name;
     private Integer duration;

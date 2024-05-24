@@ -1,7 +1,7 @@
 package project.musicapp.api.playlists.mapper;
 
 import project.musicapp.api.playlists.dto.PlaylistDTO;
-import project.musicapp.api.playlists.dto.PlaylistUserDTO;
+import project.musicapp.api.playlists.dto.PlaylistCreatorDTO;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -18,8 +18,8 @@ public class PlaylistMapper {
         return this.playlists.stream().map(this::toPlaylistDTO).collect(Collectors.toList());
     }
 
-    private PlaylistUserDTO getPlaylistUserDTO(Integer id, String username) {
-        return new PlaylistUserDTO(id, username);
+    private PlaylistCreatorDTO getPlaylistUserDTO(Integer id, String username) {
+        return new PlaylistCreatorDTO(id, username);
     }
 
     private PlaylistDTO toPlaylistDTO(Object[] playlist){

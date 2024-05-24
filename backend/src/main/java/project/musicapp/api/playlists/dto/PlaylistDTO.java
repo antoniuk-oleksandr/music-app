@@ -5,14 +5,14 @@ import lombok.*;
 import java.sql.Timestamp;
 
 @Builder
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
 public class PlaylistDTO {
     private Integer id;
     private Boolean isPublic;
     private Timestamp creatingDate;
     private String name;
     private String imagePath;
-    private PlaylistUserDTO user;
+    private PlaylistCreatorDTO user;
 }

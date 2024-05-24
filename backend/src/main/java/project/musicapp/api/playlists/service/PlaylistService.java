@@ -1,28 +1,27 @@
 package project.musicapp.api.playlists.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.playlists.dto.PlaylistDTO;
-import project.musicapp.api.playlists.mapper.PlaylistMapper;
-import project.musicapp.api.playlists.repository.PlaylistRepository;
+import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
+import project.musicapp.api.playlists.mapper.PlaylistUserSongsMapper;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PlaylistService {
-    private final PlaylistRepository playlistRepository;
+    private final PlaylistQueryService playlistQueryService;
 
-    @Autowired
-    public PlaylistService(PlaylistRepository playlistRepository) {
-        this.playlistRepository = playlistRepository;
-    }
-
-    private List<Object[]> getPlaylists(String value, int limit, int offset) {
-        return this.playlistRepository.findAllPlaylistsByName(value, limit, offset);
+    public PlaylistUserSongsDTO findPlaylistUserSongsById(int id){
+        return PlaylistUserSongsMapper.builder()
+                .user(playlistQueryService.getUserByPlaylistId(id))
+                .playlist(playlistQueryService.getPlaylistByPlaylistId(id))
+                .songs(playlistQueryService.getSongsByPlaylistId(id))
+                .build().toAlbumUserSongsDTO();
     }
 
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){
-        List<Object[]> playlists = getPlaylists(value, limit, offset);
-        return new PlaylistMapper(playlists).toPlaylistDTOs();
+        return this.playlistQueryService.findAllPlayListsByName(value, limit, offset);
     }
 }

@@ -1,6 +1,5 @@
 package project.musicapp.api.playlists.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,6 +27,6 @@ public class Playlist {
     private String imagePath;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "creator_id", referencedColumnName = "user_id")
     private User user;
 }
