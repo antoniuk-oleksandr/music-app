@@ -18,9 +18,13 @@ const SearchPage = () => {
             <TabsBlock
                 searchResult={searchData.searchResult}
                 searchQuery={searchData.searchQuery}
-                selectedTab={searchData.tab}
+                selectedTab={searchData.selectedTab}
             />
-            <SearchResultSection searchResult={searchData.searchResult} />
+            <SearchResultSection
+                searchQuery={searchData.searchQuery}
+                searchResult={searchData.searchResult}
+                selectedTab={searchData.selectedTab}
+            />
             {/*<button onClick={() => handleSongClick(audioElement, dispatch)}*/}
             {/*>Lil Uzi Vert*/}
             {/*</button>*/}

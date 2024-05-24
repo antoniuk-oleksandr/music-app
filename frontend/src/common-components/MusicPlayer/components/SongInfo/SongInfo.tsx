@@ -12,7 +12,7 @@ const SongInfo = () => {
             <img
                 width={48}
                 height={48}
-                src={song.src}
+                src={song.imagePath}
                 alt={"cover"}
                 className="rounded-md object-center object-cover aspect-square"
             />

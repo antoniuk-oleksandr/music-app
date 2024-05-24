@@ -5,15 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/common-components/Searchbar/use-searchbar-value.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/BottomInfoLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/BottomItemInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultText/SearchResultText.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultText/SearchResultTextLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/ShowAllButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SongBottomInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/SongListBottomInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/UserBottomInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/search/components/UserList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/search-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/search-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/file-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/file-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongDetails/SongDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongDetails/SongDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongInfo/SongInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/SongInfo/SongInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Searchbar/Searchbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Searchbar/Searchbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Searchbar/SearchbarLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Searchbar/SearchbarLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/components/SearchResultBlock/SearchResultBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultBlock/SearchResultBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/search/components/SearchResultRow/SearchResultRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultRow/SearchResultRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/components/SearchResultSection/SearchResultSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/components/SearchResultSection/SearchResultSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/handlers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/search/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/search/use-search.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/use-search.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/Album.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Album.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/Playlist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Playlist.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/Song.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Song.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,29 +61,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "backend-db-files",
-    "last_opened_file_path": "/home/alex/music-app/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/home/alex/music-app/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;search-page-improvements&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/alex/music-app/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/search/components" />
+      <recent name="$PROJECT_DIR$/src/pages/search/components/SongBottomInfo" />
       <recent name="$PROJECT_DIR$/src/common-components" />
       <recent name="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects" />
       <recent name="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton" />
-      <recent name="$PROJECT_DIR$/src/redux/reducers" />
-      <recent name="$PROJECT_DIR$/src/redux/stores" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -99,6 +118,8 @@
       <workItem from="1716486147632" duration="627000" />
       <workItem from="1716488235668" duration="3811000" />
       <workItem from="1716497574751" duration="28000" />
+      <workItem from="1716501703087" duration="5625000" />
+      <workItem from="1716507335679" duration="2651000" />
     </task>
     <servers />
   </component>

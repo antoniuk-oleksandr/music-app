@@ -3,21 +3,22 @@ import {Song} from "@/types/Song";
 import {User} from "@/types/User";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
-import {getImage, getName} from "@/pages/search/helpers";
+import SearchResultIcon from "@/pages/search/components/SearchResultIcon";
+import SearchResultText from "@/pages/search/components/SearchResultText/SearchResultText";
+import {SearchTab} from "@/types/SearchTab";
 
 type SearchResultProps = {
     item: Song | User | Album | Playlist;
+    itemType: SearchTab;
 }
 
 const SearchResultRow = (props: SearchResultProps) => {
-    const {item} = props;
-
-    console.log(item);
+    const {item, itemType} = props;
 
     return (
         <SearchResultRowLayout>
-            {/*<span>{getName(item)}</span>*/}
-            <span>{getImage(item)}</span>
+            <SearchResultIcon itemType={itemType} item={item}/>
+            <SearchResultText itemType={itemType} item={item}/>
         </SearchResultRowLayout>
     )
 }
