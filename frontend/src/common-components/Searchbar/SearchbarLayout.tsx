@@ -1,16 +1,25 @@
 import {LayoutProps} from "@/types/LayoutProps";
 import {FieldValues, FormProvider, SubmitHandler, useForm} from "react-hook-form";
-import {useRouter} from "next/navigation";
+import {useRouter as useNavRouter} from "next/navigation";
+import {SearchTab} from "@/types/SearchTab";
 
-const SearchbarLayout = (props: LayoutProps) => {
-    const {children} = props;
+type SearchbarLayoutProps = LayoutProps & {
+    value: string,
+}
 
-    const methods = useForm();
+const SearchbarLayout = (props: SearchbarLayoutProps) => {
+    const {children, value} = props;
+
+    const methods = useForm({
+        defaultValues: {
+            search: value
+        }
+    });
     const {handleSubmit} = methods;
 
-    const router = useRouter();
+    const navRouter = useNavRouter();
     const onSubmit: SubmitHandler<FieldValues> = (data) =>
-        router.push(`/search?q=${data.search}&tab=default`)
+        navRouter.push(`/search?q=${data.search}&tab=${SearchTab.Default}`)
 
     return (
         <FormProvider {...methods}>

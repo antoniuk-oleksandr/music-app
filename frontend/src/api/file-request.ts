@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const fileRequest = async (folder: string, fileName: string) => {
-    const url = `http://localhost:8080/api/files/${folder}/${fileName}`;
+export const fileRequest = async (filePath: string) => {
+    const url = `http://localhost:8080/api/files/${filePath}`;
 
     try {
         const response = await axios.get(url, {
