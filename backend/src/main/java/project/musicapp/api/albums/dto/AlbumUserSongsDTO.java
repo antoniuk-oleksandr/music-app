@@ -14,6 +14,6 @@ public class AlbumUserSongsDTO {
     private String name;
     private String imagePath;
     private Timestamp creatingDate;
-    private PlaylistCreatorDTO creator;
+    private AlbumCreatorDTO creator;
     private List<SongUserDTO> songs;
 }

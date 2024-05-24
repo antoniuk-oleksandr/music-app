@@ -4,7 +4,7 @@ import lombok.*;
 
 @Getter @Setter
 @AllArgsConstructor
-public class PlaylistCreatorDTO {
+public class AlbumCreatorDTO {
     private Integer id;
     private String username;
 }

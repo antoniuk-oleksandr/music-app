@@ -1,7 +1,7 @@
 package project.musicapp.api.albums.mapper;
 
 import project.musicapp.api.albums.dto.AlbumDTO;
-import project.musicapp.api.albums.dto.PlaylistCreatorDTO;
+import project.musicapp.api.albums.dto.AlbumCreatorDTO;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -26,7 +26,7 @@ public class AlbumMapper {
                 .name((String) album[1])
                 .creatingDate((Timestamp) album[2])
                 .imagePath((String) album[3])
-                .user(new PlaylistCreatorDTO(
+                .user(new AlbumCreatorDTO(
                         (Integer) album[4],
                         (String) album[5]
                 )).build();
