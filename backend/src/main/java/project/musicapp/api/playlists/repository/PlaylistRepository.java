@@ -18,5 +18,5 @@ public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
                                           @Param("offset") int offset);
 
     @Query(value = PlaylistQuerySQL.FIND_ALL_SONGS_BY_PLAYLIST_ID, nativeQuery = true)
-    List<Object[]> findAllSongsByPlaylistId(@Param("id") int id);
+    List<Integer> findAllSongsByPlaylistId(@Param("id") int id);
 }

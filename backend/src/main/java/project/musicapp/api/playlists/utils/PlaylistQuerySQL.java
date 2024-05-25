@@ -7,14 +7,13 @@ public class PlaylistQuerySQL {
             "FROM playlists AS p " +
             "JOIN users AS u ON p.creator_id = u.user_id " +
             "WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :value, '%')) " +
+            "AND p.is_public = true " +
             "LIMIT :limit OFFSET :offset";
 
     public static final String FIND_ALL_SONGS_BY_PLAYLIST_ID =
-            "SELECT s.song_id, s.name, s.duration, s.release_date, s.song_path, s.image_path, " +
-            "u.user_id, u.username, u.avatar_path, u.banner_path " +
+            "SELECT s.song_id " +
             "FROM songs_playlists AS sp " +
             "INNER JOIN user_songs AS us on sp.user_song_id = us.user_songs_id " +
             "INNER JOIN songs AS s on us.song_id = s.song_id " +
-            "INNER JOIN users AS u on us.user_id = u.user_id " +
             "WHERE sp.playlist_id = :id";
 }

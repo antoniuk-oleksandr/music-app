@@ -17,4 +17,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
                                                    @Param("offset") int offset,
                                                    @Param("isArtist") boolean isArtist
     );
+
+    @Query(value = UserQuerySQL.FIND_ALL_USERS_FOR_SONG_BY_SONG_ID, nativeQuery = true)
+    List<User> findAllUsersBySongId(@Param("id") int id);
 }

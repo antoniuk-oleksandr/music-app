@@ -15,6 +15,7 @@ public class Song {
     @Column(name = "song_id")
     public Integer id;
     private Integer duration;
+    private String name;
 
     @Column(name = "release_date")
     private Timestamp releaseDate;
