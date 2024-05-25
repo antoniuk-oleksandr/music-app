@@ -9,26 +9,30 @@ import project.musicapp.api.albums.model.Album;
 import project.musicapp.api.albums.repository.AlbumRepository;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.mapper.SongUserMapper;
+import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AlbumQueryService {
     private final AlbumRepository albumRepository;
     private final UserRepository userRepository;
-
-    @Autowired
-    public AlbumQueryService(AlbumRepository albumRepository,
-                             UserRepository userRepository) {
-        this.albumRepository = albumRepository;
-        this.userRepository = userRepository;
-    }
+    private final SongService songService;
 
     public List<SongUserDTO> getSongsByAlbumId(int id){
-        List<Object[]> songs = this.albumRepository.findAllSongsByAlbumId(id);
-        return new SongUserMapper(songs).toListSongUserDTO();
+        List<SongUserDTO> songsUsers = new ArrayList<>();
+        List<Integer> songIndices = this.albumRepository.findAllSongsByAlbumId(id);
+
+        for (Integer songId : songIndices) {
+            SongUserDTO songUserDTO = songService.findSongUserById(songId);
+            songsUsers.add(songUserDTO);
+        }
+
+        return songsUsers;
     }
 
     public User getUserByAlbumId(int id) {

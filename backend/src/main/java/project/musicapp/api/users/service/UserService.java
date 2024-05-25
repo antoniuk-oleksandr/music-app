@@ -18,12 +18,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    private List<User> getAllUsersWithParams(String value, int limit, int offset, boolean isArtist) {
-        return this.userRepository.findAllUsersByUsernameAndByIsArtist(value, limit, offset, isArtist);
+    public List<UserDTO> findAllUsersBySongId(int id) {
+        List<User> users = this.userRepository.findAllUsersBySongId(id);
+        return new UserMapper(users).toUserDTOs();
     }
 
-    public List<UserDTO> findAllUsersByUsernameAndFlag(String value, int limit, int offset, boolean isArtist){
-        List<User> users = getAllUsersWithParams(value, limit, offset, isArtist);
+    public List<UserDTO> findAllUsersByUsernameAndFlag(String value, int limit, int offset, boolean isArtist) {
+        List<User> users = this.userRepository.findAllUsersByUsernameAndByIsArtist(value, limit, offset, isArtist);
         UserMapper userMapper = new UserMapper(users);
         return userMapper.toUserDTOs();
     }

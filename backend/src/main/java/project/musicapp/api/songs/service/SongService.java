@@ -3,26 +3,23 @@ package project.musicapp.api.songs.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.songs.dto.SongUserDTO;
-import project.musicapp.api.songs.mapper.SongUserMapper;
-import project.musicapp.api.songs.repository.SongUserRepository;
 
 import java.util.List;
 
 @Service
 public class SongService {
-    private final SongUserRepository songUserRepository;
+    private final SongUserQueryService songUserQueryService;
 
     @Autowired
-    public SongService(SongUserRepository songUserRepository) {
-        this.songUserRepository = songUserRepository;
+    public SongService(SongUserQueryService songUserQueryService) {
+        this.songUserQueryService = songUserQueryService;
     }
 
-    private List<Object[]> getSongsObjects(String value, int limit, int offset) {
-        return this.songUserRepository.findAllSongUsersBySongName(value, limit, offset);
+    public SongUserDTO findSongUserById(int id) {
+        return this.songUserQueryService.findSongUserByName(id);
     }
 
     public List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset) {
-        List<Object[]> songsObjects = getSongsObjects(value, limit, offset);
-        return new SongUserMapper(songsObjects).toListSongUserDTO();
+        return this.songUserQueryService.findAllSongUsersBySongName(value, limit, offset);
     }
 }

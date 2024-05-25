@@ -10,10 +10,10 @@ import project.musicapp.api.songs.utils.SongsQuerySQL;
 import java.util.List;
 
 @Repository
-public interface SongUserRepository extends JpaRepository<SongUser, Long> {
-    @Query(value = SongsQuerySQL.FIND_ALL_SONG_USERS_BY_SONG_NAME, nativeQuery = true)
-    List<Object[]> findAllSongUsersBySongName(@Param("value") String value,
-                                              @Param("limit") int limit,
-                                              @Param("offset") int offset);
+public interface SongUserRepository extends JpaRepository<SongUser, Integer> {
+    @Query(value = SongsQuerySQL.FIND_ALL_SONG_INDICES_USERS_BY_SONG_NAME, nativeQuery = true)
+    List<Integer> findAllSongsUsersIndicesBySongName(@Param("value") String value,
+                                                      @Param("limit") int limit,
+                                                      @Param("offset") int offset);
 }
 
