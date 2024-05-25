@@ -1,4 +1,6 @@
 import {fileRequest} from "@/api/file-request";
+import {Album} from "@/types/Album";
+import {Playlist} from "@/types/Playlist";
 
 export const capitalize = (str: any) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -14,4 +16,13 @@ export const getYearFromTimestamp = (timestamp: number) => {
     const date = new Date(timestamp);
 
     return date.getFullYear();
+}
+
+export const getImagesForList = async (list: Album | Playlist) => {
+    list.imagePath = await getUrlFromString(list.imagePath, 'image/jpeg')
+    for (let song of list.songs) {
+        song.imagePath = await getUrlFromString(song.imagePath, 'image/jpeg')
+    }
+
+    return list;
 }

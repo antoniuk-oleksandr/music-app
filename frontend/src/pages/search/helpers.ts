@@ -13,12 +13,12 @@ export const changeSearchTab = (router: AppRouterInstance, tab: SearchTab, searc
 
 export const addImageBlobs = async (searchResult: SearchResult) => {
     for (const arr of Object.values(searchResult)) {
-        if(!arr) continue;
+        if (!arr) continue;
 
         for (const value of arr) {
             if ('username' in value)
                 value.avatarPath = await getUrlFromString(value.avatarPath, "image/jpeg");
-            else if('name' in value)
+            else if ('name' in value)
                 value.imagePath = await getUrlFromString(value.imagePath, "image/jpeg");
         }
     }
@@ -45,4 +45,10 @@ export const getName = (item: Song | User | Album | Playlist) => {
 export const getImage = (item: Song | User | Album | Playlist) => {
     if ('username' in item) return item.avatarPath;
     if ('name' in item) return item.imagePath;
+}
+
+export const isAlbumOrPlaylist = (itemType: SearchTab) => {
+    if (itemType === SearchTab.Albums) return true;
+    return itemType === SearchTab.Playlists;
+
 }

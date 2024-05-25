@@ -10,13 +10,14 @@ import {SearchTab} from "@/types/SearchTab";
 type SearchResultProps = {
     item: Song | User | Album | Playlist;
     itemType: SearchTab;
+    index: number;
 }
 
 const SearchResultRow = (props: SearchResultProps) => {
-    const {item, itemType} = props;
+    const {item, itemType, index} = props;
 
     return (
-        <SearchResultRowLayout>
+        <SearchResultRowLayout item={item} topBorder={index !== 0} itemType={itemType}>
             <SearchResultIcon itemType={itemType} item={item}/>
             <SearchResultText itemType={itemType} item={item}/>
         </SearchResultRowLayout>
