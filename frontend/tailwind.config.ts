@@ -22,8 +22,8 @@ const config: Config = {
             height: {
                 30: "7.5rem"
             },
-            colors: {
-
+            gridTemplateColumns: {
+                "playlist-song-row": "repeat(3, minmax(0, calc(5/12 * (100vw - (4 * 1rem))))) minmax(54px, auto)", // 5/12, 2/12, 5/12, 54px
             }
         },
     },

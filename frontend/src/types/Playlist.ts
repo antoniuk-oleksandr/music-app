@@ -1,4 +1,5 @@
 import {User} from "@/types/User";
+import {Song} from "@/types/Song";
 
 export type Playlist = {
     id: number,
@@ -6,5 +7,6 @@ export type Playlist = {
     creatingDate: number,
     name: string,
     imagePath: string,
-    user: User
+    creator: User,
+    songs: Song[],
 }
