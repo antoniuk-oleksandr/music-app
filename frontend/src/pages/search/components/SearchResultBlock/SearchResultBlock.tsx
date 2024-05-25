@@ -24,9 +24,10 @@ const SearchResultBlock = (props: SearchResultBlockProps) => {
             <SearchResultHeader text={name}/>
             {Object.values(items).map((item, index) => (
                 <SearchResultRow
-                    itemType={capitalize(name) as SearchTab}
                     item={item}
                     key={index}
+                    index={index}
+                    itemType={capitalize(name) as SearchTab}
                 />
             ))}
             <ShowAllButton
