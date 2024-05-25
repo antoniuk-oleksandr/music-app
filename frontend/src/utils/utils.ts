@@ -2,6 +2,15 @@ import {fileRequest} from "@/api/file-request";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 
+export const getUserListSeparator = (special: boolean | undefined, index: number, length: number) => {
+    if (special) {
+        if (index === length - 1) return ' & ';
+        else return ', ';
+    }
+
+    return '•';
+}
+
 export const capitalize = (str: any) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }

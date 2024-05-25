@@ -9,12 +9,13 @@ type ListBottomInfoLine = {
 
 const ListBottomInfoLine = (props: ListBottomInfoLine) => {
     const {list} = props;
+    const songDuration = getSongsDuration(list.songs);
 
     return (
         <ListInfoLineLayout>
             <span>{getSongsNumberString(list.songs)}</span>
-            <span>•</span>
-            <span>{getSongsDuration(list.songs)}</span>
+            {songDuration !== '' ? <span>•</span> : null}
+            <span>{songDuration}</span>
         </ListInfoLineLayout>
     )
 }

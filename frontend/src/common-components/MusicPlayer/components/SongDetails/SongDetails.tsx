@@ -1,7 +1,7 @@
 import SongDetailsLayout from "./SongDetailsLayout";
 import {Song} from "@/types/Song";
 import {useSelector} from "react-redux";
-import UserList from "@/pages/search/components/UserList";
+import UserList from "@/common-components/UserList";
 import BottomInfoLayout from "@/pages/search/components/BottomInfoLayout";
 import {getYearFromTimestamp} from "@/utils/utils";
 

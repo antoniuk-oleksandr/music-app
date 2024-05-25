@@ -1,13 +1,13 @@
 import {LayoutProps} from "@/types/LayoutProps";
 
-const AlbumLeftRowSide = (props: LayoutProps) => {
+const PlaylistSongsListLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div className={"flex items-center gap-x-6"}>
+        <div className={"px-2"}>
             {children}
         </div>
     )
 }
 
-export default AlbumLeftRowSide;
+export default PlaylistSongsListLayout;

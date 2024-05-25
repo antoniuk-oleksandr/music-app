@@ -23,7 +23,10 @@ const config: Config = {
                 30: "7.5rem"
             },
             gridTemplateColumns: {
-                "playlist-song-row": "repeat(3, minmax(0, calc(5/12 * (100vw - (4 * 1rem))))) minmax(54px, auto)", // 5/12, 2/12, 5/12, 54px
+                "playlist-song-row": "repeat(3, minmax(0, calc(5/12 * (100vw - (4 * 1rem))))) minmax(96px, auto) minmax(54px, auto)", // 5/12, 2/12, 5/12, 54px
+            },
+            colors: {
+                "black-70": "rgba(0, 0, 0, 0.7)"
             }
         },
     },

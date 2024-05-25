@@ -1,5 +1,5 @@
 import {Song} from "@/types/Song";
-import UserList from "@/pages/search/components/UserList";
+import UserList from "@/common-components/UserList";
 import {formatTime} from "@/common-components/MusicPlayer/helpers";
 import {getYearFromTimestamp} from "@/utils/utils";
 
