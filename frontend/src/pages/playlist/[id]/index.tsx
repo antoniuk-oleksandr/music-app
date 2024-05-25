@@ -1,14 +1,15 @@
-import {usePlaylistData} from "@/pages/playlist/[id]/use-playlist-data";
 import PageWrapper from "@/common-components/PageWrapper";
 import ListPage from "@/common-components/ListPage/ListPage";
+import {useListData} from "@/common-components/use-list-data";
+import {ListType} from "@/types/ListType";
 
 const PlaylistPage = () => {
-    const playListData = usePlaylistData();
+    const playListData = useListData(ListType.Playlist);
 
     if (!playListData) return null;
     return (
         <PageWrapper pt={'pt-12'} pb={'pb-28'}>
-            <ListPage listType={ListType.Playlist}/>
+            <ListPage list={playListData} listType={ListType.Playlist}/>
         </PageWrapper>
     )
 }

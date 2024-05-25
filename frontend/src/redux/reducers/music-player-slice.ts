@@ -2,16 +2,13 @@ import {createSlice} from '@reduxjs/toolkit';
 
 export const musicPlayerSlice = createSlice({
     name: 'musicPlayer',
-    initialState: {song: null, isPlaying: false},
+    initialState: {song: null, songQueue: []},
     reducers: {
-        pause(state) {
-            state.isPlaying = false;
-        },
-        play(state) {
-            state.isPlaying = true;
-        },
         setSong(state, action) {
             state.song = action.payload;
+        },
+        setSongQueue(state, action) {
+            state.songQueue = action.payload;
         }
     },
 });

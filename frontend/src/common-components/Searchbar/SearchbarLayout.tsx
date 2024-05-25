@@ -26,7 +26,7 @@ const SearchbarLayout = (props: SearchbarLayoutProps) => {
             <form
                 autoComplete="off"
                 onSubmit={handleSubmit(onSubmit)}
-                className="h-12 flex items-center bg-white px-4 gap-x-3 rounded-md w-96.5">
+                className="h-12 flex items-center bg-white px-4 gap-x-3 rounded-md w-96.5 z-50">
                 {children}
             </form>
         </FormProvider>

@@ -12,7 +12,7 @@ const HeaderLayout = (props: LayoutProps) => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{duration: 0.3, easings: "easeOut"}}
-            className={`w-full h-16 flex items-center px-8 justify-between sticky top-0
+            className={`w-full h-16 flex items-center px-8 justify-between sticky top-0 z-10
              ${topOffset > 0 ? 'bg-white' : 'bg-transparent'}`}>
             {children}
         </motion.div>

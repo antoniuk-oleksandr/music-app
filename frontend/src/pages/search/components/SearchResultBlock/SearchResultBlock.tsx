@@ -8,6 +8,8 @@ import SearchResultRow from "@/pages/search/components/SearchResultRow/SearchRes
 import ShowAllButton from "@/pages/search/components/ShowAllButton";
 import {capitalize} from "@/utils/utils";
 import {SearchTab} from "@/types/SearchTab";
+import {useAudio} from "@/common-components/AudioContext";
+import {useIsPlaying} from "@/utils/use-is-playing";
 
 type SearchResultBlockProps = {
     name: string,
@@ -18,12 +20,15 @@ type SearchResultBlockProps = {
 
 const SearchResultBlock = (props: SearchResultBlockProps) => {
     const {name, items, searchQuery, selectedTab} = props;
+    const audioElement = useAudio() as HTMLAudioElement;
+    const isPlaying = useIsPlaying(audioElement);
 
     return (
         <SearchResultBlockLayout>
             <SearchResultHeader text={name}/>
             {Object.values(items).map((item, index) => (
                 <SearchResultRow
+                    isPlaying={isPlaying}
                     item={item}
                     key={index}
                     index={index}
