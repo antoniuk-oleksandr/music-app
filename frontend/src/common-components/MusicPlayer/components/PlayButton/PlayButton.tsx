@@ -1,28 +1,23 @@
-import {IoPauseCircle, IoPlayCircle} from "react-icons/io5";
-import {useDispatch} from "react-redux";
-import {useAudio} from "@/common-components/AudioContext";
-import {usePlayButton} from "@/common-components/MusicPlayer/use-effects/use-play-button";
-import {handlePlayButtonClick} from "@/common-components/MusicPlayer/handlers";
+import { IoPauseCircle, IoPlayCircle } from "react-icons/io5";
+import { useAudio } from "@/common-components/AudioContext";
+import { usePlayButton } from "@/common-components/MusicPlayer/use-effects/use-play-button";
+import { handlePlayButtonClick } from "@/common-components/MusicPlayer/handlers";
 
 const PlayButton = () => {
     const audioElement = useAudio();
     const isPlaying = usePlayButton();
     const buttonStyle = "text-4xl cursor-pointer";
 
-    if (isPlaying) return (
-        <IoPauseCircle
-            id='pause-button'
-            onClick={(e) => handlePlayButtonClick(e, audioElement)}
-            className={buttonStyle}
-        />
-    )
-    else return (
-        <IoPlayCircle
-            id='play-button'
-            onClick={(e) => handlePlayButtonClick(e, audioElement)}
-            className={buttonStyle}
-        />
-    )
-}
+    const Icon = isPlaying ? IoPauseCircle : IoPlayCircle;
+    const buttonId = isPlaying ? 'pause-button' : 'play-button';
 
-export default PlayButton
+    return (
+        <Icon
+            id={buttonId}
+            onClick={(e) => handlePlayButtonClick(e, audioElement)}
+            className={buttonStyle}
+        />
+    );
+};
+
+export default PlayButton;

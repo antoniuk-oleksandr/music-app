@@ -3,11 +3,12 @@ import ListPlayButton from "@/common-components/ListPage/components/ListPlayButt
 import ListSecondButton from "@/common-components/ListPage/components/ListSecondButton";
 import {BiAddToQueue} from "react-icons/bi";
 import ListOptionsButton from "@/common-components/ListPage/components/ListOptionsButton";
+import {ListPageProps} from "@/types/ListPageProps";
 
-const ListInfoButtons = () => {
+const ListInfoButtons = (props: ListPageProps) => {
     return (
         <ListInfoButtonsLayout>
-            <ListPlayButton/>
+            <ListPlayButton {...props}/>
             <ListSecondButton
                 icon={<BiAddToQueue/>}
                 text={'Save to library'}

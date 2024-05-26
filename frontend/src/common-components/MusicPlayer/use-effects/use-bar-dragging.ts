@@ -5,14 +5,14 @@ import {
     handleBarCursorUp
 } from "@/common-components/MusicPlayer/cusor-dragging-handlers";
 import {BarObject} from "@/types/BarObject";
-import {changeCurrentTime, changeVolume, InitBarObjects} from "@/common-components/MusicPlayer/helpers";
+import {InitBarObjects} from "@/common-components/MusicPlayer/helpers";
 
 export const useBarDragging = (audioElement: HTMLAudioElement) => {
     const barObjects: BarObject[] = InitBarObjects();
     const listenersInitialized = useRef<boolean>(false);
 
     useEffect(() => {
-        if(listenersInitialized.current) return;
+        if (listenersInitialized.current) return;
         if (Object.values(barObjects).find((v) => v.htmlObjectRef.current === null)) return;
 
         document.addEventListener("mousemove", (e) =>

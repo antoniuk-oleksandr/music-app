@@ -1,4 +1,6 @@
-export const getVolume = () => {
+import {Repeat} from "@/types/Repeat";
+
+export const getVolumeFromLocalStorage = () => {
     const volume = localStorage.getItem("volume");
 
     if (!volume) {
@@ -8,7 +10,7 @@ export const getVolume = () => {
     return Number.parseFloat(volume);
 }
 
-export const getIsMuted = () => {
+export const getIsMutedFromLocalStorage = () => {
     const isMuted = localStorage.getItem("muted");
 
     if (isMuted === null || isMuted === undefined || isMuted === "") {
@@ -17,4 +19,15 @@ export const getIsMuted = () => {
     }
 
     return JSON.parse(isMuted);
+}
+
+export const getRepeatFromLocalStorage = (): Repeat => {
+    const repeat = localStorage.getItem("repeat");
+
+    if (!repeat) {
+        localStorage.setItem("repeat", JSON.stringify(Repeat.None));
+        return Repeat.None;
+    }
+
+    return JSON.parse(repeat) as Repeat;
 }

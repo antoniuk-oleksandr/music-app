@@ -1,4 +1,8 @@
 import React, {Dispatch, SetStateAction} from "react";
+import {Repeat} from "@/types/Repeat";
+import {UnknownAction} from "redux";
+import {nextSong, setRepeat} from "@/redux/reducers/music-player-slice";
+import {MusicPlayerType} from "@/types/MusicPlayerType";
 
 export const handlePlayButtonClick = (e: React.MouseEvent<SVGElement, MouseEvent>,
                                       audioElement: HTMLAudioElement | null) => {
@@ -45,4 +49,35 @@ export const handleMouseOverValueIndicator = (e: React.MouseEvent,
     const {x, width} = e.currentTarget.getBoundingClientRect();
 
     setPercentage((clientX - x) / width * 100);
+}
+
+export const handleRepeatButtonClick = (dispatch: Dispatch<UnknownAction>, repeat: Repeat) => {
+    if (!repeat) return null;
+
+    const nextState = {
+        [Repeat.None]: Repeat.Queue,
+        [Repeat.Queue]: Repeat.Track,
+        [Repeat.Track]: Repeat.None
+    }[repeat];
+
+    localStorage.setItem("repeat", JSON.stringify(nextState));
+    dispatch(setRepeat(nextState));
+};
+
+export const updateTime = (audioElement: HTMLAudioElement,
+                           setPercentage: Dispatch<SetStateAction<number>>) => {
+    const percentageValue = audioElement.currentTime / audioElement.duration * 100;
+    setPercentage(percentageValue);
+}
+
+export const handleSongEnd = (audioElement: HTMLAudioElement,
+                              dispatch: Dispatch<UnknownAction>,
+                              musicPlayer: MusicPlayerType) => {
+    const {song, songIndex, songQueue, repeat} = musicPlayer;
+
+    if (!repeat) return;
+
+    if (repeat !== Repeat.Track) dispatch(nextSong());
+    audioElement.currentTime = 0;
+    audioElement.play();
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import counterReducer from "@/redux/reducers/music-player-slice"
+import musicPlayerSlice from "@/redux/reducers/music-player-slice"
 
 const rootReducer = combineReducers({
-    musicPlayer: counterReducer,
+    musicPlayer: musicPlayerSlice,
 });
 
 export default rootReducer;

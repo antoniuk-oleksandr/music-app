@@ -9,6 +9,7 @@ export const usePlayButton = () => {
         const handlePlay = () => setIsPlaying(true);
         const handlePause = () => setIsPlaying(false);
 
+
         audioElement.addEventListener("play", handlePlay);
         audioElement.addEventListener("pause", handlePause);
 
