@@ -7,10 +7,11 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AlbumMapper {
+
+public class AlbumObjectMapper {
     private final List<Object[]> albums;
 
-    public AlbumMapper(List<Object[]> albums) {
+    public AlbumObjectMapper(List<Object[]> albums) {
         this.albums = albums;
     }
 

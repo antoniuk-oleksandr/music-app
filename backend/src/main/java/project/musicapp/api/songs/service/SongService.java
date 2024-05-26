@@ -16,7 +16,11 @@ public class SongService {
     }
 
     public SongUserDTO findSongUserById(int id) {
-        return this.songUserQueryService.findSongUserByName(id);
+        return this.songUserQueryService.findSongUserById(id);
+    }
+
+    public List<SongUserDTO> findAllSongUsersByUserId(int userId) {
+        return this.songUserQueryService.findSongUserByUserId(userId);
     }
 
     public List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset) {
