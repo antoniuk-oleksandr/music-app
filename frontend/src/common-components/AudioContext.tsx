@@ -1,5 +1,5 @@
 import {createContext, useContext, useEffect, useRef, useState} from "react";
-import {getIsMuted, getVolume} from "@/utils/local-storage";
+import {getIsMutedFromLocalStorage, getVolumeFromLocalStorage} from "@/utils/local-storage";
 import {LayoutProps} from "@/types/LayoutProps";
 
 const AudioContext = createContext<HTMLAudioElement | null>(null);
@@ -15,8 +15,8 @@ export const AudioProvider = ({children}: LayoutProps) => {
     useEffect(() => {
         if (!audioRef.current) return;
 
-        audioRef.current.volume = getVolume();
-        audioRef.current.muted = getIsMuted();
+        audioRef.current.volume = getVolumeFromLocalStorage();
+        audioRef.current.muted = getIsMutedFromLocalStorage();
 
         setAudioElement(audioRef.current);
     }, [audioRef]);

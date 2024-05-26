@@ -13,7 +13,7 @@ const ListInfo = (props: ListPageProps) => {
             <ListTitle title={list.name}/>
             <ListTopInfoLine {...props}/>
             <ListBottomInfoLine {...props}/>
-            <ListInfoButtons/>
+            <ListInfoButtons {...props}/>
         </ListInfoLayout>
     )
 }
