@@ -14,15 +14,19 @@ import java.util.List;
 public class AlbumService {
     private final AlbumQueryService albumQueryService;
 
+    public List<AlbumDTO> findAllAlbumsByUserId(int userId){
+        return this.albumQueryService.getAlbumsByUserId(userId);
+    }
+
+    public List<AlbumDTO> findAllAlbumsByName(String value, int limit, int offset) {
+        return albumQueryService.findAllAlbumsByName(value, limit, offset);
+    }
+
     public AlbumUserSongsDTO findAlbumUserSongsById(int id) {
         return AlbumUserSongsMapper.builder()
                 .user(albumQueryService.getUserByAlbumId(id))
                 .album(albumQueryService.getAlbumByAlbumId(id))
                 .songs(albumQueryService.getSongsByAlbumId(id))
                 .build().toAlbumUserSongsDTO();
-    }
-
-    public List<AlbumDTO> findAllAlbumsByName(String value, int limit, int offset) {
-        return albumQueryService.findAllAlbumsByName(value, limit, offset);
     }
 }

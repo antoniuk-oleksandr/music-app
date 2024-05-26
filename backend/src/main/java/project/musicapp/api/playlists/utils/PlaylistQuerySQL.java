@@ -11,7 +11,7 @@ public class PlaylistQuerySQL {
             "LIMIT :limit OFFSET :offset";
 
     public static final String FIND_ALL_SONGS_BY_PLAYLIST_ID =
-            "SELECT s.song_id " +
+            "SELECT DISTINCT s.song_id " +
             "FROM songs_playlists AS sp " +
             "INNER JOIN user_songs AS us on sp.user_song_id = us.user_songs_id " +
             "INNER JOIN songs AS s on us.song_id = s.song_id " +
