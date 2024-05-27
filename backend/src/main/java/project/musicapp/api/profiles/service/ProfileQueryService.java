@@ -3,8 +3,10 @@ package project.musicapp.api.profiles.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.albums.dto.AlbumDTO;
+import project.musicapp.api.albums.dto.AlbumUserSongsDTO;
 import project.musicapp.api.albums.service.AlbumService;
 import project.musicapp.api.playlists.dto.PlaylistDTO;
+import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.service.SongService;
@@ -29,11 +31,11 @@ public class ProfileQueryService {
         return this.songService.findAllSongUsersByUserId(id);
     }
 
-    public List<AlbumDTO> findAlbumsByUserId(int id) {
+    public List<AlbumUserSongsDTO> findAlbumsByUserId(int id) {
         return this.albumService.findAllAlbumsByUserId(id);
     }
 
-    public List<PlaylistDTO> findPlaylistsByUserId(int id){
-        return null;
+    public List<PlaylistUserSongsDTO> findPlaylistsByUserId(int id){
+        return this.playlistService.findAllPlaylistUserSongsByUserId(id);
     }
 }

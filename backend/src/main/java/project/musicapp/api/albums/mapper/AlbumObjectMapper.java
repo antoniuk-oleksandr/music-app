@@ -16,9 +16,7 @@ public class AlbumObjectMapper {
     }
 
     public List<AlbumDTO> toAlbumDTOs() {
-        return this.albums.stream()
-                .map((this::toAlbumDTO))
-                .collect(Collectors.toList());
+        return this.albums.stream().map((this::toAlbumDTO)).collect(Collectors.toList());
     }
 
     private AlbumDTO toAlbumDTO(Object[] album) {

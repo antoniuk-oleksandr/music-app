@@ -19,4 +19,7 @@ public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
 
     @Query(value = PlaylistQuerySQL.FIND_ALL_SONGS_BY_PLAYLIST_ID, nativeQuery = true)
     List<Integer> findAllSongsByPlaylistId(@Param("id") int id);
+
+    @Query(value = PlaylistQuerySQL.FIND_ALL_PLAYLISTS_ID_BY_USER_ID, nativeQuery = true)
+    List<Integer> findAllPlaylistIdsByUserId(@Param("userId") int userId);
 }

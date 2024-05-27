@@ -16,4 +16,7 @@ public class PlaylistQuerySQL {
             "INNER JOIN user_songs AS us on sp.user_song_id = us.user_songs_id " +
             "INNER JOIN songs AS s on us.song_id = s.song_id " +
             "WHERE sp.playlist_id = :id";
+
+    public static final String FIND_ALL_PLAYLISTS_ID_BY_USER_ID =
+            "SELECT playlists.playlist_id FROM playlists WHERE playlists.creator_id = :userId";
 }
