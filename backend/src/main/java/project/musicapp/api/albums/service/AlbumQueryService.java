@@ -13,8 +13,8 @@ import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,13 +24,9 @@ public class AlbumQueryService {
     private final SongService songService;
 
     public List<SongUserDTO> getSongsByAlbumId(int id){
-        List<Integer> songIndices = this.albumRepository.findAllSongsByAlbumId(id);
-        List<SongUserDTO> songsUsers = new ArrayList<>(songIndices.size());
-
-        for (Integer songId : songIndices)
-            songsUsers.add(songService.findSongUserById(songId));
-
-        return songsUsers;
+        return this.albumRepository.findAllSongsByAlbumId(id).stream()
+                .map(this.songService::findSongUserById)
+                .collect(Collectors.toList());
     }
 
     public User getUserByAlbumId(int id) {
@@ -44,18 +40,12 @@ public class AlbumQueryService {
     }
 
     public List<AlbumUserSongsDTO> getAlbumsByUserId(int id) {
-        List<Integer> albumsIndices = this.albumRepository.findAllAlbumsByUserId(id);
-        List<AlbumUserSongsDTO> albumDTOs = new ArrayList<>(albumsIndices.size());
-
-        for (Integer albumId : albumsIndices) {
-            AlbumUserSongsDTO albumUserSongsDTO = findAlbumUserSongsByAlbumId(albumId);
-            albumDTOs.add(albumUserSongsDTO);
-        }
-
-        return albumDTOs;
+        return this.albumRepository.findAllAlbumsByUserId(id).stream()
+                .map(this::getAlbumUserSongsByAlbumId)
+                .collect(Collectors.toList());
     }
 
-    public AlbumUserSongsDTO findAlbumUserSongsByAlbumId(int id) {
+    public AlbumUserSongsDTO getAlbumUserSongsByAlbumId(int id) {
         return AlbumUserSongsMapper.builder()
                 .user(getUserByAlbumId(id))
                 .album(getAlbumByAlbumId(id))

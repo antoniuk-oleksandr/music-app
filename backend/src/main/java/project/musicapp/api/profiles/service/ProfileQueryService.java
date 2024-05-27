@@ -8,6 +8,7 @@ import project.musicapp.api.albums.service.AlbumService;
 import project.musicapp.api.playlists.dto.PlaylistDTO;
 import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
+import project.musicapp.api.profiles.dto.ProfileDTO;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.users.dto.UserBannerDTO;
@@ -23,19 +24,27 @@ public class ProfileQueryService {
     private final AlbumService albumService;
     private final PlaylistService playlistService;
 
-    public UserBannerDTO findUserBannerByUserId(int id){
+    private UserBannerDTO findUserBannerByUserId(int id){
         return this.userService.findUserBannerById(id);
     }
 
-    public List<SongUserDTO> findUserSongsByUserId(int id){
+    private List<SongUserDTO> findUserSongsByUserId(int id){
         return this.songService.findAllSongUsersByUserId(id);
     }
 
-    public List<AlbumUserSongsDTO> findAlbumsByUserId(int id) {
+    private List<AlbumUserSongsDTO> findAlbumsByUserId(int id) {
         return this.albumService.findAllAlbumsByUserId(id);
     }
 
-    public List<PlaylistUserSongsDTO> findPlaylistsByUserId(int id){
+    private List<PlaylistUserSongsDTO> findPlaylistsByUserId(int id){
         return this.playlistService.findAllPlaylistUserSongsByUserId(id);
+    }
+
+    public ProfileDTO getProfileById(int id) {
+        return ProfileDTO.builder()
+                .user(findUserBannerByUserId(id))
+                .songs(findUserSongsByUserId(id))
+                .playlists(findPlaylistsByUserId(id))
+                .albums(findAlbumsByUserId(id)).build();
     }
 }

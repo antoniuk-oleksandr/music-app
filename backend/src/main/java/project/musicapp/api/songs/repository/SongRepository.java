@@ -7,7 +7,4 @@ import org.springframework.stereotype.Repository;
 import project.musicapp.api.songs.model.Song;
 
 @Repository
-public interface SongRepository extends CrudRepository<Song, Integer> {
-    @Query(value="SELECT * FROM songs ", nativeQuery = true)
-    Song findSongByTitle(@Param("title") String title);
-}
+public interface SongRepository extends CrudRepository<Song, Integer> { }

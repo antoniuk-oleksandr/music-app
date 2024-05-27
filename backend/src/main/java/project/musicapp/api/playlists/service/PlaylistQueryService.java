@@ -15,6 +15,7 @@ import project.musicapp.api.users.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,13 +25,9 @@ public class PlaylistQueryService {
     private final PlaylistRepository playlistRepository;
 
     public List<SongUserDTO> getSongsByPlaylistId(int id){
-        List<SongUserDTO> songsUsers = new ArrayList<>();
-        List<Integer> songIndices = this.playlistRepository.findAllSongsByPlaylistId(id);
-        for (Integer songId : songIndices) {
-            SongUserDTO songUserDTO = songService.findSongUserById(songId);
-            songsUsers.add(songUserDTO);
-        }
-        return songsUsers;
+        return this.playlistRepository.findAllSongsByPlaylistId(id).stream()
+                .map(this.songService::findSongUserById)
+                .collect(Collectors.toList());
     }
 
     public User getUserByPlaylistId(int id) {
@@ -52,15 +49,9 @@ public class PlaylistQueryService {
     }
 
     public List<PlaylistUserSongsDTO> getAllPlaylistUserSongsByUserId(int id){
-        List<Integer> playlistIds = this.playlistRepository.findAllPlaylistIdsByUserId(id);
-        List<PlaylistUserSongsDTO> playlists = new ArrayList<>(playlistIds.size());
-
-        for(Integer playlistId : playlistIds){
-            PlaylistUserSongsDTO playlist = findPlaylistUserSongsById(playlistId);
-            playlists.add(playlist);
-        }
-
-        return playlists;
+        return this.playlistRepository.findAllPlaylistIdsByUserId(id).stream()
+                .map(this::findPlaylistUserSongsById)
+                .collect(Collectors.toList());
     }
 
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){
