@@ -1,28 +1,29 @@
-import {Dispatch, useEffect, useState} from "react";
-import {UnknownAction} from "redux";
-import {handleSongEnd, updateTime} from "@/common-components/MusicPlayer/handlers";
-import {Repeat} from "@/types/Repeat";
-import {Song} from "@/types/Song";
+import { Dispatch, useEffect, useState } from "react";
+import { UnknownAction } from "redux";
+import { handleNextTrack, updateTime } from "@/common-components/MusicPlayer/handlers";
+import { MusicPlayerType } from "@/types/MusicPlayerType";
 
-export const useMusicTime = (audioElement: HTMLAudioElement,
-                             dispatch: Dispatch<UnknownAction>,
-                             repeat: Repeat,
-                             songQueue: Song[]) => {
+export const useMusicTime = (
+    audioElement: HTMLAudioElement,
+    dispatch: Dispatch<UnknownAction>,
+    musicPlayer: MusicPlayerType
+) => {
     const [percentage, setPercentage] = useState(0);
 
+    const handleTimeUpdate = () => updateTime(audioElement, setPercentage);
+    const handleEnd = () => handleNextTrack(audioElement, dispatch, musicPlayer);
+
     useEffect(() => {
-        audioElement.addEventListener("timeupdate", () =>
-            updateTime(audioElement, setPercentage));
-        audioElement.addEventListener("ended", () =>
-            handleSongEnd(audioElement, dispatch, repeat));
+        if (Object.values(musicPlayer).includes(null)) return;
+
+        audioElement.addEventListener("timeupdate", handleTimeUpdate);
+        audioElement.addEventListener("ended", handleEnd);
 
         return () => {
-            audioElement.removeEventListener("timeupdate", () =>
-                updateTime(audioElement, setPercentage));
-            audioElement.removeEventListener("ended", () =>
-                handleSongEnd(audioElement, dispatch, repeat));
-        }
-    }, [repeat, songQueue]);
+            audioElement.removeEventListener("timeupdate", handleTimeUpdate);
+            audioElement.removeEventListener("ended", handleEnd);
+        };
+    }, [musicPlayer, audioElement]);
 
     return percentage;
-}
+};

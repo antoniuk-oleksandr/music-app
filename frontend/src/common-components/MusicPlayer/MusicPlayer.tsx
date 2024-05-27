@@ -7,14 +7,13 @@ import {useMusicTime} from "@/common-components/MusicPlayer/use-effects/use-musi
 import {useBarDragging} from "@/common-components/MusicPlayer/use-effects/use-bar-dragging";
 import {MutableRefObject} from "react";
 import {useRepeatButton} from "@/common-components/MusicPlayer/use-effects/use-repeat-button";
+import {MusicPlayerType} from "@/types/MusicPlayerType";
 
 const MusicPlayer = () => {
-    const song = useSelector((state: any) => state.musicPlayer.song);
-    const songQueue = useSelector((state: any) => state.musicPlayer.songQueue);
+    const musicPlayer: MusicPlayerType = useSelector((state: any) => state.musicPlayer);
     const dispatch = useDispatch();
-    const repeat = useSelector((state: any) => state.musicPlayer.repeat);
     const audioElement = useAudio() as HTMLAudioElement;
-    const percentage = useMusicTime(audioElement, dispatch, repeat, songQueue);
+    const percentage = useMusicTime(audioElement, dispatch, musicPlayer);
     const htmlRefs = useBarDragging(audioElement);
     useRepeatButton(dispatch);
 
@@ -25,7 +24,7 @@ const MusicPlayer = () => {
         audioElement.currentTime = audioElement.duration * value / 100;
     }
 
-    if (!song || !repeat) return null;
+    if (!musicPlayer.song || !musicPlayer.repeat) return null;
     return (
         <MusicPlayerLayout>
             <Progressbar

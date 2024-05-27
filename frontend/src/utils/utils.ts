@@ -1,6 +1,7 @@
 import {fileRequest} from "@/api/file-request";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
+import {Song} from "@/types/Song";
 
 export const getUserListSeparator = (special: boolean | undefined, index: number, length: number) => {
     if (special) {
@@ -34,4 +35,12 @@ export const getImagesForList = async (list: Album | Playlist) => {
     }
 
     return list;
+}
+
+export const getSongSrcs = async (songs: Song[]) => {
+    if(songs[0].songPath.includes('blob')) return;
+
+    for (let song of songs) {
+        song.songPath = await getUrlFromString(song.songPath, 'mpeg/mp3');
+    }
 }

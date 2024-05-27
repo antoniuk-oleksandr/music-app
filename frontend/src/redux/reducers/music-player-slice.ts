@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {Repeat} from "@/types/Repeat";
 
 export const musicPlayerSlice = createSlice({
     name: 'musicPlayer',
@@ -7,6 +6,7 @@ export const musicPlayerSlice = createSlice({
     reducers: {
         setSong(state, action) {
             state.song = action.payload;
+            state.songQueue.push(action.payload as never);
         },
         setRepeat(state, action) {
             localStorage.setItem("repeat", JSON.stringify(action.payload));
@@ -15,30 +15,14 @@ export const musicPlayerSlice = createSlice({
         setSongQueue(state, action) {
             state.songQueue = action.payload;
             state.songIndex = 0;
+            state.song = action.payload[0];
         },
-        nextSong(state) {
-            const songQLength = state.songQueue.length;
-
-            if (state.repeat === Repeat.Queue && state.songIndex + 1 > songQLength) {
-                state.songIndex = 0;
-                state.song = state.songQueue[state.songIndex];
-                return;
-            }
-
-            console.log("the fuck")
-
-            if (songQLength < 0 || state.songIndex + 1 > songQLength) return;
-            state.songIndex++;
-            state.song = state.songQueue[state.songIndex];
-        },
-        prevSong(state) {
-            const songQLength = state.songQueue.length;
-            if (songQLength < 0 || state.songIndex - 1 < 0) return;
-            state.songIndex--;
-            state.song = state.songQueue[state.songIndex];
-        },
+        changeQueueSong(state, action) {
+            state.songIndex = action.payload;
+            state.song = state.songQueue[action.payload];
+        }
     },
 });
 
-export const {setSong, setRepeat, setSongQueue, nextSong, prevSong} = musicPlayerSlice.actions;
+export const {setSong, setRepeat, setSongQueue, changeQueueSong} = musicPlayerSlice.actions;
 export default musicPlayerSlice.reducer;

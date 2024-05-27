@@ -5,11 +5,10 @@ export const usePlayButton = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const audioElement = useAudio() as HTMLAudioElement;
 
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
     useEffect(() => {
-        const handlePlay = () => setIsPlaying(true);
-        const handlePause = () => setIsPlaying(false);
-
-
         audioElement.addEventListener("play", handlePlay);
         audioElement.addEventListener("pause", handlePause);
 
