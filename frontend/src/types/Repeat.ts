@@ -1,5 +1,5 @@
 export enum Repeat {
     None = 'None',
-    Track = 'Track',
+    Song = 'Song',
     Queue = 'Queue',
 }

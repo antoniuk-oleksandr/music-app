@@ -17,7 +17,7 @@ const RepeatButton = () => {
                 repeat === Repeat.Queue ? 'text-red-500' : ''
             }`}
         >
-            {repeat === Repeat.Track && (
+            {repeat === Repeat.Song && (
                 <span className="absolute text-[8px] font-semibold mt-[1px]">1</span>
             )}
             <MdOutlineLoop />

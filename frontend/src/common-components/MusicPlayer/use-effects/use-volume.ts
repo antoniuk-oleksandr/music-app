@@ -8,16 +8,16 @@ export const useVolume = () => {
         volume: audioElement.volume,
     });
 
+    const handleVolumeChange = (e: Event) => {
+        const target = e.target as HTMLAudioElement;
+
+        setVolumeObject({
+            muted: target.muted,
+            volume: target.volume
+        })
+    }
+
     useEffect(() => {
-        const handleVolumeChange = (e: Event) => {
-            const target = e.target as HTMLAudioElement;
-
-            setVolumeObject({
-                muted: target.muted,
-                volume: target.volume
-            })
-        }
-
         audioElement.addEventListener("volumechange", handleVolumeChange);
 
         return () => {

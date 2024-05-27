@@ -5,27 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/RepeatButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-repeat-button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/MusicPlayerType.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/Repeat.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/AudioContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/AudioContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/components/ListInfo/ListInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/components/ListInfo/ListInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/components/ListInfoButtons/ListInfoButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/components/ListInfoButtons/ListInfoButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/components/ListPlayButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/components/ListPlayButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Control/Control.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Control/Control.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Play/PlayController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Play/PlayController.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton/PlayButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/PlayButton/PlayButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/RepeatButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/RepeatButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/handlers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-bar-dragging.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-bar-dragging.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-music-time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-music-time.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/music-player-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/music-player-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/local-storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/local-storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Repeat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Repeat.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +46,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;playlist-functionality&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend/src/pages/albums&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/alex/music-app/frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "repeat-functionality",
+    "last_opened_file_path": "/home/alex/music-app/frontend/src/pages/albums",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/home/alex/music-app/frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/albums" />
