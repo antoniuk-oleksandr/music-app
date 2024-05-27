@@ -17,10 +17,10 @@ public class AlbumService {
     }
 
     public List<AlbumDTO> findAllAlbumsByName(String value, int limit, int offset) {
-        return albumQueryService.findAllAlbumsByName(value, limit, offset);
+        return this.albumQueryService.findAllAlbumsByName(value, limit, offset);
     }
 
     public AlbumUserSongsDTO findAlbumUserSongsById(int id) {
-        return albumQueryService.findAlbumUserSongsByAlbumId(id);
+        return this.albumQueryService.getAlbumUserSongsByAlbumId(id);
     }
 }

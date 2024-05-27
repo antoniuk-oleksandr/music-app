@@ -2,6 +2,7 @@ package project.musicapp.api.users.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 import project.musicapp.api.users.dto.UserDTO;
 import project.musicapp.api.users.model.User;
 
@@ -14,7 +15,7 @@ public class UserMapper {
     private List<User> users;
 
     public List<UserDTO> toUserDTOs() {
-        return users.stream().map(this::toUserDTO).collect(Collectors.toList());
+        return this.users.stream().map(this::toUserDTO).collect(Collectors.toList());
     }
 
     public UserDTO toUserDTO(User user) {
