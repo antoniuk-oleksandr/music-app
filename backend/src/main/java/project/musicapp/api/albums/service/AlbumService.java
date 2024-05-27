@@ -1,11 +1,9 @@
 package project.musicapp.api.albums.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.albums.dto.AlbumDTO;
 import project.musicapp.api.albums.dto.AlbumUserSongsDTO;
-import project.musicapp.api.albums.mapper.AlbumUserSongsMapper;
 
 import java.util.List;
 
@@ -14,7 +12,7 @@ import java.util.List;
 public class AlbumService {
     private final AlbumQueryService albumQueryService;
 
-    public List<AlbumDTO> findAllAlbumsByUserId(int userId){
+    public List<AlbumUserSongsDTO> findAllAlbumsByUserId(int userId){
         return this.albumQueryService.getAlbumsByUserId(userId);
     }
 
@@ -23,10 +21,6 @@ public class AlbumService {
     }
 
     public AlbumUserSongsDTO findAlbumUserSongsById(int id) {
-        return AlbumUserSongsMapper.builder()
-                .user(albumQueryService.getUserByAlbumId(id))
-                .album(albumQueryService.getAlbumByAlbumId(id))
-                .songs(albumQueryService.getSongsByAlbumId(id))
-                .build().toAlbumUserSongsDTO();
+        return albumQueryService.findAlbumUserSongsByAlbumId(id);
     }
 }

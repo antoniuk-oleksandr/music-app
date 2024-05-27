@@ -14,11 +14,11 @@ public class PlaylistService {
     private final PlaylistQueryService playlistQueryService;
 
     public PlaylistUserSongsDTO findPlaylistUserSongsById(int id){
-        return PlaylistUserSongsMapper.builder()
-                .user(playlistQueryService.getUserByPlaylistId(id))
-                .playlist(playlistQueryService.getPlaylistByPlaylistId(id))
-                .songs(playlistQueryService.getSongsByPlaylistId(id))
-                .build().toAlbumUserSongsDTO();
+        return playlistQueryService.findPlaylistUserSongsById(id);
+    }
+
+    public List<PlaylistUserSongsDTO> findAllPlaylistUserSongsByUserId(int id){
+        return playlistQueryService.getAllPlaylistUserSongsByUserId(id);
     }
 
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){

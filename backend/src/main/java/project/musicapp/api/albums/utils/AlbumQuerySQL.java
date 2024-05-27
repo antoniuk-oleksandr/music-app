@@ -8,13 +8,13 @@ public class AlbumQuerySQL {
             "WHERE LOWER(a.name) LIKE LOWER(CONCAT('%', :value, '%')) " +
             "LIMIT :limit OFFSET :offset";
 
-    public static final String FIND_SONGS_ID_IN_ALBUM_BY_PLAYLIST_ID =
+    public static final String FIND_SONGS_ID_BY_ALBUM_ID =
             "SELECT DISTINCT s.song_id " +
             "FROM songs_albums AS sa " +
             "INNER JOIN user_songs AS us on sa.user_song_id = us.user_songs_id " +
             "INNER JOIN songs AS s on us.song_id = s.song_id " +
             "WHERE sa.album_id = :id";
 
-    public static final String FIND_ALL_ALBUMS_BY_USER_ID =
-            "SELECT a.album_id FROM albums WHERE albums.creator_id = :id";
+    public static final String FIND_ALL_ALBUMS_ID_BY_USER_ID =
+            "SELECT albums.album_id FROM albums WHERE albums.creator_id = :userId";
 }
