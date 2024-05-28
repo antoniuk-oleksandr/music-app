@@ -15,8 +15,8 @@ public class SongService {
         this.songUserQueryService = songUserQueryService;
     }
 
-    public SongUserDTO findSongUserById(int id) {
-        return this.songUserQueryService.findSongUserById(id);
+    public SongUserDTO findSongUserBySongId(int id) {
+        return this.songUserQueryService.findSongUserBySongId(id);
     }
 
     public List<SongUserDTO> findAllSongUsersByUserId(int userId) {

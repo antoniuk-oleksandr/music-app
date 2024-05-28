@@ -29,7 +29,7 @@ public class PlaylistMapper {
                 .creatingDate((Timestamp) playlist[2])
                 .name((String) playlist[3])
                 .imagePath((String) playlist[4])
-                .user(getPlaylistUserDTO(
+                .creator(getPlaylistUserDTO(
                         (Integer) playlist[5],
                         (String) playlist[6])
                 ).build();

@@ -13,7 +13,6 @@ import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +25,7 @@ public class PlaylistQueryService {
 
     public List<SongUserDTO> getSongsByPlaylistId(int id){
         return this.playlistRepository.findAllSongsByPlaylistId(id).stream()
-                .map(this.songService::findSongUserById)
+                .map(this.songService::findSongUserBySongId)
                 .collect(Collectors.toList());
     }
 

@@ -17,4 +17,12 @@ public class AlbumQuerySQL {
 
     public static final String FIND_ALL_ALBUMS_ID_BY_USER_ID =
             "SELECT albums.album_id FROM albums WHERE albums.creator_id = :userId";
+
+    public static final String FIND_ALBUM_ID_BY_SONG_ID =
+            "SELECT a.album_id, a.name " +
+            "FROM songs_albums sa " +
+            "INNER JOIN albums a on a.album_id = sa.album_id " +
+            "INNER JOIN user_songs us ON sa.user_song_id = us.user_songs_id " +
+            "INNER JOIN songs s ON us.song_id = s.song_id " +
+            "WHERE s.song_id = :id";
 }

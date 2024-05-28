@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class AlbumQueryService {
-    private final AlbumRepository albumRepository;
-    private final UserRepository userRepository;
     private final SongService songService;
+    private final UserRepository userRepository;
+    private final AlbumRepository albumRepository;
 
     public List<SongUserDTO> getSongsByAlbumId(int id){
         return this.albumRepository.findAllSongsByAlbumId(id).stream()
-                .map(this.songService::findSongUserById)
+                .map(this.songService::findSongUserBySongId)
                 .collect(Collectors.toList());
     }
 
