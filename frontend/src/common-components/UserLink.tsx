@@ -11,7 +11,7 @@ const UserLink = (props: UserLinkProps) => {
 
     return (
         <span
-            onClick={() => router.push(`/users/${user.id}`)}
+            onClick={() => router.push(`/profile/${user.id}`)}
             className={"select-text cursor-pointer hover:underline duration-200 ease-out"}
         >{user.username}</span>
     )

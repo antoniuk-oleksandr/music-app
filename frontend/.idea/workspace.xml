@@ -5,19 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/profile-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Header/use-current-page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/ProfilePageLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/Banner/Banner.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/Banner/BannerLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/BannerButtons/BannerButtonsLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/BannerOverlay.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileBannerBlock/ProfileBannerBlock.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileBannerBlock/ProfileBannerBlockLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileInfoBlock/ProfileInfoBlock.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileInfoBlock/ProfileInfoBlockLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfilePlayButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileUsernameName.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/SubscribeButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/use-profile-data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/scrollbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/File.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/static/albums/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/static/albums/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/static/banners/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/static/banners/1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Play/PlayController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/Play/PlayController.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/RepeatButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/components/RepeatButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/handlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-bar-dragging.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-bar-dragging.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-music-time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-music-time.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-play-button.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects/use-volume.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/music-player-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/music-player-slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/Repeat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Repeat.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/ElementIcon/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ElementIcon/handlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Header/HeaderLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Header/HeaderLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/components/ListTopInfoLine.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/components/ListTopInfoLine.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/PageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/UserLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/UserLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/album/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/album/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/playlist/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/playlist/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/SearchLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/SearchLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/components/SongListBottomInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/components/SongListBottomInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/handlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/search/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/search/helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/[id]/UserPageLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/[id]/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/[id]/use-user-id.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Album.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Album.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Playlist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Playlist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Profile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +67,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -50,14 +85,14 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "repeat-functionality",
+    "git-widget-placeholder": "user-profile-page",
     "last_opened_file_path": "/home/alex/music-app/frontend/src/pages/albums",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "ts.external.directory.path": "/home/alex/music-app/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -67,11 +102,11 @@
       <recent name="$PROJECT_DIR$/src/pages/albums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/profile/[id]" />
       <recent name="$PROJECT_DIR$/src/common-components/MusicPlayer/use-effects" />
       <recent name="$PROJECT_DIR$/src/common-components/ElementIcon/components" />
       <recent name="$PROJECT_DIR$/src/redux/reducers" />
       <recent name="$PROJECT_DIR$/src/common-components" />
-      <recent name="$PROJECT_DIR$/src/common-components/SongIcon" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -115,6 +150,8 @@
       <workItem from="1716656850684" duration="16428000" />
       <workItem from="1716725761242" duration="7772000" />
       <workItem from="1716738815062" duration="14384000" />
+      <workItem from="1716831694406" duration="13692000" />
+      <workItem from="1716891207273" duration="7920000" />
     </task>
     <servers />
   </component>

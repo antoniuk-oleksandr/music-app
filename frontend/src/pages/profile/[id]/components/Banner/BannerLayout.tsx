@@ -1,13 +1,13 @@
 import {LayoutProps} from "@/types/LayoutProps";
 
-const UserPageLayout = (props: LayoutProps) => {
+const BannerLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div className={""}>
+        <div className={"aspect-w-4 aspect-h-1 overflow-hidden"}>
             {children}
         </div>
     )
 }
 
-export default UserPageLayout;
+export default BannerLayout;

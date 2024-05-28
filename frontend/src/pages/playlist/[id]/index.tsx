@@ -1,4 +1,4 @@
-import PageWrapper from "@/common-components/PageWrapper";
+import Wrapper from "@/common-components/Wrapper";
 import ListPage from "@/common-components/ListPage/ListPage";
 import {useListData} from "@/common-components/use-list-data";
 import {ListType} from "@/types/ListType";
@@ -8,9 +8,9 @@ const PlaylistPage = () => {
 
     if (!playListData) return null;
     return (
-        <PageWrapper pt={'pt-12'} pb={'pb-28'}>
+        <Wrapper pt={'pt-12'} pb={'pb-28'}>
             <ListPage list={playListData} listType={ListType.Playlist}/>
-        </PageWrapper>
+        </Wrapper>
     )
 }
 

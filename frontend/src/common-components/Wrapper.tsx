@@ -6,7 +6,7 @@ type PageWrapperProps = LayoutProps & {
     pb: string
 }
 
-const PageWrapper = (props: PageWrapperProps) => {
+const Wrapper = (props: PageWrapperProps) => {
     const {children, pt, pb} = props;
 
     return (
@@ -14,10 +14,10 @@ const PageWrapper = (props: PageWrapperProps) => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{duration: 0.3, easings: "easeOut"}}
-            className={`w-full px-8 ${pt} ${pb}`}>
+            className={`w-full mx-auto px-[98.5px] ${pt} ${pb}`}>
             {children}
         </motion.div>
     )
 }
 
-export default PageWrapper;
+export default Wrapper;

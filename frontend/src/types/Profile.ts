@@ -7,5 +7,5 @@ export type Profile = {
     user: User,
     songs: Song[],
     albums: Album[],
-    playlist: Playlist[],
+    playlists: Playlist[],
 }

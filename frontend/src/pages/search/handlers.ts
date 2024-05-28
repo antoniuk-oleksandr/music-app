@@ -9,6 +9,7 @@ import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {NextRouter} from "next/router";
 import {IconHoverState} from "@/types/IconHoverState";
+import {FileType} from "@/types/File";
 
 export const handleSongClick = async (audioElement: HTMLAudioElement | null,
                                       dispatch: Dispatch<UnknownAction>,
@@ -26,7 +27,7 @@ export const handleSongClick = async (audioElement: HTMLAudioElement | null,
     }
 
     if (!song.songPath.includes('blob'))
-        song.songPath = await getUrlFromString(song.songPath, 'audio/mpeg');
+        song.songPath = await getUrlFromString(song.songPath, FileType.Audio);
 
     (audioElement as HTMLAudioElement).src = song.songPath;
 
