@@ -1,21 +1,26 @@
 import {LayoutProps} from "@/types/LayoutProps";
 import {useScrollbar} from "@/common-components/Header/use-scrollbar";
-import {motion} from "framer-motion";
+import {useCurrentPage} from "@/common-components/Header/use-current-page";
+import Wrapper from "@/common-components/Wrapper";
 
 const HeaderLayout = (props: LayoutProps) => {
     const {children} = props;
 
     const topOffset = useScrollbar();
+    const currentPage = useCurrentPage();
 
+    if (!currentPage) return null;
     return (
-        <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            transition={{duration: 0.3, easings: "easeOut"}}
-            className={`w-full h-16 flex items-center px-8 justify-between sticky top-0 z-10
-             ${topOffset > 0 ? 'bg-white' : 'bg-transparent'}`}>
-            {children}
-        </motion.div>
+        <div
+            className={`h-16 flex items-center justify-between  z-10
+            ${topOffset > 0 ? 'bg-white' : 'bg-transparent'}
+            ${currentPage === '/profile/[id]' ? 'fixed w-full-profile-page' : 'sticky top-0 w-full'}`}>
+            <Wrapper pt={''} pb={''}>
+                <div className="flex w-full justify-between items-center">
+                    {children}
+                </div>
+            </Wrapper>
+        </div>
     )
 }
 

@@ -6,6 +6,7 @@ import {User} from "@/types/User";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {getUrlFromString} from "@/utils/utils";
+import {FileType} from "@/types/File";
 
 export const changeSearchTab = (router: AppRouterInstance, tab: SearchTab, searchQuery: string) => {
     router.push(`/search?q=${searchQuery}&tab=${tab}`);
@@ -17,9 +18,9 @@ export const addImageBlobs = async (searchResult: SearchResult) => {
 
         for (const value of arr) {
             if ('username' in value)
-                value.avatarPath = await getUrlFromString(value.avatarPath, "image/jpeg");
+                value.avatarPath = await getUrlFromString(value.avatarPath, FileType.Image);
             else if ('name' in value)
-                value.imagePath = await getUrlFromString(value.imagePath, "image/jpeg");
+                value.imagePath = await getUrlFromString(value.imagePath, FileType.Image);
         }
     }
 

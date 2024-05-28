@@ -6,11 +6,13 @@ import UserLink from "@/common-components/UserLink";
 const ListTopInfoLine = (props: ListPageProps) => {
     const {list, listType} = props;
 
+    console.log(list, listType);
+
     return (
         <ListInfoLineLayout>
             <span>{listType}</span>
             <span>•</span>
-            <UserLink user={list.creator}/>
+            <UserLink user={list.user}/>
             <span>•</span>
             <span>{getYearFromTimestamp(list.creatingDate)}</span>
         </ListInfoLineLayout>

@@ -1,15 +1,15 @@
 import {LayoutProps} from "@/types/LayoutProps";
-import PageWrapper from "@/common-components/PageWrapper";
+import Wrapper from "@/common-components/Wrapper";
 
 const SearchLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <PageWrapper pt={''} pb={'pb-48'}>
+        <Wrapper pt={''} pb={'pb-48'}>
             <div className={""}>
                 {children}
             </div>
-        </PageWrapper>
+        </Wrapper>
     )
 }
 
