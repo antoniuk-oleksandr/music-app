@@ -19,8 +19,8 @@ public class SongService {
         return this.songUserQueryService.findSongUserBySongId(id);
     }
 
-    public List<SongUserDTO> findAllSongUsersByUserId(int userId) {
-        return this.songUserQueryService.findSongUserByUserId(userId);
+    public List<SongUserDTO> findAllSongUsersByUserId(int userId, int limit, int offset) {
+        return this.songUserQueryService.findSongUserByUserId(userId, limit, offset);
     }
 
     public List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset) {

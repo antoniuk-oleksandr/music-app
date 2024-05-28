@@ -13,8 +13,8 @@ import java.util.List;
 public class AlbumService {
     private final AlbumQueryService albumQueryService;
 
-    public List<AlbumUserSongsDTO> findAllAlbumsByUserId(int userId){
-        return this.albumQueryService.getAlbumsByUserId(userId);
+    public List<AlbumUserSongsDTO> findAllAlbumsByUserId(int userId, int limit, int offset){
+        return this.albumQueryService.getAlbumsByUserId(userId, limit, offset);
     }
 
     public List<AlbumDTO> findAllAlbumsByName(String value, int limit, int offset) {

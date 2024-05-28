@@ -1,11 +1,9 @@
 package project.musicapp.api.profiles.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.musicapp.api.profiles.dto.ProfileDTO;
+import project.musicapp.api.profiles.dto.ProfileUserDTO;
 import project.musicapp.api.profiles.service.ProfileService;
 
 @RestController
@@ -18,8 +16,16 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-    @GetMapping("/{id}")
-    public ProfileDTO getProfileById(@PathVariable int id) {
-        return this.profileService.getProfileById(id);
+    @GetMapping("/{userId}")
+    public ProfileUserDTO getProfileById(@PathVariable int userId) {
+        return this.profileService.getProfileUserById(userId);
+    }
+
+    @GetMapping("/{userId}/{profileType}")
+    public ProfileDTO getProfileByDataType(@PathVariable String profileType,
+                                           @PathVariable int userId,
+                                           @RequestParam int limit,
+                                           @RequestParam int offset) {
+        return this.profileService.getProfileByIdAndType(profileType, userId, limit, offset);
     }
 }

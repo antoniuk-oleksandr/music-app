@@ -39,8 +39,8 @@ public class AlbumQueryService {
         return this.albumRepository.findById(id).orElse(null);
     }
 
-    public List<AlbumUserSongsDTO> getAlbumsByUserId(int id) {
-        return this.albumRepository.findAllAlbumsByUserId(id).stream()
+    public List<AlbumUserSongsDTO> getAlbumsByUserId(int userId, int limit, int offset) {
+        return this.albumRepository.findAllAlbumsByUserId(userId, limit, offset).stream()
                 .map(this::getAlbumUserSongsByAlbumId)
                 .collect(Collectors.toList());
     }

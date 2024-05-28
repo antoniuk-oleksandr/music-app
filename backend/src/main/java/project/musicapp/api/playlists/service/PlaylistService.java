@@ -17,8 +17,8 @@ public class PlaylistService {
         return playlistQueryService.findPlaylistUserSongsById(id);
     }
 
-    public List<PlaylistUserSongsDTO> findAllPlaylistUserSongsByUserId(int id){
-        return playlistQueryService.getAllPlaylistUserSongsByUserId(id);
+    public List<PlaylistUserSongsDTO> findAllPlaylistUserSongsByUserId(int userId, int limit, int offset){
+        return playlistQueryService.getAllPlaylistUserSongsByUserId(userId, limit, offset);
     }
 
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){

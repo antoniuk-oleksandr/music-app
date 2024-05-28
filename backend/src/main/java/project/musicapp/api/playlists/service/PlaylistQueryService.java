@@ -24,7 +24,8 @@ public class PlaylistQueryService {
     private final PlaylistRepository playlistRepository;
 
     public List<SongUserDTO> getSongsByPlaylistId(int id){
-        return this.playlistRepository.findAllSongsByPlaylistId(id).stream()
+        return this.playlistRepository
+                .findAllSongsByPlaylistId(id).stream()
                 .map(this.songService::findSongUserBySongId)
                 .collect(Collectors.toList());
     }
@@ -47,8 +48,9 @@ public class PlaylistQueryService {
                 .build().toAlbumUserSongsDTO();
     }
 
-    public List<PlaylistUserSongsDTO> getAllPlaylistUserSongsByUserId(int id){
-        return this.playlistRepository.findAllPlaylistIdsByUserId(id).stream()
+    public List<PlaylistUserSongsDTO> getAllPlaylistUserSongsByUserId(int userId, int limit, int offset){
+        return this.playlistRepository
+                .findAllPlaylistIdsByUserId(userId, limit, offset).stream()
                 .map(this::findPlaylistUserSongsById)
                 .collect(Collectors.toList());
     }

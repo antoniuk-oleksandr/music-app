@@ -1,8 +1,10 @@
 package project.musicapp.api.songs.service;
 
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.albums.dto.AlbumCreatorDTO;
+import project.musicapp.api.albums.dto.AlbumNameDTO;
 import project.musicapp.api.albums.service.AlbumCreatorService;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.mapper.SongUserMapper;
@@ -23,24 +25,26 @@ public class SongUserQueryService {
     private final SongRepository songRepository;
     private final SongUserRepository songUserRepository;
 
-    public SongUserDTO findSongUserBySongId(int id) {
-        Song song = this.songRepository.findById(id).orElse(new Song());
-        AlbumCreatorDTO album = this.albumCreatorService.getAlbumCreatorBySongId(song.getId());
-        List<UserDTO> users = this.userService.findAllUsersBySongId(song.getId());
-        return new SongUserMapper(song, album, users).toSongUserDTO();
-    }
-
     private List<SongUserDTO> getSongUsersByIndices(List<Integer> indices) {
         return indices.stream().map(this::findSongUserBySongId).collect(Collectors.toList());
     }
 
-    public List<SongUserDTO> findSongUserByUserId(int id) {
-        List<Integer> songIndices = this.songUserRepository.findAllUserSongsIndicesByUserId(id);
+    public List<SongUserDTO> findSongUserByUserId(int userId, int limit, int offset) {
+        List<Integer> songIndices = this.songUserRepository.findAllUserSongsIndicesByUserId(userId, limit, offset);
         return getSongUsersByIndices(songIndices);
     }
 
     public List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset) {
         List<Integer> songIndices = this.songUserRepository.findAllSongsUsersIndicesBySongName(value, limit, offset);
         return getSongUsersByIndices(songIndices);
+    }
+
+    public SongUserDTO findSongUserBySongId(int id) {
+        Song song = this.songRepository.findById(id).orElse(new Song());
+        AlbumNameDTO album = this.albumCreatorService.getAlbumCreatorBySongId(song.getId());
+        List<UserDTO> users = this.userService.findAllUsersBySongId(song.getId());
+        return SongUserMapper.builder()
+                .song(song).album(album).users(users)
+                .build().toSongUserDTO();
     }
 }
