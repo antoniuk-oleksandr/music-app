@@ -3,17 +3,22 @@ package project.musicapp.api.profiles.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.profiles.dto.ProfileDTO;
+import project.musicapp.api.profiles.dto.ProfileUserDTO;
 
 @Service
 public class ProfileService {
-    public ProfileQueryService profileQueryService;
+    private final ProfileDataService profileDataService;
 
     @Autowired
-    public ProfileService(ProfileQueryService profileQueryService) {
-        this.profileQueryService = profileQueryService;
+    public ProfileService(ProfileDataService profileDataService) {
+        this.profileDataService = profileDataService;
     }
 
-    public ProfileDTO getProfileById(int id) {
-        return this.profileQueryService.getProfileById(id);
+    public ProfileUserDTO getProfileUserById(int userId) {
+        return this.profileDataService.getProfileUserById(userId);
+    }
+
+    public ProfileDTO getProfileByIdAndType(String profileType, int userId, int limit, int offset) {
+        return this.profileDataService.getProfileByTypeAndUserId(profileType, userId, limit, offset);
     }
 }

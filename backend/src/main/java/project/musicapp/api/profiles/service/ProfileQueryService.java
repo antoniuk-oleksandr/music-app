@@ -2,13 +2,14 @@ package project.musicapp.api.profiles.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.musicapp.api.albums.dto.AlbumDTO;
 import project.musicapp.api.albums.dto.AlbumUserSongsDTO;
 import project.musicapp.api.albums.service.AlbumService;
-import project.musicapp.api.playlists.dto.PlaylistDTO;
 import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
 import project.musicapp.api.profiles.dto.ProfileDTO;
+import project.musicapp.api.profiles.dto.ProfileUserDTO;
+import project.musicapp.api.profiles.type.ProfileType;
+import project.musicapp.api.search.type.SearchType;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.users.dto.UserBannerDTO;
@@ -24,27 +25,19 @@ public class ProfileQueryService {
     private final AlbumService albumService;
     private final PlaylistService playlistService;
 
-    private UserBannerDTO findUserBannerByUserId(int id){
+    public UserBannerDTO findUserBannerByUserId(int id){
         return this.userService.findUserBannerById(id);
     }
 
-    private List<SongUserDTO> findUserSongsByUserId(int id){
-        return this.songService.findAllSongUsersByUserId(id);
+    public List<SongUserDTO> findUserSongsByUserId(int id, int limit, int offset){
+        return this.songService.findAllSongUsersByUserId(id, limit, offset);
     }
 
-    private List<AlbumUserSongsDTO> findAlbumsByUserId(int id) {
-        return this.albumService.findAllAlbumsByUserId(id);
+    public List<AlbumUserSongsDTO> findAlbumsByUserId(int id, int limit, int offset) {
+        return this.albumService.findAllAlbumsByUserId(id, limit, offset);
     }
 
-    private List<PlaylistUserSongsDTO> findPlaylistsByUserId(int id){
-        return this.playlistService.findAllPlaylistUserSongsByUserId(id);
-    }
-
-    public ProfileDTO getProfileById(int id) {
-        return ProfileDTO.builder()
-                .user(findUserBannerByUserId(id))
-                .songs(findUserSongsByUserId(id))
-                .playlists(findPlaylistsByUserId(id))
-                .albums(findAlbumsByUserId(id)).build();
+    public List<PlaylistUserSongsDTO> findPlaylistsByUserId(int id, int limit, int offset){
+        return this.playlistService.findAllPlaylistUserSongsByUserId(id, limit, offset);
     }
 }

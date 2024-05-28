@@ -10,6 +10,5 @@ public class UserBannerMapper {
                 .username(user.getUsername())
                 .avatarPath(user.getAvatar())
                 .bannerPath(user.getBanner()).build();
-
     }
 }

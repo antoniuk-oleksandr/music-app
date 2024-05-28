@@ -21,7 +21,9 @@ public interface AlbumRepository extends CrudRepository<Album, Integer> {
     List<Integer> findAllSongsByAlbumId(@Param("id") int id);
 
     @Query(value = AlbumQuerySQL.FIND_ALL_ALBUMS_ID_BY_USER_ID, nativeQuery = true)
-    List<Integer> findAllAlbumsByUserId(@Param("userId") int userId);
+    List<Integer> findAllAlbumsByUserId(@Param("userId") int userId,
+                                        @Param("limit") int limit,
+                                        @Param("offset") int offset);
 
     @Query(value = AlbumQuerySQL.FIND_ALBUM_ID_BY_SONG_ID, nativeQuery = true)
     List<Object[]> findAlbumBySongId(@Param("id") int id);

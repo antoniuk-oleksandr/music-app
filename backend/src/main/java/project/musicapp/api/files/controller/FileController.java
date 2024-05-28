@@ -22,8 +22,7 @@ public class FileController {
 
     @GetMapping("/{folder}/{fileName}")
     public ResponseEntity<byte[]> getSong(@PathVariable String folder,
-                                          @PathVariable String fileName
-    ) throws IOException {
+                                          @PathVariable String fileName)  {
         return this.fileService.getFile(folder, fileName);
     }
 }
