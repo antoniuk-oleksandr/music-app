@@ -19,7 +19,7 @@ public class SongController {
 
     @GetMapping("/{id}")
     public SongUserDTO findSongUserById(@PathVariable int id) {
-        return this.songService.findSongUserById(id);
+        return this.songService.findSongUserBySongId(id);
     }
 
     @GetMapping

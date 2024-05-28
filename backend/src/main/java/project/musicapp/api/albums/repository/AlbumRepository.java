@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import project.musicapp.api.albums.dto.AlbumCreatorDTO;
 import project.musicapp.api.albums.model.Album;
 import project.musicapp.api.albums.utils.AlbumQuerySQL;
 
@@ -21,4 +22,7 @@ public interface AlbumRepository extends CrudRepository<Album, Integer> {
 
     @Query(value = AlbumQuerySQL.FIND_ALL_ALBUMS_ID_BY_USER_ID, nativeQuery = true)
     List<Integer> findAllAlbumsByUserId(@Param("userId") int userId);
+
+    @Query(value = AlbumQuerySQL.FIND_ALBUM_ID_BY_SONG_ID, nativeQuery = true)
+    List<Object[]> findAlbumBySongId(@Param("id") int id);
 }

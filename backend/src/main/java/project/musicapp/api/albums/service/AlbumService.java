@@ -2,6 +2,7 @@ package project.musicapp.api.albums.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.albums.dto.AlbumCreatorDTO;
 import project.musicapp.api.albums.dto.AlbumDTO;
 import project.musicapp.api.albums.dto.AlbumUserSongsDTO;
 

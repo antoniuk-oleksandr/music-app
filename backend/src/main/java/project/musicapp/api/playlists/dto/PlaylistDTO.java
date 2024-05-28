@@ -14,5 +14,5 @@ public class PlaylistDTO {
     private Timestamp creatingDate;
     private String name;
     private String imagePath;
-    private PlaylistCreatorDTO user;
+    private PlaylistCreatorDTO creator;
 }

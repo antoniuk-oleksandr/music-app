@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 public class AlbumObjectMapper {
     private final List<Object[]> albums;
 
@@ -25,7 +24,7 @@ public class AlbumObjectMapper {
                 .name((String) album[1])
                 .creatingDate((Timestamp) album[2])
                 .imagePath((String) album[3])
-                .user(new AlbumCreatorDTO(
+                .creator(new AlbumCreatorDTO(
                         (Integer) album[4],
                         (String) album[5]
                 )).build();

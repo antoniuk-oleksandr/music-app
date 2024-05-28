@@ -1,6 +1,8 @@
 package project.musicapp.api.songs.dto;
 
 import lombok.*;
+import project.musicapp.api.albums.dto.AlbumCreatorDTO;
+import project.musicapp.api.albums.dto.AlbumDTO;
 import project.musicapp.api.users.dto.UserDTO;
 
 import java.sql.Timestamp;
@@ -17,5 +19,6 @@ public class SongUserDTO {
     private Timestamp releaseDate;
     private String songPath;
     private String imagePath;
+    private AlbumCreatorDTO album;
     private List<UserDTO> users;
 }

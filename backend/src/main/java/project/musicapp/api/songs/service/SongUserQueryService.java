@@ -2,6 +2,8 @@ package project.musicapp.api.songs.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.albums.dto.AlbumCreatorDTO;
+import project.musicapp.api.albums.service.AlbumCreatorService;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.mapper.SongUserMapper;
 import project.musicapp.api.songs.model.Song;
@@ -17,17 +19,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SongUserQueryService {
     private final UserService userService;
+    private final AlbumCreatorService albumCreatorService;
     private final SongRepository songRepository;
     private final SongUserRepository songUserRepository;
 
-    public SongUserDTO findSongUserById(int id) {
+    public SongUserDTO findSongUserBySongId(int id) {
         Song song = this.songRepository.findById(id).orElse(new Song());
+        AlbumCreatorDTO album = this.albumCreatorService.getAlbumCreatorBySongId(song.getId());
         List<UserDTO> users = this.userService.findAllUsersBySongId(song.getId());
-        return new SongUserMapper(song, users).toSongUserDTO();
+        return new SongUserMapper(song, album, users).toSongUserDTO();
     }
 
     private List<SongUserDTO> getSongUsersByIndices(List<Integer> indices) {
-        return indices.stream().map(this::findSongUserById).collect(Collectors.toList());
+        return indices.stream().map(this::findSongUserBySongId).collect(Collectors.toList());
     }
 
     public List<SongUserDTO> findSongUserByUserId(int id) {
