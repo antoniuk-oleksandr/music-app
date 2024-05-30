@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter @Setter
 public class AlbumUserSongsDTO {
+    private Integer id;
     private String name;
     private String imagePath;
     private Timestamp creatingDate;

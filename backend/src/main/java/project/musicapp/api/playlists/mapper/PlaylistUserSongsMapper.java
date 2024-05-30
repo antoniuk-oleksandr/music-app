@@ -22,6 +22,7 @@ public class PlaylistUserSongsMapper {
 
     public PlaylistUserSongsDTO toAlbumUserSongsDTO(){
         return PlaylistUserSongsDTO.builder()
+                .id(playlist.getId())
                 .name(playlist.getName())
                 .creator(getAlbumCreatorDTO())
                 .creatingDate(playlist.getCreatingDate())

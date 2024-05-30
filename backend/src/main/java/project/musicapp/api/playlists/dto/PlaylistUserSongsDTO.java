@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlaylistUserSongsDTO {
+    private Integer id;
     private String name;
     private String imagePath;
     private Timestamp creatingDate;
