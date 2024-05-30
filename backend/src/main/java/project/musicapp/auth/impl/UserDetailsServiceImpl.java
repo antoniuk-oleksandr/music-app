@@ -1,6 +1,7 @@
-package project.musicapp.auth.service;
+package project.musicapp.auth.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import project.musicapp.api.users.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = this.userService.findUserByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(username)
+            .orElseThrow(() -> new UsernameNotFoundException(username)
         );
         return new UserDetailsMapper(user).mapToUserDetails();
     }
