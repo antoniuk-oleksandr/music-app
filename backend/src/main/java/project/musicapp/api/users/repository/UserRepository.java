@@ -8,6 +8,7 @@ import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.utils.UserQuerySQL;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
@@ -19,4 +20,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Query(value = UserQuerySQL.FIND_ALL_USERS_FOR_SONG_BY_SONG_ID, nativeQuery = true)
     List<User> findAllUsersBySongId(@Param("id") int id);
+
+    Optional<User> findByUsername(String username);
 }

@@ -1,6 +1,7 @@
 package project.musicapp.api.users.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.users.dto.UserBannerDTO;
 import project.musicapp.api.users.dto.UserDTO;
@@ -11,6 +12,7 @@ import project.musicapp.api.users.repository.UserRepository;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,5 +32,9 @@ public class UserQueryService {
     public List<UserDTO> findAllUsersByUsernameAndFlag(String value, int limit, int offset, boolean isArtist) {
         List<User> users = this.userRepository.findAllUsersByUsernameAndByIsArtist(value, limit, offset, isArtist);
         return new UserMapper(users).toUserDTOs();
+    }
+
+    public Optional<User> findUserByUsername(String username) {
+        return this.userRepository.findByUsername(username);
     }
 }
