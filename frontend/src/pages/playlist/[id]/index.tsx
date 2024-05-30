@@ -1,4 +1,4 @@
-import Wrapper from "@/common-components/Wrapper";
+import Wrapper from "@/common-components/Wrapper/Wrapper";
 import ListPage from "@/common-components/ListPage/ListPage";
 import {useListData} from "@/common-components/use-list-data";
 import {ListType} from "@/types/ListType";

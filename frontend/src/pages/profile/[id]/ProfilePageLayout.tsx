@@ -9,6 +9,7 @@ const ProfilePageLayoutLayout = (props: LayoutProps) => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{duration: 0.3, easings: "easeOut"}}
+            className={"mb-48"}
         >
             {children}
         </motion.div>

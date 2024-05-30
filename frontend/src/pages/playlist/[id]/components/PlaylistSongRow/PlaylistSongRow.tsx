@@ -4,6 +4,7 @@ import {formatTime} from "@/common-components/MusicPlayer/helpers";
 import {useState} from "react";
 import PlaylistFirstColumn from "@/pages/playlist/[id]/components/PlaylistFirstColumn/PlaylistFirstColumn";
 import PlaylistSecondColumn from "@/pages/playlist/[id]/components/PlaylistSecondColumn";
+import AlbumLink from "@/common-components/AlbumLink";
 
 type PlaylistSongRowProps = {
     song: Song,
@@ -27,7 +28,7 @@ const PlaylistSongRow = (props: PlaylistSongRowProps) => {
                 isHovered={isHovered}
             />
             <PlaylistSecondColumn song={song}/>
-            <span>album</span>
+            <AlbumLink album={song.album}/>
             <span>buttons</span>
             <span className={"text-end"}>{formatTime(song.duration)}</span>
         </PlaylistSongRowLayout>

@@ -4,7 +4,7 @@ const LeftSideLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div>
+        <div className="flex items-center">
             {children}
         </div>
     )

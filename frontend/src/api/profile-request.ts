@@ -1,7 +1,9 @@
 import axios from "axios";
+import {getIpAddress} from "@/api/ip-address";
 
 export const profileRequest = async (id: number) => {
-    const url = `http://localhost:8080/api/profiles/${id}`;
+    const ip = getIpAddress();
+    const url = `http://${ip}:8080/api/profiles/${id}`;
 
     try {
         const response = await axios.get(url);

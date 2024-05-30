@@ -11,6 +11,7 @@ const config: Config = {
                 "gradient-conic":
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
                 'smooth-gradient': 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.6) 75%, rgba(245, 245, 245) 100%)',
+                'black-gradient': 'linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0.4) 100%)',
             },
             minWidth: {
                 67.5: "16.875rem",
@@ -29,7 +30,15 @@ const config: Config = {
             },
             colors: {
                 "black-70": "rgba(0, 0, 0, 0.7)",
+                "black-40": "rgba(0, 0, 0, 0.4)",
                 "white-10": "rgba(255, 255, 255, 0.1)",
+            },
+            screens: {
+                'mobile': {max: '768px'},
+                'small': {min: '480px', max: '960px'},
+                'tablet': {min: '960', max: '1440px'},
+                'laptop': {min: '1440px', max: '1920px'},
+                'desktop': {min: '1920px'}, // 10k to 1920px
             }
         },
     },

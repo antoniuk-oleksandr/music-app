@@ -7,21 +7,26 @@ type NavbarElementProps = {
     text: string,
     icon: ReactNode,
     currentPath: string | null,
-    pagePath: string
+    pagePath: string,
+    isNavbarHidden: boolean,
 }
 
 const NavbarElement = (props: NavbarElementProps) => {
-    const {icon, text, currentPath, pagePath} = props;
+    const {icon, text, currentPath, pagePath, isNavbarHidden} = props;
 
     let isSelected = false;
-    if(currentPath){
+    if (currentPath) {
         isSelected = pagePath.toLowerCase() === currentPath.toLowerCase();
     }
     return (
         <NavbarElementLayout pagePath={pagePath}>
             <NavIconLayout isSelected={isSelected}>{icon}</NavIconLayout>
-            <span className={"z-10"}>{text}</span>
-            <Selector isSelected={isSelected}/>
+            {!isNavbarHidden && (
+                <>
+                    <span className={"z-10"}>{text}</span>
+                    <Selector isSelected={isSelected}/>
+                </>
+            )}
         </NavbarElementLayout>
     )
 }

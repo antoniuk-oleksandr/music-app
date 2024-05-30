@@ -1,15 +1,20 @@
 import {LayoutProps} from "@/types/LayoutProps";
 import { motion } from "framer-motion";
 
-const NavbarLayout = (props: LayoutProps) => {
-    const {children} = props;
+type NavbarLayoutProps = LayoutProps & {
+    isNavbarHidden: boolean,
+}
+
+const NavbarLayout = (props: NavbarLayoutProps) => {
+    const {children, isNavbarHidden} = props;
 
     return (
         <motion.div
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{duration: 0.3, easings: "easeOut"}}
-            className="flex flex-col min-w-67.5 bg-white h-svh top-0 sticky">
+            className={`flex flex-col h-svh top-0 z-20 small:fixed mobile:fixed
+            ${isNavbarHidden ? 'bg-transparent fixed mt-16' : 'min-w-67.5 sticky'}`}>
             {children}
         </motion.div>
     )

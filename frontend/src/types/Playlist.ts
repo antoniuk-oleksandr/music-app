@@ -7,6 +7,6 @@ export type Playlist = {
     creatingDate: number,
     name: string,
     imagePath: string,
-    user: User,
+    creator: User,
     songs: Song[],
 }

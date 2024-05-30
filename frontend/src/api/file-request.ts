@@ -1,7 +1,9 @@
 import axios from "axios";
+import {getIpAddress} from "@/api/ip-address";
 
 export const fileRequest = async (filePath: string) => {
-    const url = `http://localhost:8080/api/files/${filePath}`;
+    const ip = getIpAddress();
+    const url = `http://${ip}:8080/api/files/${filePath}`;
 
     try {
         const response = await axios.get(url, {
