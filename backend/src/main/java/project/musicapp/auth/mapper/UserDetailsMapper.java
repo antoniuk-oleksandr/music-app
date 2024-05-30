@@ -14,7 +14,7 @@ public class UserDetailsMapper {
 
     public UserDetails mapToUserDetails() {
         return new org.springframework.security.core.userdetails.User(
-                user.getUsername(), user.getPassword(), Collections.emptyList()
+            user.getUsername(), user.getPassword(), Collections.emptyList()
         );
     }
 }

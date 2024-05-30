@@ -1,28 +1,25 @@
 package project.musicapp.auth.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.musicapp.auth.dto.UserAuthDTO;
+import project.musicapp.api.users.dto.RegistrationUserDTO;
+import project.musicapp.auth.dto.JwtRequestDTO;
 import project.musicapp.auth.service.AuthService;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
 
-    @Autowired
-    public AuthController(AuthService authService) {
-        this.authService = authService;
-    }
-
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserAuthDTO user) {
-        return authService.login(user);
+    public ResponseEntity<?> login(@RequestBody JwtRequestDTO userAuthDTO) {
+        return this.authService.login(userAuthDTO);
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout(@RequestBody UserAuthDTO user) {
-        return authService.login(user);
+    @PostMapping("/registration")
+    public ResponseEntity<?> register(@RequestBody RegistrationUserDTO userAuthDTO) {
+        return this.authService.registration(userAuthDTO);
     }
 }

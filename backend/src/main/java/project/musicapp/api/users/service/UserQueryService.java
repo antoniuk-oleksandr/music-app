@@ -1,7 +1,7 @@
 package project.musicapp.api.users.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.users.dto.UserBannerDTO;
 import project.musicapp.api.users.dto.UserDTO;
@@ -36,5 +36,13 @@ public class UserQueryService {
 
     public Optional<User> findUserByUsername(String username) {
         return this.userRepository.findByUsername(username);
+    }
+
+    public ResponseEntity<String> createUser(User user) {
+        if(this.userRepository.findByUsername(user.getUsername()).isPresent()) {
+            return ResponseEntity.badRequest().body("Username already exists");
+        }
+        this.userRepository.save(user);
+        return ResponseEntity.ok().body("User created");
     }
 }
