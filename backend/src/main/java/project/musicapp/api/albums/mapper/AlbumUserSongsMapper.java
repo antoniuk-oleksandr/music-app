@@ -21,6 +21,7 @@ public class AlbumUserSongsMapper {
 
     public AlbumUserSongsDTO toAlbumUserSongsDTO(){
         return AlbumUserSongsDTO.builder()
+                .id(album.getAlbumId())
                 .name(album.getName())
                 .creator(getAlbumCreatorDTO())
                 .creatingDate(album.getDate())
