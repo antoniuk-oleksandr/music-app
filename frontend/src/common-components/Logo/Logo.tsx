@@ -4,8 +4,11 @@ import {IoMusicalNotes} from "react-icons/io5";
 const Logo = () => {
     return (
         <LogoLayout>
-            <IoMusicalNotes className="text-3xl"/>
-            <span>MusicTunes</span>
+            <div className="leading-6">
+                <p>Music</p>
+                {/*<p>Tunes</p>*/}
+            </div>
+            <IoMusicalNotes className="text-xl"/>
         </LogoLayout>
     )
 }

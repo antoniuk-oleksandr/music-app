@@ -11,12 +11,13 @@ const SongListBottomInfo = (props: SongListBottomInfoProps) => {
     const {item} = props;
     const router = useRouter();
 
+
     return (
         <>
             <span
                 className={"cursor-pointer select-text hover:underline duration-200 ease-out"}
-                onClick={() => router.push(`/profile/${item.user.id}`)}>
-                {item.user.username}
+                onClick={() => router.push(`/profile/${item.creator.id}`)}>
+                {item.creator.username}
             </span>
             <span>•</span>
             <span>{getYearFromTimestamp(item.creatingDate)}</span>

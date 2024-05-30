@@ -1,5 +1,5 @@
 import {LayoutProps} from "@/types/LayoutProps";
-import Wrapper from "@/common-components/Wrapper";
+import Wrapper from "@/common-components/Wrapper/Wrapper";
 
 const SearchLayout = (props: LayoutProps) => {
     const {children} = props;

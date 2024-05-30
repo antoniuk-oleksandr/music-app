@@ -16,7 +16,7 @@ const ProfileInfoBlock = (props: ProfileInfoBlockProps) => {
         <ProfileInfoBlockLayout>
             <ProfileUsernameName username={profileData.user.username}/>
             <BannerButtonsLayout>
-                <ProfilePlayButton/>
+                <ProfilePlayButton songs={profileData.songs}/>
                 <SubscribeButton profileData={profileData}/>
             </BannerButtonsLayout>
         </ProfileInfoBlockLayout>

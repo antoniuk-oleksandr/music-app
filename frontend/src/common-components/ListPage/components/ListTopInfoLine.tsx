@@ -12,7 +12,7 @@ const ListTopInfoLine = (props: ListPageProps) => {
         <ListInfoLineLayout>
             <span>{listType}</span>
             <span>•</span>
-            <UserLink user={list.user}/>
+            <UserLink user={list.creator}/>
             <span>•</span>
             <span>{getYearFromTimestamp(list.creatingDate)}</span>
         </ListInfoLineLayout>
