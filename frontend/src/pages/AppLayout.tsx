@@ -11,15 +11,19 @@ const inter = Manrope({
     display: 'swap',
 })
 
-const AppLayout = (props: LayoutProps) => {
-    const {children} = props;
+type AppLayoutProps = LayoutProps & {
+    hideNavbarHeader: boolean
+}
+
+const AppLayout = (props: AppLayoutProps) => {
+    const {children, hideNavbarHeader} = props;
 
     return (
         <AudioProvider>
             <Provider store={store}>
                 <MusicPlayer/>
                 <div className={`flex ${inter.className}`}>
-                    <Navbar/>
+                    {!hideNavbarHeader && <Navbar/>}
                     <div className={`w-full flex flex-col`}>
                         {children}
                     </div>

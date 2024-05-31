@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/profile-lists-request.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/ProfileListPage/ProfileListPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/ProfileListPage/ProfileListPageListsLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/YearElement.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/albums/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListName.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/playlists/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/use-effects/use-profile-lists.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profile/[id]/use-effects/use-profile-songs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/components/ListTopInfoLine.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/components/ListTopInfoLine.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/ListPage/handlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayerLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/MusicPlayer/MusicPlayerLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/Navbar/NavbarLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Navbar/NavbarLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/use-list-data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/use-list-data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileLists/ProfileLists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileLists/ProfileLists.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsElement/ProfileListElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsElement/ProfileListElement.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsOverlay/ProfileListsOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsOverlay/ProfileListsOverlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsPlayButton/ProfileListsPlayButtonLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsPlayButton/ProfileListsPlayButtonLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfilePlayButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfilePlayButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/songs/ProfileSongsLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/songs/ProfileSongsLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/songs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/songs/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/[id]/use-profile-data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/[id]/use-effects/use-profile-data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
-    </list>
+    <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +22,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -69,8 +39,8 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;profile-page&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend/src/pages/profile/[id]/albums&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sign-in-page&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend/src/pages/sign-up&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,15 +53,16 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/sign-up" />
       <recent name="$PROJECT_DIR$/src/pages/profile/[id]/albums" />
       <recent name="$PROJECT_DIR$/src/pages/albums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/sign-in/components/NoAccountMessage" />
+      <recent name="$PROJECT_DIR$/src/pages/sign-in/components/SingInput" />
+      <recent name="$PROJECT_DIR$/src/use-effects" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/common-components/ProfileListPage" />
-      <recent name="$PROJECT_DIR$/src/pages/profile/[id]" />
-      <recent name="$PROJECT_DIR$/src/pages/profile/use-effects" />
-      <recent name="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsElement" />
-      <recent name="$PROJECT_DIR$/src/pages/profile/[id]/components/ProfileListsOverlay" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -142,6 +113,8 @@
       <workItem from="1717052995620" duration="3087000" />
       <workItem from="1717056090922" duration="2978000" />
       <workItem from="1717088227370" duration="6835000" />
+      <workItem from="1717153169258" duration="17555000" />
+      <workItem from="1717172139499" duration="2247000" />
     </task>
     <servers />
   </component>
