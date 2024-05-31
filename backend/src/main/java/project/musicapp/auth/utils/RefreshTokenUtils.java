@@ -23,9 +23,9 @@ public class RefreshTokenUtils {
         );
     }
 
-    private void updateExistingRefreshToken(User user, String refreshToken) {
+    public void updateExistingRefreshToken(User user, String refreshToken) {
         RefreshToken refreshTokenEntity = this.refreshTokenRepository.findRefreshTokenByUser(user)
-                .orElseThrow(() -> new IllegalStateException("User is not registered"));
+                .orElseThrow(() -> new IllegalStateException("User don't have refresh token"));
 
         refreshTokenEntity.setRefreshToken(refreshToken);
         this.refreshTokenRepository.save(refreshTokenEntity);

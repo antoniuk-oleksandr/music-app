@@ -35,7 +35,7 @@ public class AuthLoginService {
         String refreshToken = generateRefreshToken(username);
 
         User user = findUserByUsername(username);
-        this.refreshTokenService.saveNewRefreshToken(user, refreshToken);
+        this.refreshTokenService.updateExistingRefreshToken(user, refreshToken);
 
         return getLoginResponseEntity(accessToken, refreshToken);
     }
