@@ -1,5 +1,5 @@
 import Wrapper from "@/common-components/Wrapper/Wrapper";
-import {useListData} from "@/common-components/use-list-data";
+import {useListData} from "@/common-use-effects/use-list-data";
 import ListPage from "@/common-components/ListPage/ListPage";
 import {ListType} from "@/types/ListType";
 

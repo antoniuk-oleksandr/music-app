@@ -1,5 +1,5 @@
 import NavbarLayout from "./NavbarLayout";
-import {IoDisc, IoHome, IoMenu, IoMusicalNote} from "react-icons/io5";
+import {IoDisc, IoHome, IoMusicalNote} from "react-icons/io5";
 import NavbarElement from "@/common-components/Navbar/components/NavbarElement/NavbarElement";
 import LogoContainer from "@/common-components/Navbar/components/LogoContainer";
 import PlayListsBlock from "@/common-components/Navbar/components/PlayListsBlock/PlayListsBlock";
