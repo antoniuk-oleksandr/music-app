@@ -4,8 +4,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.musicapp.api.users.dto.RegistrationUserDTO;
 import project.musicapp.auth.dto.LoginRequestDTO;
+import project.musicapp.auth.dto.RegistrationRequestDTO;
 import project.musicapp.auth.service.AuthService;
 
 @RestController
@@ -20,7 +20,7 @@ public class AuthController {
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<?> register(@RequestBody RegistrationUserDTO userAuthDTO) {
+    public ResponseEntity<?> register(@RequestBody RegistrationRequestDTO userAuthDTO) {
         return this.authService.registration(userAuthDTO);
     }
 

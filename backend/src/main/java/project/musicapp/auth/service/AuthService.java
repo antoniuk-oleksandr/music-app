@@ -4,8 +4,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import project.musicapp.api.users.dto.RegistrationUserDTO;
 import project.musicapp.auth.dto.LoginRequestDTO;
+import project.musicapp.auth.dto.RegistrationRequestDTO;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +18,7 @@ public class AuthService {
         return this.authLoginService.login(authRequest);
     }
 
-    public ResponseEntity<?> registration(RegistrationUserDTO registrationUserDTO){
+    public ResponseEntity<?> registration(RegistrationRequestDTO registrationUserDTO){
         return this.authRegistrationService.registration(registrationUserDTO);
     }
 

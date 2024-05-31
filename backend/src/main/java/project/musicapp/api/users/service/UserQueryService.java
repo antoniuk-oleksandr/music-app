@@ -38,11 +38,9 @@ public class UserQueryService {
         return this.userRepository.findByUsername(username);
     }
 
-    public ResponseEntity<String> createUser(User user) {
-        if(this.userRepository.findByUsername(user.getUsername()).isPresent()) {
-            return ResponseEntity.badRequest().body("Username already exists");
+    public void createUser(User user) {
+        if(this.userRepository.findByUsername(user.getUsername()).isEmpty()) {
+            this.userRepository.save(user);
         }
-        this.userRepository.save(user);
-        return ResponseEntity.ok().body("User created");
     }
 }

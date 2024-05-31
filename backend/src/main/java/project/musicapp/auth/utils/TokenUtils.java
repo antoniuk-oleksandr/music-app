@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.*;
 
@@ -21,16 +22,16 @@ public class TokenUtils {
     @Value("${jwt.refreshToken.lifetime}")
     private Duration refreshTokenLifetime;
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(String username) {
         HashMap<String, Object> claims = new HashMap<>();
         claims.put("tokenType", "access");
-        return createToken(claims, userDetails.getUsername(), jwtLifetime);
+        return createToken(claims, username, jwtLifetime);
     }
 
-    public String generateRefreshToken(UserDetails userDetails) {
+    public String generateRefreshToken(String username) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("tokenType", "refresh");
-        return createToken(claims, userDetails.getUsername(), refreshTokenLifetime);
+        return createToken(claims, username, refreshTokenLifetime);
     }
 
     private String createToken(Map<String, Object> claims, String username, Duration lifetime) {
@@ -47,14 +48,15 @@ public class TokenUtils {
         return claims.getExpiration();
     }
 
+    public Timestamp getExpirationFromToken(String token) {
+        Date expiration = getDateFromToken(token);
+        return new Timestamp(expiration.getTime());
+    }
+
     public String getUsernameFromToken(String token) {
         return parseToken(token).getSubject();
     }
 
-    public boolean isRefreshToken(String token) {
-        Claims claims = parseToken(token);
-        return "refresh".equals(claims.get("tokenType"));
-    }
 
     public boolean isAccessToken(String token) {
         Claims claims = parseToken(token);
