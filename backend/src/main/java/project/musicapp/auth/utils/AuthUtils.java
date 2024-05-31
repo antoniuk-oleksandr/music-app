@@ -8,22 +8,20 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import project.musicapp.auth.dto.JwtRequestDTO;
+import project.musicapp.auth.dto.LoginRequestDTO;
 import project.musicapp.auth.impl.UserDetailsServiceImpl;
 
 @Component
 @RequiredArgsConstructor
 public class AuthUtils {
-    private final JwtTokenUtils jwtTokenUtils;
+    private final TokenUtils jwtTokenUtils;
     private final UserDetailsServiceImpl userDetailsService;
     private final AuthenticationManager authenticationManager;
 
-    public void authenticateJwtRequest(JwtRequestDTO authRequest) {
+    public void authenticateJwtRequest(LoginRequestDTO authRequest) {
         try {
             this.authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                    authRequest.getUsername(), authRequest.getPassword()
-                )
+                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
         } catch (AuthenticationException e) {
             ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
@@ -34,7 +32,7 @@ public class AuthUtils {
         return this.userDetailsService.loadUserByUsername(username);
     }
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateAccessToken(UserDetails userDetails) {
         return this.jwtTokenUtils.generateToken(userDetails);
     }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @AllArgsConstructor
-public class JwtResponseDTO {
-    private String token;
+public class LoginResponseDTO {
+    private String jwt;
+    private String refresh;
 }

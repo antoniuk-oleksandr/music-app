@@ -8,12 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import project.musicapp.auth.utils.JwtTokenUtils;
+import project.musicapp.auth.utils.TokenUtils;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -22,15 +23,19 @@ import java.util.Collections;
 @Component
 @RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
-    private final JwtTokenUtils jwtUtils;
+    private final TokenUtils jwtUtils;
 
     @Override
     protected void doFilterInternal(
             HttpServletRequest request, HttpServletResponse response, FilterChain filterChain
     ) throws ServletException, IOException {
-        String authHeader = request.getHeader("Authorization");
+        String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         String username = getUsername(authHeader);
-        putUserInSecurityContext(username);
+
+        if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            putUserInSecurityContext(username);
+        }
+
         filterChain.doFilter(request, response);
     }
 
@@ -38,7 +43,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             try {
                 String jwtToken = authHeader.substring("Bearer ".length());
-                return jwtUtils.getUsernameFromToken(jwtToken);
+                if (jwtUtils.isAccessToken(jwtToken)) {
+                    return jwtUtils.getUsernameFromToken(jwtToken);
+                } else {
+                    log.debug("Provided token is not an access token");
+                    throw new SignatureException("Invalid JWT token");
+                }
             } catch (ExpiredJwtException e) {
                 log.debug("JWT token expired");
             } catch (SignatureException e) {
@@ -49,14 +59,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     }
 
     private void putUserInSecurityContext(String username) {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-
-        if(username != null && securityContext.getAuthentication() == null) {
-            securityContext.setAuthentication(
-                new UsernamePasswordAuthenticationToken(
-                    username, null, Collections.emptyList()
-                )
-            );
-        }
+        SecurityContextHolder.getContext().setAuthentication(
+            new UsernamePasswordAuthenticationToken(
+                username, null, Collections.emptyList()
+            )
+        );
     }
 }
