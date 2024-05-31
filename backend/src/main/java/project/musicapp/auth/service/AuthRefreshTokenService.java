@@ -10,8 +10,6 @@ import project.musicapp.auth.dto.RefreshTokenResponseDTO;
 import project.musicapp.auth.utils.AccessTokenUtils;
 import project.musicapp.auth.utils.TokenUtils;
 
-import java.sql.Timestamp;
-
 @Service
 @RequiredArgsConstructor
 public class AuthRefreshTokenService {
@@ -47,7 +45,7 @@ public class AuthRefreshTokenService {
     }
 
     private JwtTokenDTO generateNewAccessToken(String refreshToken) {
-        String username = tokenUtils.getUsernameFromToken(refreshToken);
-        return accessTokenUtils.generateAccessToken(username);
+        String username = this.tokenUtils.getUsernameFromToken(refreshToken);
+        return this.accessTokenUtils.generateAccessToken(username);
     }
 }

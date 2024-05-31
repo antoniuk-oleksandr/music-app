@@ -12,7 +12,7 @@ public class AccessTokenUtils {
     private final TokenUtils tokenUtils;
 
     public JwtTokenDTO generateAccessToken(String username) {
-        String token = this.tokenUtils.generateToken(username);
+        String token = this.tokenUtils.generateAccessToken(username);
         Timestamp timestamp = this.tokenUtils.getExpirationFromToken(token);
         return new JwtTokenDTO(token, timestamp);
     }

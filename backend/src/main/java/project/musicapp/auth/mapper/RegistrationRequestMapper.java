@@ -9,14 +9,14 @@ public class RegistrationRequestMapper {
     private final RegistrationRequestDTO registrationRequestDTO;
     private final String encodedPassword;
 
-    public User toUser(){
+    public User toUser() {
         return User.builder()
-                .username(registrationRequestDTO.getUsername())
-                .password(encodedPassword)
-                .email(registrationRequestDTO.getEmail())
-                .avatar("/avatars/empty.jpg")
-                .banner("/banners/empty.jpg")
-                .isArtist(false)
-                .build();
+            .username(registrationRequestDTO.getUsername())
+            .password(encodedPassword)
+            .email(registrationRequestDTO.getEmail())
+            .avatar("/avatars/empty.jpg")
+            .banner("/banners/empty.jpg")
+            .isArtist(false)
+        .build();
     }
 }
