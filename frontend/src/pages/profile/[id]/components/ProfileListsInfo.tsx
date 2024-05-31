@@ -2,6 +2,8 @@ import {getYearFromTimestamp} from "@/utils/utils";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {useRouter} from "next/router";
+import ProfileListName from "@/pages/profile/[id]/components/ProfileListName";
+import YearElement from "@/common-components/YearElement";
 
 type ProfileListsInfoProps = {
     element: Album | Playlist,
@@ -9,15 +11,11 @@ type ProfileListsInfoProps = {
 
 const ProfileListsInfo = (props: ProfileListsInfoProps) => {
     const {element} = props;
-    const router = useRouter();
 
     return (
         <div>
-            <p
-                onClick={() => router.push(`/album/${element.id}`)}
-                className={"font-semibold hover:underline cursor-pointer w-fit duration-200 ease-out"}
-            >{element.name}</p>
-            <p className={"text-neutral-700"}>{getYearFromTimestamp(element.creatingDate)}</p>
+            <ProfileListName {...props} />
+            <YearElement timestamp={element.creatingDate}/>
         </div>
     )
 }

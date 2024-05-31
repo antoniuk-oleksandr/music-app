@@ -6,14 +6,16 @@ import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {AnimatePresence} from "framer-motion";
 import ProfileListsContentOverlay from "@/pages/profile/[id]/components/ProfileListsContentOverlay";
+import {MutableRefObject} from "react";
 
 type ProfileListsOverlayProps = {
     element: Album | Playlist,
     isHovered: boolean,
+    buttonRef: MutableRefObject<HTMLButtonElement | null>,
 }
 
 const ProfileListsOverlay = (props: ProfileListsOverlayProps) => {
-    const {element, isHovered} = props;
+    const {buttonRef, isHovered, element} = props;
 
     return (
         <AnimatePresence>
@@ -21,7 +23,10 @@ const ProfileListsOverlay = (props: ProfileListsOverlayProps) => {
                 <>
                     <ProfileListsContentOverlay/>
                     <ProfileListsOverlayLayout>
-                        <ProfileListsPlayButtonLayout>
+                        <ProfileListsPlayButtonLayout
+                            songs={element.songs}
+                            buttonRef={buttonRef}
+                        >
                             <IoPlay className={"text-2xl text-white"}/>
                         </ProfileListsPlayButtonLayout>
                     </ProfileListsOverlayLayout>

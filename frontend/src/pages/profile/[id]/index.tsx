@@ -1,4 +1,4 @@
-import {useProfileData} from "@/pages/profile/[id]/use-profile-data";
+import {useProfileData} from "@/pages/profile/[id]/use-effects/use-profile-data";
 import ProfileBannerBlock from "@/pages/profile/[id]/components/ProfileBannerBlock/ProfileBannerBlock";
 import ProfilePageLayoutLayout from "@/pages/profile/[id]/ProfilePageLayout";
 import ProfileUserData from "@/pages/profile/[id]/components/ProfileUserData/ProfileUserData";

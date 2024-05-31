@@ -14,7 +14,11 @@ const ProfileLists = (props: ProfileListsProps) => {
     return (
         <ProfileListsLayout>
             {lists.map((element, key) => (
-                <ProfileListElement key={key} element={element}/>
+                <ProfileListElement
+                    type={listType}
+                    key={key}
+                    element={element}
+                />
             ))}
         </ProfileListsLayout>
     )

@@ -30,23 +30,31 @@ export const getYearFromTimestamp = (timestamp: number) => {
     return date.getFullYear();
 }
 
-export const getImagesForList = async (list: Album | Playlist) => {
+export const getSongImagesForList = async (list: Album | Playlist) => {
     list.imagePath = await getUrlFromString(list.imagePath, FileType.Image)
     for (let song of list.songs) {
-        song.imagePath = await getUrlFromString(song.imagePath, FileType.Image)
+        song.imagePath = await getUrlFromString(song.imagePath, FileType.Image);
     }
 
     return list;
 }
 
-export const getImagesForSongs = async (element: {songs: Song[]}) => {
+export const getImagesForList = async (list: Album[] | Playlist[]) => {
+    for (let element of list) {
+        element.imagePath = await getUrlFromString(element.imagePath, FileType.Image);
+    }
+
+    return list;
+}
+
+export const getImagesForSongs = async (element: { songs: Song[] }) => {
     for (let song of element.songs) {
         song.imagePath = await getUrlFromString(song.imagePath, FileType.Image);
     }
 }
 
 export const getSongSrcs = async (songs: Song[]) => {
-    if(songs[0].songPath.includes('blob')) return;
+    if (songs[0].songPath.includes('blob')) return;
 
     for (let song of songs) {
         song.songPath = await getUrlFromString(song.songPath, FileType.Audio);
@@ -54,7 +62,7 @@ export const getSongSrcs = async (songs: Song[]) => {
 }
 
 export const getWrapperWidth = (device: Device | null, isNavbarHidden: boolean | null) => {
-    if(device === Device.Mobile) return '100%';
+    if (device === Device.Mobile) return '100%';
     const navbarWidth = isNavbarHidden ? '0px' : '270px';
 
     return `min(calc(100vw - 200px - ${navbarWidth} - 6px), 1478px)`;

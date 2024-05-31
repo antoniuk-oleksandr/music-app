@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {profileRequest} from "@/api/profile-request";
 import {useRouter} from "next/router";
 import {Profile} from "@/types/Profile";
-import {getImagesForList, getImagesForSongs, getUrlFromString} from "@/utils/utils";
+import {getSongImagesForList, getImagesForSongs, getUrlFromString, getImagesForList} from "@/utils/utils";
 import {FileType} from "@/types/File";
 
 export const useProfileData = () => {
@@ -19,9 +19,8 @@ export const useProfileData = () => {
             data.user.bannerPath = await getUrlFromString(data.user.bannerPath, FileType.Image);
             data.songs = data.songs.slice(0, 5);
             await getImagesForSongs(data);
-            for (let album of data.albums) await getImagesForList(album);
-            for (let playlist of data.playlists) await getImagesForList(playlist);
-
+            await getImagesForList(data.albums);
+            await getImagesForList(data.playlists);
             setProfile(data);
         }
 
