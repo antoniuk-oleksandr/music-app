@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
@@ -22,25 +21,16 @@ public class TokenUtils {
     @Value("${jwt.refreshToken.lifetime}")
     private Duration refreshTokenLifetime;
 
-    public String generateToken(String username) {
+    public String generateAccessToken(String username) {
         HashMap<String, Object> claims = new HashMap<>();
-        claims.put("tokenType", "access");
+        claims.put("type", "access");
         return createToken(claims, username, jwtLifetime);
     }
 
     public String generateRefreshToken(String username) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("tokenType", "refresh");
+        claims.put("type", "refresh");
         return createToken(claims, username, refreshTokenLifetime);
-    }
-
-    private String createToken(Map<String, Object> claims, String username, Duration lifetime) {
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + lifetime.toMillis()))
-                .signWith(SignatureAlgorithm.HS256, secret).compact();
     }
 
     public Date getDateFromToken(String token) {
@@ -57,15 +47,22 @@ public class TokenUtils {
         return parseToken(token).getSubject();
     }
 
-
     public boolean isAccessToken(String token) {
         Claims claims = parseToken(token);
-        return "access".equals(claims.get("tokenType"));
+        return "access".equals(claims.get("type"));
     }
 
     public Boolean validateToken(String token) {
         Date expiration = getDateFromToken(token);
         return expiration.after(new Date());
+    }
+
+    private String createToken(Map<String, Object> claims, String username, Duration lifetime) {
+        return Jwts.builder()
+                .setClaims(claims).setSubject(username)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + lifetime.toMillis()))
+                .signWith(SignatureAlgorithm.HS256, secret).compact();
     }
 
     private Claims parseToken(String token) {
