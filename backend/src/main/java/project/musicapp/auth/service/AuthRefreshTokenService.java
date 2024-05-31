@@ -4,19 +4,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+import project.musicapp.auth.dto.JwtTokenDTO;
 import project.musicapp.auth.dto.RefreshTokenResponseDTO;
-import project.musicapp.auth.utils.AuthUtils;
+import project.musicapp.auth.utils.AccessTokenUtils;
 import project.musicapp.auth.utils.TokenUtils;
+
+import java.sql.Timestamp;
 
 @Service
 @RequiredArgsConstructor
 public class AuthRefreshTokenService {
-    private final AuthUtils authUtils;
     private final TokenUtils tokenUtils;
-    private final UserDetailsService userDetailsService;
+    private final AccessTokenUtils accessTokenUtils;
 
     public ResponseEntity<?> refreshToken(HttpServletRequest request) {
         String refreshToken = extractTokenFromRequest(request);
@@ -33,8 +33,9 @@ public class AuthRefreshTokenService {
             return ResponseEntity.badRequest().body("Cannot create a refresh token for an access token");
         }
 
-        String newAccessToken = generateNewAccessToken(refreshToken);
-        return ResponseEntity.ok().body(new RefreshTokenResponseDTO(newAccessToken));
+        return ResponseEntity.ok().body(
+            new RefreshTokenResponseDTO(generateNewAccessToken(refreshToken))
+        );
     }
 
     private String extractTokenFromRequest(HttpServletRequest request) {
@@ -45,9 +46,8 @@ public class AuthRefreshTokenService {
         return null;
     }
 
-    private String generateNewAccessToken(String refreshToken) {
+    private JwtTokenDTO generateNewAccessToken(String refreshToken) {
         String username = tokenUtils.getUsernameFromToken(refreshToken);
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        return authUtils.generateAccessToken(userDetails);
+        return accessTokenUtils.generateAccessToken(username);
     }
 }

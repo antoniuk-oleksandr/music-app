@@ -7,5 +7,5 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 public class RefreshTokenResponseDTO {
-    private String jwt;
+    private JwtTokenDTO jwt;
 }
