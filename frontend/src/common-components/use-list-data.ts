@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {Album} from "@/types/Album";
-import {getImagesForList} from "@/utils/utils";
+import {getSongImagesForList} from "@/utils/utils";
 import {listRequest} from "@/api/list-request";
 import {ListType} from "@/types/ListType";
 import {Playlist} from "@/types/Playlist";
@@ -18,7 +18,7 @@ export const useListData = (listType: ListType) => {
             const id = parseInt(query.id);
 
             const response = await listRequest(id, listType);
-            await getImagesForList(response);
+            await getSongImagesForList(response);
 
             setListData(response);
         }

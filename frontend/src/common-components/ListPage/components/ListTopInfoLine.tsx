@@ -6,8 +6,6 @@ import UserLink from "@/common-components/UserLink";
 const ListTopInfoLine = (props: ListPageProps) => {
     const {list, listType} = props;
 
-    console.log(list, listType);
-
     return (
         <ListInfoLineLayout>
             <span>{listType}</span>

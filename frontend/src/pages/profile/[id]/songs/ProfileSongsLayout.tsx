@@ -1,12 +1,15 @@
 import {LayoutProps} from "@/types/LayoutProps";
+import Wrapper from "@/common-components/Wrapper/Wrapper";
 
 const ProfileSongsLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div>
-            {children}
-        </div>
+        <Wrapper pt={'pt-4'} pb={'pb-48'}>
+            <div>
+                {children}
+            </div>
+        </Wrapper>
     )
 }
 
