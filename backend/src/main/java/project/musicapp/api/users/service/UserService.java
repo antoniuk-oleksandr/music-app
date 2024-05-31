@@ -31,6 +31,14 @@ public class UserService {
         return this.userQueryService.findUserByUsername(username);
     }
 
+    public Optional<User> findUserByEmail(String email) {
+        return this.userQueryService.findUserByEmail(email);
+    }
+
+    public Optional<User> findUserByUsernameEmail(String usernameEmail){
+        return this.userQueryService.findUserByUsernameEmail(usernameEmail);
+    }
+
     public void createUser(User userDTO) {
         this.userQueryService.createUser(userDTO);
     }

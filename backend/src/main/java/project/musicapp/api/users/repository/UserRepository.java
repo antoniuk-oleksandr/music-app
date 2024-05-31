@@ -22,4 +22,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     List<User> findAllUsersBySongId(@Param("id") int id);
 
     Optional<User> findByUsername(String username);
+
+    Optional<User> findByEmail(String email);
 }

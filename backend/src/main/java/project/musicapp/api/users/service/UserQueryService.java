@@ -38,6 +38,17 @@ public class UserQueryService {
         return this.userRepository.findByUsername(username);
     }
 
+    public Optional<User> findUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
+    }
+
+    public Optional<User> findUserByUsernameEmail(String usernameEmail){
+        if (findUserByUsername(usernameEmail).isPresent()){
+            return this.userRepository.findByUsername(usernameEmail);
+        }
+        return this.userRepository.findByEmail(usernameEmail);
+    }
+
     public void createUser(User user) {
         if(this.userRepository.findByUsername(user.getUsername()).isEmpty()) {
             this.userRepository.save(user);
