@@ -22,9 +22,13 @@ public class AuthRegistrationService {
     private final RefreshTokenUtils refreshTokenUtils;
 
     public ResponseEntity<?> registration(RegistrationRequestDTO registrationReq){
-        String username = registrationReq.getUsername();
-        if(this.userService.findUserByUsername(username).isPresent()){
+        String username = registrationReq.getUsername(), email = registrationReq.getEmail();
+
+        if (this.userService.findUserByUsername(username).isPresent()) {
            return ResponseEntity.badRequest().body("Username already exists");
+        }
+        if(this.userService.findUserByEmail(email).isPresent()){
+            return ResponseEntity.badRequest().body("Email already exists");
         }
 
         User user = mapToUserWithEncodedPassword(registrationReq);

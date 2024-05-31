@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.service.UserService;
@@ -24,42 +25,41 @@ public class AuthLoginService {
     private final AuthenticationManager authenticationManager;
 
     public ResponseEntity<?> login(LoginRequestDTO loginRequest) {
+        String usernameEmail = loginRequest.getUsernameEmail();
+        User user = userService.findUserByUsernameEmail(usernameEmail)
+                .orElseThrow(() -> new UsernameNotFoundException(loginRequest.getUsernameEmail()));
         try {
-            authenticateJwtRequest(loginRequest);
+            authenticateJwtRequest(user.getUsername(), loginRequest.getPassword());
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
+        JwtTokenDTO accessToken = generateAccessToken(user);
+        String refreshToken = generateRefreshToken(user);
 
-        String username = loginRequest.getUsernameEmail();
-        JwtTokenDTO accessToken = generateAccessToken(username);
-        String refreshToken = generateRefreshToken(username);
-
-        User user = findUserByUsername(username);
         this.refreshTokenService.updateExistingRefreshToken(user, refreshToken);
-
         return getLoginResponseEntity(accessToken, refreshToken);
     }
 
-    private void authenticateJwtRequest(LoginRequestDTO authRequest) {
+    private void authenticateJwtRequest(String username, String password) {
         this.authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
-                authRequest.getUsernameEmail(), authRequest.getPassword()
+                username, password
             )
         );
     }
 
-    private User findUserByUsername(String username) {
-        return this.userService.findUserByUsername(username).orElseThrow(
-            () -> new IllegalStateException("User with username " + username + " not found")
+    private User findUserByUsernameEmail(String usernameEmail) {
+        return this.userService.findUserByUsernameEmail(usernameEmail).orElseThrow(
+            () -> new IllegalStateException("User with username or email" + usernameEmail + " not found")
         );
     }
 
-    private JwtTokenDTO generateAccessToken(String username) {
-        return this.accessTokenUtils.generateAccessToken(username);
+    private JwtTokenDTO generateAccessToken(User user) {
+        return this.accessTokenUtils.generateAccessToken(user.getUsername());
     }
 
-    private String generateRefreshToken(String username) {
-        return this.refreshTokenService.generateRefreshToken(username);
+    private String generateRefreshToken(User user) {
+        return this.refreshTokenService.generateRefreshToken(user.getUsername());
     }
 
     private ResponseEntity<?> getLoginResponseEntity(JwtTokenDTO accessToken, String refreshToken) {
