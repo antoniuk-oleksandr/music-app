@@ -23,9 +23,4 @@ public class AuthController {
     public ResponseEntity<?> registration(@RequestBody RegistrationRequestDTO userAuthDTO) {
         return this.authService.registration(userAuthDTO);
     }
-
-    @PostMapping("/refresh-token")
-    public ResponseEntity<?> refreshToken(HttpServletRequest request) {
-        return this.authService.refreshToken(request);
-    }
 }

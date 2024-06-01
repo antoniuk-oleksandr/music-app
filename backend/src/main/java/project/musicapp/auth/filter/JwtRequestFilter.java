@@ -10,11 +10,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import project.musicapp.auth.utils.TokenUtils;
+import project.musicapp.api.tokens.service.TokenService;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -23,7 +22,7 @@ import java.util.Collections;
 @Component
 @RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
-    private final TokenUtils jwtUtils;
+    private final TokenService tokenService;
 
     @Override
     protected void doFilterInternal(
@@ -43,12 +42,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             try {
                 String jwtToken = authHeader.substring("Bearer ".length());
-                if (jwtUtils.isAccessToken(jwtToken)) {
-                    return jwtUtils.getUsernameFromToken(jwtToken);
-                } else {
-                    log.debug("Provided token is not an access token");
-                    throw new SignatureException("Invalid JWT token");
-                }
+                if (tokenService.isAccessToken(jwtToken))
+                    return tokenService.getUsernameFromToken(jwtToken);
+                log.debug("Provided token is not an access token");
             } catch (ExpiredJwtException e) {
                 log.debug("JWT token expired");
             } catch (SignatureException e) {

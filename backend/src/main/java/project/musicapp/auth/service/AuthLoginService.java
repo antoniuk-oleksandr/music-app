@@ -6,33 +6,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.tokens.dto.JwtTokenDTO;
+import project.musicapp.api.tokens.service.AccessTokenService;
+import project.musicapp.api.tokens.service.RefreshTokenService;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.service.UserService;
-import project.musicapp.auth.dto.JwtTokenDTO;
 import project.musicapp.auth.dto.LoginRequestDTO;
 import project.musicapp.auth.dto.LoginResponseDTO;
-import project.musicapp.auth.utils.AccessTokenUtils;
-import project.musicapp.auth.utils.RefreshTokenUtils;
+
 
 @Service
 @RequiredArgsConstructor
 public class AuthLoginService {
     private final UserService userService;
-    private final AccessTokenUtils accessTokenUtils;
-    private final RefreshTokenUtils refreshTokenService;
+    private final AccessTokenService accessTokenService;
+    private final RefreshTokenService refreshTokenService;
     private final AuthenticationManager authenticationManager;
 
     public ResponseEntity<?> login(LoginRequestDTO loginRequest) {
         String usernameEmail = loginRequest.getUsernameEmail();
-        User user = userService.findUserByUsernameEmail(usernameEmail)
-                .orElseThrow(() -> new UsernameNotFoundException(loginRequest.getUsernameEmail()));
+        User user = findUserByUsernameEmail(usernameEmail);
+
         try {
             authenticateJwtRequest(user.getUsername(), loginRequest.getPassword());
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
+
         JwtTokenDTO accessToken = generateAccessToken(user);
         String refreshToken = generateRefreshToken(user);
 
@@ -42,9 +43,7 @@ public class AuthLoginService {
 
     private void authenticateJwtRequest(String username, String password) {
         this.authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(
-                username, password
-            )
+            new UsernamePasswordAuthenticationToken(username, password)
         );
     }
 
@@ -55,7 +54,7 @@ public class AuthLoginService {
     }
 
     private JwtTokenDTO generateAccessToken(User user) {
-        return this.accessTokenUtils.generateAccessToken(user.getUsername());
+        return this.accessTokenService.generateAccessToken(user.getUsername());
     }
 
     private String generateRefreshToken(User user) {
