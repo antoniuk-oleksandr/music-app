@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import project.musicapp.utils.email.dto.ConfirmCodeDTO;
-import project.musicapp.auth.dto.RegistrationRequestDTO;
 import project.musicapp.utils.email.dto.SendCodeDTO;
 
 @Service
@@ -18,8 +17,6 @@ public class EmailService {
     }
 
     public ResponseEntity<?> confirmEmailCode(ConfirmCodeDTO confirmCodeDTO) {
-        return this.codeService.confirmCode(
-            confirmCodeDTO.getEmail(), String.valueOf(confirmCodeDTO.getCode())
-        );
+        return this.codeService.confirmCode(confirmCodeDTO);
     }
 }

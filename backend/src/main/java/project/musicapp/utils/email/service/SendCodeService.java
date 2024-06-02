@@ -16,11 +16,12 @@ import project.musicapp.utils.email.dto.SendCodeDTO;
 public class SendCodeService {
     private final CodeService codeService;
     private final JavaMailSender mailSender;
+    private final CodeStorageService codeStorageService;
 
     public ResponseEntity<?> sendEmailWithGeneratedCode(SendCodeDTO messageDTO) {
         CodeDTO code = this.codeService.generateCode();
 
-        this.codeService.putCode(messageDTO.getTo(), code);
+        this.codeStorageService.putCode(messageDTO.getTo(), code);
 
         try {
             MimeMessage message = getMessage(messageDTO, code);

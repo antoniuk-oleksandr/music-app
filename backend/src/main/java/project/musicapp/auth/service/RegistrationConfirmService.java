@@ -27,6 +27,11 @@ public class RegistrationConfirmService {
 
     public ResponseEntity<?> registrationConfirm(RegistrationConfirmDTO regConfirmDTO) {
         String username = regConfirmDTO.getUsername();
+
+        if(this.userService.findUserByUsername(username).isPresent()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You are already registered");
+        }
+
         String refreshToken = generateRefreshToken(username);
         User user = mapToUserWithEncodedPassword(regConfirmDTO);
 
