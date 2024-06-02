@@ -1,10 +1,7 @@
-package project.musicapp.api.email.service;
+package project.musicapp.utils.email.service;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.stereotype.Service;
-import project.musicapp.api.email.dto.CodeDTO;
+import project.musicapp.utils.email.dto.CodeDTO;
 
 import java.sql.Timestamp;
 import java.time.Duration;
@@ -18,9 +15,11 @@ public class CodeService {
     private static final Duration CODE_EXPIRATION = Duration.ofSeconds(30);
     private final Map<String, CodeDTO> codeStorage = new HashMap<>();
 
-    public CodeDTO generateCode(String email) {
+    public CodeDTO generateCode() {
         int code = generateRandomCode();
-        Timestamp expirationTimestamp = new Timestamp(System.currentTimeMillis() + CODE_EXPIRATION.toMillis());
+        Timestamp expirationTimestamp = new Timestamp(
+            System.currentTimeMillis() + CODE_EXPIRATION.toMillis()
+        );
         return new CodeDTO(String.valueOf(code), expirationTimestamp);
     }
 
@@ -28,12 +27,12 @@ public class CodeService {
         return this.codeStorage.get(email);
     }
 
-    public CodeDTO putCode(String email, CodeDTO codeDTO) {
-        return this.codeStorage.put(email, codeDTO);
+    public void putCode(String email, CodeDTO codeDTO) {
+        this.codeStorage.put(email, codeDTO);
     }
 
-    public CodeDTO removeCode(String email) {
-        return this.codeStorage.remove(email);
+    public void removeCode(String email) {
+        this.codeStorage.remove(email);
     }
 
     public int generateRandomCode() {

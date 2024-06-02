@@ -2,11 +2,11 @@ package project.musicapp.auth.mapper;
 
 import lombok.AllArgsConstructor;
 import project.musicapp.api.users.model.User;
-import project.musicapp.auth.dto.RegistrationRequestDTO;
+import project.musicapp.auth.dto.RegistrationConfirmDTO;
 
 @AllArgsConstructor
 public class RegistrationRequestMapper {
-    private final RegistrationRequestDTO registrationRequestDTO;
+    private final RegistrationConfirmDTO registrationRequestDTO;
     private final String encodedPassword;
 
     public User toUser() {
