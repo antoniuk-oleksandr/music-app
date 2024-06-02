@@ -13,7 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import project.musicapp.api.tokens.service.TokenService;
+import project.musicapp.api.tokens.service.AccessTokenService;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -22,7 +22,7 @@ import java.util.Collections;
 @Component
 @RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
-    private final TokenService tokenService;
+    private final AccessTokenService accessTokenService;
 
     @Override
     protected void doFilterInternal(
@@ -42,8 +42,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             try {
                 String jwtToken = authHeader.substring("Bearer ".length());
-                if (tokenService.isAccessToken(jwtToken))
-                    return tokenService.getUsernameFromToken(jwtToken);
+                if (this.accessTokenService.isAccessToken(jwtToken))
+                    return this.accessTokenService.getUsernameFromToken(jwtToken);
                 log.debug("Provided token is not an access token");
             } catch (ExpiredJwtException e) {
                 log.debug("JWT token expired");

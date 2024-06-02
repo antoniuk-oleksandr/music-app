@@ -4,24 +4,28 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import project.musicapp.utils.email.dto.CodeDTO;
+import project.musicapp.utils.email.dto.ConfirmCodeDTO;
 
 import java.sql.Timestamp;
 
 @Service
 @RequiredArgsConstructor
 public class ConfirmCodeService {
-    private final CodeService codeService;
+    private final CodeStorageService codeStorageService;
 
-    public ResponseEntity<?> confirmCode(String email, String code) {
-        CodeDTO storedCode = this.codeService.getCode(email);
+    public ResponseEntity<?> confirmCode(ConfirmCodeDTO confirmCodeDTO) {
+        String email = confirmCodeDTO.getEmail();
+        String code = String.valueOf(confirmCodeDTO.getCode());
+        CodeDTO storedCode = this.codeStorageService.getCode(email);
+
         if (storedCode == null || !storedCode.getCode().equals(code)) {
-            return ResponseEntity.badRequest().body("Invalid code");
-        }
-        if (storedCode.getExpires().before(new Timestamp(System.currentTimeMillis()))) {
-            this.codeService.removeCode(email); // Remove expired code
+            return ResponseEntity.badRequest().body("Expired code");
+        } else if (storedCode.getExpires().before(new Timestamp(System.currentTimeMillis()))) {
+            this.codeStorageService.removeCode(email); // Remove expired code
             return ResponseEntity.badRequest().body("Expired code");
         }
-        this.codeService.removeCode(email); // Remove code after successful confirmation
+
+        this.codeStorageService.removeCode(email); // Remove code after successful confirmation
         return ResponseEntity.ok().body("Successful confirmation");
     }
 }
