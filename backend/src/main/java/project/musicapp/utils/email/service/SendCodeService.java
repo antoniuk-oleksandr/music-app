@@ -1,4 +1,4 @@
-package project.musicapp.api.email.service;
+package project.musicapp.utils.email.service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import project.musicapp.api.email.dto.CodeDTO;
-import project.musicapp.api.email.dto.SendCodeDTO;
+import project.musicapp.utils.email.dto.CodeDTO;
+import project.musicapp.auth.dto.RegistrationRequestDTO;
+import project.musicapp.utils.email.dto.SendCodeDTO;
 
 @Service
 @RequiredArgsConstructor
@@ -16,16 +17,18 @@ public class SendCodeService {
     private final CodeService codeService;
     private final JavaMailSender mailSender;
 
-    public ResponseEntity<?> sendEmail(SendCodeDTO messageDTO) {
-        CodeDTO code = this.codeService.generateCode(messageDTO.getTo());
+    public ResponseEntity<?> sendEmailWithGeneratedCode(SendCodeDTO messageDTO) {
+        CodeDTO code = this.codeService.generateCode();
+
         this.codeService.putCode(messageDTO.getTo(), code);
 
         try {
             MimeMessage message = getMessage(messageDTO, code);
             this.mailSender.send(message);
         } catch (MessagingException e) {
-            return ResponseEntity.status(500).body("Failed to send email");
+            return ResponseEntity.badRequest().body("Failed to send email");
         }
+
         return ResponseEntity.ok("Email sent successfully with code");
     }
 
@@ -33,11 +36,12 @@ public class SendCodeService {
         MimeMessage message = this.mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
+        String html = email.getHtml().replace("%s", code.getCode());
+
         helper.setTo(email.getTo());
         helper.setSubject(email.getSubject());
-        helper.setText(
-            email.getHtml().replace("%s", code.getCode()), true
-        );
+        helper.setText(html, true);
+
         return message;
     }
 }

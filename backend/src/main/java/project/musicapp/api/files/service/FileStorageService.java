@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
-public class FileService {
+public class FileStorageService {
     private final GetFileService downloadFileService;
     private final UploadFileService uploadFileService;
 
@@ -17,7 +17,6 @@ public class FileService {
         return this.downloadFileService.getFile(folder, fileName);
     }
 
-    @SneakyThrows
     public ResponseEntity<?> uploadFile(String folder, MultipartFile file) {
         return this.uploadFileService.uploadFile(folder, file);
     }

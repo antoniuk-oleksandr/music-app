@@ -1,13 +1,12 @@
 package project.musicapp.auth.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor
-public class RegistrationRequestDTO {
+public class RegistrationConfirmDTO {
     private String username;
     private String email;
     private String password;
+    private int code;
 }

@@ -4,6 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Paths;
+
 @Service
 public class UploadFileService {
     private String getStringPath(String folder) {
@@ -11,6 +13,7 @@ public class UploadFileService {
     }
 
     public ResponseEntity<?> uploadFile(String folder, MultipartFile file) {
+
         return null;
     }
 }
