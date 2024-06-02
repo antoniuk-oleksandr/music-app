@@ -1,7 +1,8 @@
 import {ChangeEvent, Dispatch, FormEvent, FormEventHandler, MutableRefObject, SetStateAction} from "react";
 import {SignInInputs, SignUpInputs} from "@/types/SignInInputs";
-import {singRequest} from "@/api/sing-request";
+import {signRequest} from "@/api/sign-request";
 import {SignType} from "@/types/SignType";
+import Cookies from 'js-cookie';
 
 export const handleSignInputFocus = (
     setIsFocused: Dispatch<SetStateAction<boolean>>,
@@ -24,7 +25,7 @@ export const handleSignInputChange = (
     }))
 }
 
-export const handleSignSubmit = (
+export const handleSignSubmit = async (
     e: FormEvent<HTMLFormElement>,
     data: SignInInputs | SignUpInputs,
     type: SignType,
@@ -32,13 +33,6 @@ export const handleSignSubmit = (
     e.preventDefault();
     if (Object.values(data).find((v) => v === '') !== undefined) return;
 
-    singRequest({
-        password: data.password,
-        username: (data as SignInInputs).usernameEmail,
-    }, type);
-
-}
-
-export const handleSignUpSubmit = (data: SignUpInputs) => {
-
+    const response = await signRequest(data, type);
+    Cookies.set('tokens', response.data);
 }

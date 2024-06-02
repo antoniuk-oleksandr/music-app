@@ -5,6 +5,7 @@ import store from "@/redux/stores/store";
 import {AudioProvider} from "@/common-components/AudioContext";
 import Navbar from "@/common-components/Navbar/Navbar";
 import MusicPlayer from "@/common-components/MusicPlayer/MusicPlayer";
+import Dialog from "@/common-components/Dialog/Dialog";
 
 const inter = Manrope({
     subsets: ['latin'],
@@ -21,6 +22,7 @@ const AppLayout = (props: AppLayoutProps) => {
     return (
         <AudioProvider>
             <Provider store={store}>
+                <Dialog/>
                 <MusicPlayer/>
                 <div className={`flex ${inter.className}`}>
                     {!hideNavbarHeader && <Navbar/>}
