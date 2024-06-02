@@ -1,7 +1,6 @@
 package project.musicapp.api.songs.dto;
 
 import lombok.*;
-import project.musicapp.api.albums.dto.AlbumCreatorDTO;
 import project.musicapp.api.albums.dto.AlbumNameDTO;
 import project.musicapp.api.users.dto.UserDTO;
 

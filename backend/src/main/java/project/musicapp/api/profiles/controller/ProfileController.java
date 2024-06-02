@@ -1,6 +1,7 @@
 package project.musicapp.api.profiles.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.musicapp.api.profiles.dto.ProfileDTO;
 import project.musicapp.api.profiles.dto.ProfileUserDTO;
@@ -27,5 +28,12 @@ public class ProfileController {
                                            @RequestParam int limit,
                                            @RequestParam int offset) {
         return this.profileService.getProfileByIdAndType(profileType, userId, limit, offset);
+    }
+
+    @PatchMapping("/{userId}/{bannerAvatarType}")
+    public ResponseEntity<?> updateBannerAvatar(@PathVariable int userId,
+                                                @PathVariable String bannerAvatarType,
+                                                @RequestBody String path) {
+        return this.profileService.updateBannerOrAvatar(userId, bannerAvatarType);
     }
 }
