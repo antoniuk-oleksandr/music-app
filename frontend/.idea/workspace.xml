@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="" />
+    <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/common-components/Dialog/Dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/Dialog/DialogLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/dialog-slice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/DialogState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/configuration/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/ip-address.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ip-address.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/sing-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/sign-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/handlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,22 +49,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sign-in-page&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend/src/pages/sign-up&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/alex/music-app/frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "registration-improvements",
+    "last_opened_file_path": "/home/alex/music-app/frontend/src/pages/sign-up",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/home/alex/music-app/frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/sign-up" />
@@ -115,6 +129,10 @@
       <workItem from="1717088227370" duration="6835000" />
       <workItem from="1717153169258" duration="17555000" />
       <workItem from="1717172139499" duration="2247000" />
+      <workItem from="1717177508390" duration="663000" />
+      <workItem from="1717321702683" duration="3431000" />
+      <workItem from="1717325141787" duration="259000" />
+      <workItem from="1717325649275" duration="1040000" />
     </task>
     <servers />
   </component>
