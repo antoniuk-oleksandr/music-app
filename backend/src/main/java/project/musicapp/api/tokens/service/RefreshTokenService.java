@@ -30,7 +30,7 @@ public class RefreshTokenService {
 
     public void updateExistingRefreshToken(User user, String refreshToken) {
         RefreshToken refreshTokenEntity = this.refreshTokenRepository.findRefreshTokenByUser(user)
-                .orElseThrow(() -> new IllegalStateException("User don't have refresh token"));
+                .orElseThrow(() -> new IllegalStateException("User doesn't have refresh token"));
 
         refreshTokenEntity.setRefreshToken(refreshToken);
         this.refreshTokenRepository.save(refreshTokenEntity);

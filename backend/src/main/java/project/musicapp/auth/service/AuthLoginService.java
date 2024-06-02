@@ -28,11 +28,7 @@ public class AuthLoginService {
         String usernameEmail = loginRequest.getUsernameEmail();
         User user = findUserByUsernameEmail(usernameEmail);
 
-        try {
-            authenticateJwtRequest(user.getUsername(), loginRequest.getPassword());
-        } catch (AuthenticationException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-        }
+        authenticateJwtRequest(user.getUsername(), loginRequest.getPassword());
 
         JwtTokenDTO accessToken = generateAccessToken(user);
         String refreshToken = generateRefreshToken(user);
@@ -41,7 +37,7 @@ public class AuthLoginService {
         return getLoginResponseEntity(accessToken, refreshToken);
     }
 
-    private void authenticateJwtRequest(String username, String password) {
+    private void authenticateJwtRequest(String username, String password) throws AuthenticationException {
         this.authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(username, password)
         );
