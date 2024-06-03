@@ -13,10 +13,13 @@ type SignInPageLayoutProps = LayoutProps & {
         setInputsData: Dispatch<SetStateAction<SignInInputs | SignUpInputs>>,
     },
     type: SignType,
+    setVerificationState?: Dispatch<SetStateAction<boolean>>,
+    digits?: number[],
+    verificationState: boolean,
 }
 
 const SignPageLayout = (props: SignInPageLayoutProps) => {
-    const {children, signInputsState, type} = props;
+    const {children, signInputsState, type, setVerificationState, digits, verificationState} = props;
     const {inputsData} = signInputsState;
     const router = useRouter();
     const dispatch = useDispatch();
@@ -28,7 +31,7 @@ const SignPageLayout = (props: SignInPageLayoutProps) => {
             transition={{duration: 0.3, easings: "easeOut"}}
             className="w-full h-svh grid place-items-center">
             <form
-                onSubmit={(e) => handleSignSubmit(e, inputsData, type, router, dispatch)}
+                onSubmit={(e) => handleSignSubmit(e, inputsData, type, router, dispatch, verificationState, setVerificationState, digits)}
                 className={"bg-white w-[500px] px-6 py-16 flex rounded-lg drop-shadow-sm flex-col items-center text-lg text-neutral-600"}>
                 {children}
             </form>

@@ -21,6 +21,9 @@ const SignUpPage = () => {
         <SignPageLayout
             type={type}
             signInputsState={singUpInputsState}
+            setVerificationState={setVerificationState}
+            verificationState={verificationState}
+            digits={digits}
         >
             {verificationState
                 ? <Verification digits={digits} setDigits={setDigits}/>

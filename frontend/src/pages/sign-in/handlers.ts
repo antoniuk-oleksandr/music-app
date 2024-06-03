@@ -1,4 +1,4 @@
-import {ChangeEvent, Dispatch, FormEvent, FormEventHandler, MutableRefObject, SetStateAction} from "react";
+import {ChangeEvent, Dispatch, FormEvent, MutableRefObject, SetStateAction} from "react";
 import {SignInInputs, SignUpInputs} from "@/types/SignInInputs";
 import {signRequest} from "@/api/sign-request";
 import {SignType} from "@/types/SignType";
@@ -32,10 +32,11 @@ const validateInputs = (data: SignInInputs | SignUpInputs): boolean => {
     return Object.values(data).every(value => value !== '');
 }
 
-const handleSuccess = async (
+const handleSignSuccess = async (
     response: any,
     router: NextRouter,
-    dispatch: Dispatch<UnknownAction>
+    dispatch: Dispatch<UnknownAction>,
+    text: string,
 ) => {
     Cookies.set('jwt', response.data.jwt.token);
     Cookies.set('jwtExpiration', response.data.jwt.expiration);
@@ -45,13 +46,13 @@ const handleSuccess = async (
 
     dispatch(setDialog([
         true,
-        'You have successfully signed in!',
+        text,
         'text-green-400',
     ]));
 
     setTimeout(() => {
         dispatch(setIsDialogShown(false));
-    }, 2000);
+    }, 3500);
 }
 
 const handleError = (dispatch: Dispatch<UnknownAction>, message: string) => {
@@ -63,7 +64,7 @@ const handleError = (dispatch: Dispatch<UnknownAction>, message: string) => {
 
     setTimeout(() => {
         dispatch(setIsDialogShown(false));
-    }, 2000);
+    }, 3500);
 }
 
 export const handleSignSubmit = async (
@@ -71,17 +72,28 @@ export const handleSignSubmit = async (
     data: SignInInputs | SignUpInputs,
     type: SignType,
     router: NextRouter,
-    dispatch: Dispatch<UnknownAction>
+    dispatch: Dispatch<UnknownAction>,
+    verificationState: boolean,
+    setVerificationState?: Dispatch<SetStateAction<boolean>>,
+    digits?: number[],
 ) => {
     e.preventDefault();
 
     if (!validateInputs(data)) return;
 
-    const response = await signRequest(data, type);
+    const response = await signRequest(data, type, digits);
 
     if (response.status === 200) {
-        await handleSuccess(response, router, dispatch);
+        if (response.data === 'Email sent successfully with code') {
+            setVerificationState && setVerificationState(true);
+        } else if (!verificationState) {
+            await handleSignSuccess(response, router, dispatch, 'You have successfully signed in!');
+        } else {
+            await handleSignSuccess(response, router, dispatch, 'You have successfully created an account!');
+        }
     } else if (response.status === 404) {
         handleError(dispatch, 'You have input incorrect credentials!');
-    }
+    } else if (response.status === 400) {
+        handleError(dispatch, 'A user with such username or email already exists!');
+    } else console.log(response);
 }
