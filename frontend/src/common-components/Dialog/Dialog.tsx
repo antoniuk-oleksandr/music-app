@@ -4,9 +4,8 @@ import {DialogState} from "@/types/DialogState";
 
 const Dialog = () => {
     const dialogState: DialogState = useSelector((state: any) => state.dialog);
-    const {isShown, text} = dialogState;
+    const {text} = dialogState;
 
-    if(!isShown) return null;
     return (
         <DialogLayout dialogState={dialogState}>
             <span>{text}</span>

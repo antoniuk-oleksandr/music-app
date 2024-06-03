@@ -19,7 +19,7 @@ const DialogLayout = (props: DialogLayoutProps) => {
                         animate={{x: 32, opacity: 1}}
                         exit={{x: 0, opacity: 0}}
                         transition={{duration: 0.3}}
-                        className={`bg-white w-96 mb-6 px-2 py-4 rounded-md shadow ${color}`}>
+                        className={`bg-white min-w-96 mb-6 p-3 rounded-md shadow z-40 text-lg ${color}`}>
                         {children}
                     </motion.div>
                 )}

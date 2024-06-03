@@ -9,12 +9,8 @@ type ErrorType = {
     }
 }
 
-export const signRequest = async (
-    body: SignInInputs | SignUpInputs,
-    type: SignType,
-) => {
-    const ip = getIpAddress();
-    const url = `http://${ip}:8080/api/auth/${type === SignType.SignIn ? 'login' : 'registration'}`;
+const signInRequest = async (ip: string, body: SignInInputs | SignUpInputs) => {
+    const url = `http://${ip}:8080/api/auth/login`;
 
     try {
         const response = await axios.post(url, body, {});
@@ -27,5 +23,23 @@ export const signRequest = async (
             data: null,
             status: (error as ErrorType).response.status,
         };
+    }
+}
+
+export const getToken = async () => {
+
+}
+
+export const signRequest = async (
+    body: SignInInputs | SignUpInputs,
+    type: SignType,
+) => {
+    const ip = getIpAddress();
+
+    switch (type) {
+        case SignType.SignIn:
+            return await signInRequest(ip, body);
+        case SignType.SignUp:
+
     }
 }

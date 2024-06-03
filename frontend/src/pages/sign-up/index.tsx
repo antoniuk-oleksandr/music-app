@@ -7,37 +7,29 @@ import NoAccountMessage from "@/pages/sign-in/components/NoAccountMessage/NoAcco
 import {IoPerson} from "react-icons/io5";
 import {useSignUpInputsData} from "@/pages/sign-up/use-sign-up-inputs-data";
 import {SignType} from "@/types/SignType";
+import {useRef, useState} from "react";
+import SingUpContext from "@/pages/sign-up/SingUpContext";
+import Verification from "@/pages/sign-up/components/Verification/Verification";
 
 const SignUpPage = () => {
     const singUpInputsState = useSignUpInputsData();
-    const type = SignType.SignUp;
+    const [verificationState, setVerificationState] = useState(false);
+    const [digits, setDigits] = useState<number[]>(new Array(6).fill(null));
+    const type = verificationState ? SignType.Verification : SignType.SignUp;
 
     return (
         <SignPageLayout
             type={type}
             signInputsState={singUpInputsState}
         >
-            <TopSignText
-                firstLineText={'Create account!'}
-                icon={<IoPerson/>}/>
-            <SignInput
-                signInputsState={singUpInputsState}
-                id={'username'}
-                label={'Username'}
-            />
-            <SignInput
-                signInputsState={singUpInputsState}
-                id={'email'}
-                label={'Email'}
-            />
-            <SignInput
-                signInputsState={singUpInputsState}
-                id={'password'}
-                label={'Password'}
-            />
-            <SignButton text={'Sign Up'}/>
-            <ForgotPasswordMessage type={type}/>
-            <NoAccountMessage type={type}/>
+            {verificationState
+                ? <Verification digits={digits} setDigits={setDigits}/>
+                : <SingUpContext
+                    setVerificationState={setVerificationState}
+                    signInputsState={singUpInputsState}
+                    type={type}
+                />
+            }
         </SignPageLayout>
     )
 }

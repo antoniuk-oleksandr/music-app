@@ -1,4 +1,5 @@
 export enum SignType  {
     SignIn = 'sign-in',
-    SignUp = 'sign-up'
+    SignUp = 'sign-up',
+    Verification = 'verification',
 }
