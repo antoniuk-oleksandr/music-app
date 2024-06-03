@@ -14,6 +14,7 @@ const SignInPage = () => {
 
     return (
         <SignPageLayout
+            verificationState={false}
             type={SignType.SignIn}
             signInputsState={singInInputsState}
         >
