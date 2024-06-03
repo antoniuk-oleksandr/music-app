@@ -1,5 +1,5 @@
 type SignButtonProps = {
-    text: string;
+    text: string,
 }
 
 const SignButton = (props: SignButtonProps) => {
@@ -8,7 +8,7 @@ const SignButton = (props: SignButtonProps) => {
     return (
         <button
             type={"submit"}
-            className={"w-full font-semibold bg-red-500 rounded-lg text-lg py-4 text-white hover:bg-red-400 duration-200 ease-out active:scale-95 active:outline-0 my-2"}
+            className={"w-full font-semibold bg-red-500 rounded-lg text-lg py-4 text-white hover:bg-red-400 duration-200 ease-out active:scale-95 active:outline-0 focus:outline-0 my-2"}
         >{text}</button>
     )
 }

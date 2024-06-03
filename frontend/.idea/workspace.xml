@@ -5,19 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common-components/Dialog/Dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common-components/Dialog/DialogLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/dialog-slice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/DialogState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/configuration/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/CodeDigitInput/CodeDigitInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/CodeDigitInput/CodeDigitInputLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/CodeDigitInput/handlers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/CodeInput/CodeInputLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common-components/CodeInput/VerificationCodeInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/sign-up/SingUpContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/sign-up/components/Verification/Verification.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/sign-up/components/Verification/VerificationLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/ip-address.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ip-address.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/sing-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/sign-request.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AppLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/sign-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/sign-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Dialog/Dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Dialog/Dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common-components/Dialog/DialogLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Dialog/DialogLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/SignPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/SignPageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/components/SignButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/components/SignButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/components/SingInput/SignInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/components/SingInput/SignInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/components/SingInput/SingInputElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/components/SingInput/SingInputElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/components/TopSignText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/components/TopSignText.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/sign-in/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/handlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign-up/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-up/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/dialog-slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/dialog-slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/SignType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/SignType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "registration-improvements",
-    "last_opened_file_path": "/home/alex/music-app/frontend/src/pages/sign-up",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/home/alex/music-app/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;registration-improvements&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alex/music-app/frontend/src/pages/sign-up&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/alex/music-app/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/sign-up" />
@@ -72,11 +83,11 @@
       <recent name="$PROJECT_DIR$/src/pages/albums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/common-components/CodeInput" />
       <recent name="$PROJECT_DIR$/src/pages/sign-in/components/NoAccountMessage" />
       <recent name="$PROJECT_DIR$/src/pages/sign-in/components/SingInput" />
       <recent name="$PROJECT_DIR$/src/use-effects" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/common-components/ProfileListPage" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -133,6 +144,8 @@
       <workItem from="1717321702683" duration="3431000" />
       <workItem from="1717325141787" duration="259000" />
       <workItem from="1717325649275" duration="1040000" />
+      <workItem from="1717349646952" duration="12522000" />
+      <workItem from="1717407515776" duration="1140000" />
     </task>
     <servers />
   </component>

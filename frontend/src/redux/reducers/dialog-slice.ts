@@ -11,17 +11,22 @@ export const dialogSlice = createSlice({
     name: 'dialog',
     initialState,
     reducers: {
-        setIsShown: (state, action) => {
+        setDialog(state, action) {
+            state.isShown = action.payload[0];
+            state.text = action.payload[1];
+            state.color = action.payload[2];
+        },
+        setIsDialogShown: (state, action) => {
             state.isShown = action.payload;
         },
-        setText: (state, action) => {
+        setDialogText: (state, action) => {
             state.text = action.payload;
         },
-        setColor: (state, action) => {
+        setDialogTextColor: (state, action) => {
             state.color = action.payload;
         }
     },
 });
 
-export const {setText, setIsShown, setColor} = dialogSlice.actions;
+export const {setDialogText, setIsDialogShown, setDialogTextColor, setDialog} = dialogSlice.actions;
 export default dialogSlice.reducer;

@@ -10,10 +10,11 @@ type InputElementProps = {
         inputsData: SignInInputs | SignUpInputs,
         setInputsData: Dispatch<SetStateAction<SignInInputs | SignUpInputs>>,
     },
+    isPassword: boolean,
 }
 
 const SingInputElement = (props: InputElementProps) => {
-    const {inputRef, id, setIsFocused, signInputsState} = props;
+    const {inputRef, id, setIsFocused, signInputsState, isPassword} = props;
     const {inputsData, setInputsData} = signInputsState;
     // @ts-ignore
     const value = inputsData[id];
@@ -25,7 +26,7 @@ const SingInputElement = (props: InputElementProps) => {
             autoComplete={'off'}
             className={"w-full outline-none z-10"}
             ref={inputRef}
-            type="text"
+            type={isPassword ? 'password' : 'text'}
             onBlur={() => setIsFocused(false)}
         />
     )

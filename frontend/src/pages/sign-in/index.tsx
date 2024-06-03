@@ -22,11 +22,13 @@ const SignInPage = () => {
                 secondLineText={'Sign in to your account'}
                 icon={<FaSignInAlt />}/>
             <SignInput
+                isPassword={false}
                 signInputsState={singInInputsState}
                 id={'usernameEmail'}
                 label={'Username or email'}
             />
             <SignInput
+                isPassword
                 signInputsState={singInInputsState}
                 id={'password'}
                 label={'Password'}

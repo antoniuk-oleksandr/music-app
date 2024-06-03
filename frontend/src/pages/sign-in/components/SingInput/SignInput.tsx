@@ -11,6 +11,7 @@ type SignInputProps = {
         inputsData: SignInInputs | SignUpInputs,
         setInputsData: Dispatch<SetStateAction<SignInInputs | SignUpInputs>>,
     },
+    isPassword: boolean,
 }
 
 const SignInput = (props: SignInputProps) => {
