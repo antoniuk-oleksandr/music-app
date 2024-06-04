@@ -8,7 +8,7 @@ import project.musicapp.api.profiles.dto.ProfileUserDTO;
 import project.musicapp.api.profiles.service.ProfileService;
 
 @RestController
-@RequestMapping("profiles")
+@RequestMapping("/profiles")
 public class ProfileController {
     private final ProfileService profileService;
 
@@ -33,7 +33,7 @@ public class ProfileController {
     @PatchMapping("/{userId}/{bannerAvatarType}")
     public ResponseEntity<?> updateBannerAvatar(@PathVariable int userId,
                                                 @PathVariable String bannerAvatarType,
-                                                @RequestBody String path) {
-        return this.profileService.updateBannerOrAvatar(userId, bannerAvatarType);
+                                                @RequestParam String path) {
+        return this.profileService.updateBannerOrAvatar(userId, bannerAvatarType, path);
     }
 }

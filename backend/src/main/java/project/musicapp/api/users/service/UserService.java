@@ -42,4 +42,12 @@ public class UserService {
     public void createUser(User userDTO) {
         this.userQueryService.createUser(userDTO);
     }
+
+    public void updateUserBannerByUserId(int id, String bannerPath) {
+        this.userQueryService.updateUserBannerByUserId(id, bannerPath);
+    }
+
+    public void updateUserAvatarByUserId(int id, String avatarPath) {
+        this.userQueryService.updateUserAvatarByUserId(id, avatarPath);
+    }
 }

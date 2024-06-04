@@ -1,10 +1,10 @@
-package project.musicapp.utils.email.service;
+package project.musicapp.api.email.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import project.musicapp.utils.email.dto.ConfirmCodeDTO;
-import project.musicapp.utils.email.dto.SendCodeDTO;
+import project.musicapp.api.email.dto.ConfirmCodeDTO;
+import project.musicapp.api.email.dto.SendCodeDTO;
 
 @Service
 @RequiredArgsConstructor

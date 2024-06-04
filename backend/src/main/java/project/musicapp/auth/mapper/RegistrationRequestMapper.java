@@ -14,8 +14,8 @@ public class RegistrationRequestMapper {
             .username(registrationRequestDTO.getUsername())
             .password(encodedPassword)
             .email(registrationRequestDTO.getEmail())
-            .avatar("/avatars/empty.jpg")
-            .banner("/banners/empty.jpg")
+            .avatar("/images/default-avatar.jpg")
+            .banner("/images/default-banner.jpg")
             .isArtist(false)
         .build();
     }

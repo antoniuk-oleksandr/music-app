@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.email.dto.ConfirmCodeDTO;
+import project.musicapp.api.email.service.EmailService;
 import project.musicapp.api.tokens.dto.JwtTokenDTO;
 import project.musicapp.api.tokens.service.AccessTokenService;
 import project.musicapp.api.tokens.service.RefreshTokenService;
@@ -13,8 +15,6 @@ import project.musicapp.api.users.service.UserService;
 import project.musicapp.auth.dto.RegistrationConfirmDTO;
 import project.musicapp.auth.dto.RegistrationResponseDTO;
 import project.musicapp.auth.mapper.RegistrationRequestMapper;
-import project.musicapp.utils.email.dto.ConfirmCodeDTO;
-import project.musicapp.utils.email.service.EmailService;
 
 @Service
 @RequiredArgsConstructor

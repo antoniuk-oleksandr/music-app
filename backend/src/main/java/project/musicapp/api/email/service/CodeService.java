@@ -1,8 +1,8 @@
-package project.musicapp.utils.email.service;
+package project.musicapp.api.email.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import project.musicapp.utils.email.dto.CodeDTO;
+import project.musicapp.api.email.dto.CodeDTO;
 
 import java.sql.Timestamp;
 import java.time.Duration;
@@ -25,7 +25,8 @@ public class CodeService {
     }
 
     public int generateRandomCode() {
-        int maxValue = (int) Math.pow(10, maxDigits) - 1;
-        return new Random().nextInt(maxValue + 1);
+        int number = (int) Math.pow(10, maxDigits);
+        int origin = number / 10, bound = number - 1;
+        return new Random().nextInt(origin, bound);
     }
 }

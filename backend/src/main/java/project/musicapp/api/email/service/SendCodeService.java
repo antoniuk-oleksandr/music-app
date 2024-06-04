@@ -1,4 +1,4 @@
-package project.musicapp.utils.email.service;
+package project.musicapp.api.email.service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -7,9 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import project.musicapp.utils.email.dto.CodeDTO;
-import project.musicapp.auth.dto.RegistrationRequestDTO;
-import project.musicapp.utils.email.dto.SendCodeDTO;
+import project.musicapp.api.email.dto.CodeDTO;
+import project.musicapp.api.email.dto.SendCodeDTO;
 
 @Service
 @RequiredArgsConstructor

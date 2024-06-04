@@ -3,10 +3,10 @@ package project.musicapp.auth.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.email.dto.SendCodeDTO;
+import project.musicapp.api.email.service.EmailService;
 import project.musicapp.api.users.service.UserService;
 import project.musicapp.auth.dto.RegistrationRequestDTO;
-import project.musicapp.utils.email.dto.SendCodeDTO;
-import project.musicapp.utils.email.service.EmailService;
 import project.musicapp.auth.utils.HtmlMessageUtils;
 
 @Service

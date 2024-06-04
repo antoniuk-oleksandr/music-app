@@ -1,19 +1,16 @@
 package project.musicapp.api.profiles.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.profiles.dto.ProfileDTO;
 import project.musicapp.api.profiles.dto.ProfileUserDTO;
 
 @Service
+@RequiredArgsConstructor
 public class ProfileService {
-    private final ProfileDataService profileDataService;
-
-    @Autowired
-    public ProfileService(ProfileDataService profileDataService) {
-        this.profileDataService = profileDataService;
-    }
+    private final ProfileByDataTypeService profileDataService;
+    private final ProfileBannerAvatarService profileBannerAvatarService;
 
     public ProfileUserDTO getProfileUserById(int userId) {
         return this.profileDataService.getProfileUserById(userId);
@@ -23,7 +20,7 @@ public class ProfileService {
         return this.profileDataService.getProfileByTypeAndUserId(profileType, userId, limit, offset);
     }
 
-    public ResponseEntity<?> updateBannerOrAvatar(int profileId, String bannerOrAvatarType) {
-        return null;
+    public ResponseEntity<?> updateBannerOrAvatar(int profileId, String bannerOrAvatarType, String path) {
+        return this.profileBannerAvatarService.updateBannerOrAvatar(profileId, bannerOrAvatarType, path);
     }
 }

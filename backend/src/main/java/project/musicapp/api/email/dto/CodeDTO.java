@@ -1,4 +1,4 @@
-package project.musicapp.utils.email.dto;
+package project.musicapp.api.email.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

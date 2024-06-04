@@ -17,9 +17,4 @@ public class AuthExceptionHandler {
     public ResponseEntity<?> handleAuthenticationException() {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleGlobalException() {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
-    }
 }
