@@ -1,7 +1,7 @@
-package project.musicapp.utils.email.service;
+package project.musicapp.api.email.service;
 
 import org.springframework.stereotype.Service;
-import project.musicapp.utils.email.dto.CodeDTO;
+import project.musicapp.api.email.dto.CodeDTO;
 
 import java.util.HashMap;
 import java.util.Map;

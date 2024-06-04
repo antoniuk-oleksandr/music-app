@@ -13,4 +13,14 @@ public class UserQuerySQL {
             "INNER JOIN public.songs s on s.song_id = us.song_id " +
             "INNER JOIN public.users u on u.user_id = us.user_id " +
             "WHERE us.song_id = :id";
+
+    public static final String UPDATE_USER_BANNER_BY_USER_ID =
+            "UPDATE users " +
+            "SET banner_path = :path " +
+            "WHERE user_id = :id";
+
+    public static final String UPDATE_USER_AVATAR_BY_USER_ID =
+            "UPDATE users " +
+            "SET avatar_path = :path " +
+            "WHERE user_id = :id";
 }
