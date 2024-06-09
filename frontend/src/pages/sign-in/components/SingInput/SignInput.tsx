@@ -19,7 +19,11 @@ const SignInput = (props: SignInputProps) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     return (
-        <SingInputLayout inputRef={inputRef} setIsFocused={setIsFocused}>
+        <SingInputLayout
+            isFocused={isFocused}
+            inputRef={inputRef}
+            setIsFocused={setIsFocused}
+        >
             <InputLabel
                 {...props}
                 isFocused={isFocused}

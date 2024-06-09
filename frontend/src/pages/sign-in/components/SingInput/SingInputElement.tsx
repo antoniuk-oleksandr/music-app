@@ -1,5 +1,5 @@
 import {Dispatch, MutableRefObject, SetStateAction, useState} from "react";
-import {handleSignInputChange, handleSignInputFocus} from "@/pages/sign-in/handlers";
+import {handleSignInputChange, handleInputFocus} from "@/pages/sign-in/handlers";
 import {SignInInputs, SignUpInputs} from "@/types/SignInInputs";
 
 type InputElementProps = {

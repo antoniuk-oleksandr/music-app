@@ -8,10 +8,9 @@ type DialogLayoutProps = LayoutProps & {
 
 const DialogLayout = (props: DialogLayoutProps) => {
     const {children, dialogState} = props;
-    const {isShown, color} = dialogState;
+    let {isShown, color} = dialogState;
 
     return (
-        <div className={"absolute w-full h-screen bg-transparent flex items-end"}>
             <AnimatePresence>
                 {isShown && (
                     <motion.div
@@ -19,12 +18,11 @@ const DialogLayout = (props: DialogLayoutProps) => {
                         animate={{x: 32, opacity: 1}}
                         exit={{x: 0, opacity: 0}}
                         transition={{duration: 0.3}}
-                        className={`bg-white min-w-96 mb-6 p-3 rounded-md shadow z-40 text-lg ${color}`}>
+                        className={`absolute bg-white min-w-96 mb-6 bottom-0 p-3 rounded-md shadow z-40 text-lg ${color}`}>
                         {children}
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
     );
 };
 

@@ -6,6 +6,9 @@ import {AudioProvider} from "@/common-components/AudioContext";
 import Navbar from "@/common-components/Navbar/Navbar";
 import MusicPlayer from "@/common-components/MusicPlayer/MusicPlayer";
 import Dialog from "@/common-components/Dialog/Dialog";
+import TokenHandler from "@/TokenHandler";
+import ModalElement from "@/common-components/ModalElement/ModalElement";
+import Modals from "../common-components/Modals/Modals";
 
 const inter = Manrope({
     subsets: ['latin'],
@@ -22,7 +25,9 @@ const AppLayout = (props: AppLayoutProps) => {
     return (
         <AudioProvider>
             <Provider store={store}>
+                <Modals/>
                 <Dialog/>
+                <TokenHandler/>
                 <MusicPlayer/>
                 <div className={`flex ${inter.className}`}>
                     {!hideNavbarHeader && <Navbar/>}
