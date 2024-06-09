@@ -22,12 +22,11 @@ import java.util.HashMap;
 public class RefreshTokenService extends TokenService {
     @Value("${jwt.refreshToken.lifetime}")
     private Duration refreshTokenLifetime;
-
     private final AccessTokenService accessTokenService;
     private final RefreshTokenRepository refreshTokenRepository;
 
-    public ResponseEntity<?> refreshToken(HttpServletRequest request) {
-        String refreshToken = extractTokenFromRequest(request);
+    public ResponseEntity<?> refreshToken(HttpHeaders headers) {
+        String refreshToken = extractTokenFromHeaders(headers);
         if (refreshToken == null) {
             return ResponseEntity.badRequest().body("Invalid or missing authorization header");
         } else if (!validateToken(refreshToken)){
@@ -61,14 +60,6 @@ public class RefreshTokenService extends TokenService {
 
         refreshTokenEntity.setRefreshToken(refreshToken);
         this.refreshTokenRepository.save(refreshTokenEntity);
-    }
-
-    private String extractTokenFromRequest(HttpServletRequest request) {
-        String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            return authHeader.substring("Bearer ".length());
-        }
-        return null;
     }
 
     private JwtTokenDTO generateNewAccessToken(String refreshToken) {

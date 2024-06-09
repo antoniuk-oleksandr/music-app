@@ -16,11 +16,11 @@ public class UserQuerySQL {
 
     public static final String UPDATE_USER_BANNER_BY_USER_ID =
             "UPDATE users " +
-            "SET banner_path = :path " +
+            "SET banner_path = :banner " +
             "WHERE user_id = :id";
 
     public static final String UPDATE_USER_AVATAR_BY_USER_ID =
             "UPDATE users " +
-            "SET avatar_path = :path " +
+            "SET avatar_path = :avatar " +
             "WHERE user_id = :id";
 }

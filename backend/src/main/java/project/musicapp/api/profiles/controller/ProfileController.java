@@ -1,10 +1,13 @@
 package project.musicapp.api.profiles.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import project.musicapp.api.profiles.dto.ProfileDTO;
 import project.musicapp.api.profiles.dto.ProfileUserDTO;
+import project.musicapp.api.profiles.dto.UpdateBannerAvatarResponseDTO;
 import project.musicapp.api.profiles.service.ProfileService;
 
 @RestController
@@ -30,10 +33,15 @@ public class ProfileController {
         return this.profileService.getProfileByIdAndType(profileType, userId, limit, offset);
     }
 
-    @PatchMapping("/{userId}/{bannerAvatarType}")
-    public ResponseEntity<?> updateBannerAvatar(@PathVariable int userId,
-                                                @PathVariable String bannerAvatarType,
-                                                @RequestParam String path) {
-        return this.profileService.updateBannerOrAvatar(userId, bannerAvatarType, path);
+    @PatchMapping("/update/{bannerAvatarType}")
+    public UpdateBannerAvatarResponseDTO updateBannerAvatar(@RequestHeader HttpHeaders headers,
+                                                            @PathVariable String bannerAvatarType,
+                                                            @RequestParam MultipartFile file) {
+        return this.profileService.updateBannerOrAvatar(headers, bannerAvatarType, file);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> getProfileByToken(@RequestHeader HttpHeaders headers) {
+        return this.profileService.getProfileInfoByAccessToken(headers);
     }
 }

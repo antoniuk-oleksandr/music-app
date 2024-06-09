@@ -9,7 +9,7 @@ import project.musicapp.api.playlists.mapper.PlaylistUserSongsMapper;
 import project.musicapp.api.playlists.model.Playlist;
 import project.musicapp.api.playlists.repository.PlaylistRepository;
 import project.musicapp.api.songs.dto.SongUserDTO;
-import project.musicapp.api.songs.service.SongService;
+import project.musicapp.api.songs.impl.SongServiceImpl;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class PlaylistQueryService {
-    private final SongService songService;
+    private final SongServiceImpl songService;
     private final UserRepository userRepository;
     private final PlaylistRepository playlistRepository;
 

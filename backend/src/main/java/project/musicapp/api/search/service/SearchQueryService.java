@@ -7,7 +7,7 @@ import project.musicapp.api.albums.service.AlbumService;
 import project.musicapp.api.playlists.dto.PlaylistDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
 import project.musicapp.api.songs.dto.SongUserDTO;
-import project.musicapp.api.songs.service.SongService;
+import project.musicapp.api.songs.impl.SongServiceImpl;
 import project.musicapp.api.users.dto.UserDTO;
 import project.musicapp.api.users.service.UserService;
 
@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SearchQueryService {
-    private final SongService songService;
+    private final SongServiceImpl songService;
     private final UserService userService;
     private final PlaylistService playlistService;
     private final AlbumService albumService;

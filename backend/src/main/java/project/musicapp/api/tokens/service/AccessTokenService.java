@@ -1,16 +1,21 @@
 package project.musicapp.api.tokens.service;
 
 import io.jsonwebtoken.Claims;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.tokens.dto.JwtTokenDTO;
 import project.musicapp.api.tokens.type.TokenType;
+import project.musicapp.api.users.model.User;
+import project.musicapp.api.users.service.UserService;
 
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AccessTokenService extends TokenService {
     @Value("${jwt.accessToken.lifetime}")
     private Duration accessToken;

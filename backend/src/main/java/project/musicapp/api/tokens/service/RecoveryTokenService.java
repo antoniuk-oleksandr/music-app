@@ -19,21 +19,13 @@ public class RecoveryTokenService extends TokenService {
     @Value("${jwt.recoveryToken.lifetime}")
     private Duration recoveryTokenLifetime;
 
-    public ResponseEntity<?> recoveryToken(HttpServletRequest request) {
+    public ResponseEntity<?> recoveryToken(HttpHeaders headers) {
         return null;
     }
 
     public boolean isRecoveryToken(String token) {
         Claims claims = parseToken(token);
         return TokenType.RECOVERY_TOKEN.name().equals(claims.get("type"));
-    }
-
-    private String extractTokenFromRequest(HttpServletRequest request) {
-        String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            return authHeader.substring("Bearer ".length());
-        }
-        return null;
     }
 
     private JwtTokenDTO generateRecoveryToken(String username) {
