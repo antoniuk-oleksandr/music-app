@@ -4,6 +4,7 @@ import {Playlist} from "@/types/Playlist";
 import {Song} from "@/types/Song";
 import {FileType} from "@/types/File";
 import {Device} from "@/types/Device";
+import Cookies from "js-cookie";
 
 export const getUserListSeparator = (special: boolean | undefined, index: number, length: number) => {
     if (special) {
@@ -66,4 +67,21 @@ export const getWrapperWidth = (device: Device | null, isNavbarHidden: boolean |
     const navbarWidth = isNavbarHidden ? '0px' : '270px';
 
     return `min(calc(100vw - 200px - ${navbarWidth} - 6px), 1478px)`;
+}
+
+export const setTokensToCookies = (jwt: any, refresh: string) => {
+    Cookies.set('jwt', jwt.token);
+    Cookies.set('jwtExpiration', jwt.expiration);
+    Cookies.set('refreshToken', refresh);
+}
+
+export const setJwtToCookies = (jwt: any) => {
+    Cookies.set('jwt', jwt.token);
+    Cookies.set('jwtExpiration', jwt.expiration);
+}
+
+export const clearJwtCookies = () => {
+    Cookies.remove('jwt');
+    Cookies.remove('jwtExpiration');
+    Cookies.remove('refreshToken');
 }

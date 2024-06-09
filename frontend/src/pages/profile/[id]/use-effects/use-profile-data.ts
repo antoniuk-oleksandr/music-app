@@ -11,16 +11,19 @@ export const useProfileData = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if(!router.isReady) return;
+        if (!router.isReady) return;
 
         const getData = async () => {
             const id = Number.parseInt(router.query.id as string);
             const data = await profileRequest(id as number) as Profile;
-            data.user.bannerPath = await getUrlFromString(data.user.bannerPath, FileType.Image);
             data.songs = data.songs.slice(0, 5);
             await getImagesForSongs(data);
             await getImagesForList(data.albums);
             await getImagesForList(data.playlists);
+
+            if (!data.user.bannerPath.includes("default")) {
+                data.user.bannerPath = await getUrlFromString(data.user.bannerPath, FileType.Image);
+            }
             setProfile(data);
         }
 

@@ -1,0 +1,12 @@
+[package]
+name = "file_upload_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.0"
+actix-multipart = "0.4"
+futures-util = "0.3"
+sanitize-filename = "0.3"
+uuid = { version = "1.0", features = ["v4"] }
+mime_guess = "2.0"

@@ -17,9 +17,10 @@ export const addImageBlobs = async (searchResult: SearchResult) => {
         if (!arr) continue;
 
         for (const value of arr) {
-            if ('username' in value)
+            if ('username' in value) {
+                if(value.avatarPath.includes('default')) continue;
                 value.avatarPath = await getUrlFromString(value.avatarPath, FileType.Image);
-            else if ('name' in value)
+            } else if ('name' in value)
                 value.imagePath = await getUrlFromString(value.imagePath, FileType.Image);
         }
     }
