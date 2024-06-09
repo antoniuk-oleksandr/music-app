@@ -23,4 +23,7 @@ public class UserQuerySQL {
             "UPDATE users " +
             "SET avatar_path = :avatar " +
             "WHERE user_id = :id";
+
+    public static final String UPDATE_USER_IS_ARTIST_BY_USER_ID =
+            "UPDATE users SET is_artist = true WHERE user_id = :id";
 }

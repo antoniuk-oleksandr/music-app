@@ -29,6 +29,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/profiles/update/**").authenticated()
                 .requestMatchers("/profiles/me").authenticated()
+                .requestMatchers("/playlists/create").authenticated()
+                .requestMatchers("/albums/create").authenticated()
                 .anyRequest().permitAll()
             )
             .sessionManagement(session -> session

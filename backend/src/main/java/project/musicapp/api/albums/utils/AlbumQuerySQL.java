@@ -33,4 +33,7 @@ public class AlbumQuerySQL {
             "INNER JOIN user_songs us ON sa.user_song_id = us.user_songs_id " +
             "INNER JOIN songs s ON us.song_id = s.song_id " +
             "WHERE s.song_id = :id";
+
+    public static final String CREATE_ALBUM =
+            "";
 }

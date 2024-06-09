@@ -61,4 +61,8 @@ public class UserQueryService {
     public void updateUserAvatarByUserId(int userId, String avatar) {
         this.userRepository.updateUserAvatarByUserId(userId, avatar);
     }
+
+    public void setTrueIsArtistForUser(int userId) {
+        this.userRepository.setTrueIsArtistForUser(userId);
+    }
 }

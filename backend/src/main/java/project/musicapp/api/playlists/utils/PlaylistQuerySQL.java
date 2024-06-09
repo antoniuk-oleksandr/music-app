@@ -28,4 +28,8 @@ public class PlaylistQuerySQL {
                     "WHERE playlists.creator_id = :userId " +
                     "ORDER BY playlists.creating_date " +
             ") subquery LIMIT :limit OFFSET :offset";
+
+    public static final String FIND_PLAYLIST_BY_USER_ID_AND_PLAYLIST_NAME =
+            "SELECT * FROM playlists " +
+            "WHERE creator_id = :creatorId AND name = :name";
 }

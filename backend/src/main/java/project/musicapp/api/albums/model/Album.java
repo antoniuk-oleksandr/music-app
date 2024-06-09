@@ -1,15 +1,17 @@
 package project.musicapp.api.albums.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import project.musicapp.api.users.model.User;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "albums")
+@Builder
 @Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

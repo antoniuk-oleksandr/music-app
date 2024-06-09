@@ -37,4 +37,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Query(value = UserQuerySQL.UPDATE_USER_AVATAR_BY_USER_ID, nativeQuery = true)
     void updateUserAvatarByUserId(@Param("id") int id,
                                   @Param("avatar") String avatar);
+
+    @Modifying
+    @Query(value = UserQuerySQL.UPDATE_USER_IS_ARTIST_BY_USER_ID, nativeQuery = true)
+    void setTrueIsArtistForUser(@Param("id") int id);
 }
