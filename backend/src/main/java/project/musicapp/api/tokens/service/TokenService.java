@@ -1,6 +1,7 @@
 package project.musicapp.api.tokens.service;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,15 +48,18 @@ public abstract class TokenService {
 
     public String createToken(Map<String, Object> claims, String username, Duration lifetime) {
         return Jwts.builder()
-                .setClaims(claims).setSubject(username)
+                .setClaims(claims)
+                .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + lifetime.toMillis()))
-                .signWith(SignatureAlgorithm.HS256, secret).compact();
+                .signWith(SignatureAlgorithm.HS256, secret)
+                .compact();
     }
 
     public Claims parseToken(String token) {
         return Jwts.parser()
-                .setSigningKey(secret).build()
-                .parseClaimsJws(token).getBody();
+            .setSigningKey(secret).build()
+            .parseClaimsJws(token).getBody();
+
     }
 }
