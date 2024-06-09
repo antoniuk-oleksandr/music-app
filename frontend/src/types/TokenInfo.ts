@@ -1,7 +1,9 @@
 export type TokenInfo = {
-    jwt: {
-        token: string,
-        expiration: number
-    },
+    jwt: Jwt,
     refresh: string,
 }
+
+export type Jwt = {
+    token: string,
+    expiration: number
+};

@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import {SearchTab} from "@/types/SearchTab";
 import {capitalize} from "@/utils/utils";
 import {SearchResult} from "@/types/SearchResult";
-import {addImageBlobs, filterResults} from "@/pages/search/helpers";
+import {formatSearchImageUrls, filterResults} from "@/pages/search/helpers";
 
 
 type SearchData = {
@@ -24,7 +24,7 @@ export const useSearch = () => {
         const getSearchResult = async () => {
             const limit = query.tab === SearchTab.Default ? 3 : 30;
             let result = await searchRequest(query.q as string, limit, 0, query.tab as SearchTab) as SearchResult;
-            result = await addImageBlobs(result);
+            result = await formatSearchImageUrls(result);
 
             setSearchData({
                 searchResult: filterResults(result),

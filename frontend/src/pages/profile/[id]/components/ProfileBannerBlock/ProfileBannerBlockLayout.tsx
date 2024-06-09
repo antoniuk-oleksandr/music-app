@@ -4,7 +4,7 @@ const ProfileBannerBlockLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div className="relative overflow-hidden">
+        <div className="relative ">
             {children}
         </div>
     )

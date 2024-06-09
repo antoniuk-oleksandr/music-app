@@ -5,22 +5,23 @@ import {Song} from "@/types/Song";
 import {User} from "@/types/User";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
-import {getUrlFromString} from "@/utils/utils";
+import {formatImageUrl} from "@/utils/utils";
 import {FileType} from "@/types/File";
 
 export const changeSearchTab = (router: AppRouterInstance, tab: SearchTab, searchQuery: string) => {
     router.push(`/search?q=${searchQuery}&tab=${tab}`);
 }
 
-export const addImageBlobs = async (searchResult: SearchResult) => {
+export const formatSearchImageUrls = async (searchResult: SearchResult) => {
     for (const arr of Object.values(searchResult)) {
         if (!arr) continue;
 
         for (const value of arr) {
-            if ('username' in value)
-                value.avatarPath = await getUrlFromString(value.avatarPath, FileType.Image);
-            else if ('name' in value)
-                value.imagePath = await getUrlFromString(value.imagePath, FileType.Image);
+            if ('username' in value) {
+                if(value.avatarPath.includes('default')) continue;
+                value.avatarPath = formatImageUrl(value.avatarPath);
+            } else if ('name' in value)
+                value.imagePath = formatImageUrl(value.imagePath);
         }
     }
 

@@ -2,8 +2,9 @@ import {useEffect, useState} from "react";
 import {profileRequest} from "@/api/profile-request";
 import {useRouter} from "next/router";
 import {Profile} from "@/types/Profile";
-import {getSongImagesForList, getImagesForSongs, getUrlFromString, getImagesForList} from "@/utils/utils";
-import {FileType} from "@/types/File";
+import {getImagesForSongs, formatImageUrl, getImagesForList} from "@/utils/utils";
+import {effect} from "@preact/signals-react";
+import {profileBannerSignal} from "@/pages/profile/[id]/profile-banner-signal";
 
 export const useProfileData = () => {
     const [profile, setProfile] = useState<null | Profile>(null);
@@ -11,21 +12,39 @@ export const useProfileData = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if(!router.isReady) return;
+        if (!router.isReady) return;
 
         const getData = async () => {
             const id = Number.parseInt(router.query.id as string);
             const data = await profileRequest(id as number) as Profile;
-            data.user.bannerPath = await getUrlFromString(data.user.bannerPath, FileType.Image);
             data.songs = data.songs.slice(0, 5);
-            await getImagesForSongs(data);
-            await getImagesForList(data.albums);
-            await getImagesForList(data.playlists);
+            getImagesForSongs(data);
+            getImagesForList(data.albums);
+            getImagesForList(data.playlists);
+
+            if (!data.user.bannerPath.includes("default")) {
+                data.user.bannerPath = formatImageUrl(data.user.bannerPath);
+            }
             setProfile(data);
         }
 
         getData();
+
+        effect(() => {
+            setProfile((prev) => {
+                const newBanner = profileBannerSignal.value as string;
+                if (!prev) return prev;
+                return {
+                    ...prev,
+                    user: {
+                        ...prev.user,
+                        bannerPath: newBanner
+                    }
+                };
+            });
+        });
     }, [router]);
+
 
     return profile;
 }
