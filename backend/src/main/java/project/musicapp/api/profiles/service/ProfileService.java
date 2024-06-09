@@ -1,15 +1,19 @@
 package project.musicapp.api.profiles.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import project.musicapp.api.profiles.dto.ProfileDTO;
 import project.musicapp.api.profiles.dto.ProfileUserDTO;
+import project.musicapp.api.profiles.dto.UpdateBannerAvatarResponseDTO;
 
 @Service
 @RequiredArgsConstructor
 public class ProfileService {
     private final ProfileByDataTypeService profileDataService;
+    private final ProfileByTokenService profileByTokenService;
     private final ProfileBannerAvatarService profileBannerAvatarService;
 
     public ProfileUserDTO getProfileUserById(int userId) {
@@ -20,7 +24,11 @@ public class ProfileService {
         return this.profileDataService.getProfileByTypeAndUserId(profileType, userId, limit, offset);
     }
 
-    public ResponseEntity<?> updateBannerOrAvatar(int profileId, String bannerOrAvatarType, String path) {
-        return this.profileBannerAvatarService.updateBannerOrAvatar(profileId, bannerOrAvatarType, path);
+    public UpdateBannerAvatarResponseDTO updateBannerOrAvatar(HttpHeaders header, String bannerOrAvatarType, MultipartFile file) {
+        return this.profileBannerAvatarService.updateBannerOrAvatar(header, bannerOrAvatarType, file);
+    }
+
+    public ResponseEntity<?> getProfileInfoByAccessToken(HttpHeaders headers) {
+        return this.profileByTokenService.getProfileInfoByToken(headers);
     }
 }

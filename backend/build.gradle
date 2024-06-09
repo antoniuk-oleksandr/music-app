@@ -27,6 +27,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.postgresql:postgresql:42.7.3'
+	implementation group: 'org.springframework', name: 'spring-webflux', version: '6.1.8'
+	implementation group: 'com.mpatric', name: 'mp3agic', version: '0.9.1'
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
 	implementation 'io.jsonwebtoken:jjwt-impl:0.12.5'
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.5'

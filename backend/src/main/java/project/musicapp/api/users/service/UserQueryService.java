@@ -2,7 +2,6 @@ package project.musicapp.api.users.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpServerErrorException;
 import project.musicapp.api.users.dto.UserBannerDTO;
 import project.musicapp.api.users.dto.UserDTO;
 import project.musicapp.api.users.mapper.UserBannerMapper;
@@ -55,11 +54,11 @@ public class UserQueryService {
         }
     }
 
-    public void updateUserBannerByUserId(int userId, String bannerPath) {
-        this.userRepository.updateUserBannerByUserId(userId, bannerPath);
+    public void updateUserBannerByUserId(int userId, String banner) {
+        this.userRepository.updateUserBannerByUserId(userId, banner);
     }
 
-    public void updateUserAvatarByUserId(int userId, String avatarPath) {
-        this.userRepository.updateUserAvatarByUserId(userId, avatarPath);
+    public void updateUserAvatarByUserId(int userId, String avatar) {
+        this.userRepository.updateUserAvatarByUserId(userId, avatar);
     }
 }

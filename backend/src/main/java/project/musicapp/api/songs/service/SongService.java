@@ -1,29 +1,23 @@
 package project.musicapp.api.songs.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import project.musicapp.api.songs.dto.CreateSongDTO;
 import project.musicapp.api.songs.dto.SongUserDTO;
 
 import java.util.List;
 
 @Service
-public class SongService {
-    private final SongUserQueryService songUserQueryService;
+public interface SongService {
+    SongUserDTO findSongUserBySongId(int id);
 
-    @Autowired
-    public SongService(SongUserQueryService songUserQueryService) {
-        this.songUserQueryService = songUserQueryService;
-    }
+    List<SongUserDTO> findAllSongUsersByUserId(int userId, int limit, int offset);
 
-    public SongUserDTO findSongUserBySongId(int id) {
-        return this.songUserQueryService.findSongUserBySongId(id);
-    }
+    List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset);
 
-    public List<SongUserDTO> findAllSongUsersByUserId(int userId, int limit, int offset) {
-        return this.songUserQueryService.findSongUserByUserId(userId, limit, offset);
-    }
-
-    public List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset) {
-        return this.songUserQueryService.findAllSongUsersBySongName(value, limit, offset);
-    }
+    void createSongWithUserInfo(HttpHeaders headers,
+                                CreateSongDTO requestDTO,
+                                MultipartFile mp3,
+                                MultipartFile picture);
 }

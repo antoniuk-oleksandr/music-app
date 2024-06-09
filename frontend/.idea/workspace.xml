@@ -5,14 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5799a7d-ae8f-4a9b-8e3d-be9879caf978" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../backend/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/utils/Mp3Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/dto/UpdateBannerAvatarResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/dto/CreateSongDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/dto/CreateSongResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/impl/SongServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/mapper/CreateSongMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/albums/service/AlbumQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/albums/service/AlbumQueryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/service/FileStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/service/FileStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/service/LoadFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/service/LoadFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/service/UploadFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/files/service/UploadFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/playlists/service/PlaylistQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/playlists/service/PlaylistQueryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/service/ProfileBannerAvatarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/service/ProfileBannerAvatarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/service/ProfileQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/service/ProfileQueryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/service/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/profiles/service/ProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/search/service/SearchQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/search/service/SearchQueryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/controller/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/controller/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/model/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/model/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/model/SongUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/model/SongUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/service/SongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/service/SongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/songs/service/SongUserQueryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/controller/TokenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/controller/TokenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/AccessTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/AccessTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/RecoveryTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/RecoveryTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/RefreshTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/RefreshTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/tokens/service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/users/service/UserQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/users/service/UserQueryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/users/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/api/users/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/auth/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/project/musicapp/auth/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/sign-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/sign-request.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common-components/Header/components/RightSide/RightSide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common-components/Header/components/RightSide/RightSide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/SignPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/SignPageLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/handlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/handlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/sign-up/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-up/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/SignInInputs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/SignInInputs.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +74,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "verification-page",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/alex/music-app/frontend/src/pages/sign-up",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -56,7 +82,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/home/alex/music-app/frontend/node_modules/typescript/lib",
+    "ts.external.directory.path": "/mnt/Hardisk/music-app/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -130,6 +156,7 @@
       <workItem from="1717325649275" duration="1040000" />
       <workItem from="1717349646952" duration="12522000" />
       <workItem from="1717407515776" duration="1140000" />
+      <workItem from="1717675312721" duration="6429000" />
     </task>
     <servers />
   </component>

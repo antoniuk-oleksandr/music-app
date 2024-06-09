@@ -27,7 +27,9 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/upload/**").authenticated()
+                .requestMatchers("/profiles/update/**").authenticated()
+                .requestMatchers("/profiles/me").authenticated()
+                    .requestMatchers("/playlists/**").authenticated()
                 .anyRequest().permitAll()
             )
             .sessionManagement(session -> session

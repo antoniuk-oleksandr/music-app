@@ -31,10 +31,10 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Modifying
     @Query(value = UserQuerySQL.UPDATE_USER_BANNER_BY_USER_ID, nativeQuery = true)
     void updateUserBannerByUserId(@Param("id") int id,
-                                  @Param("path") String path);
+                                  @Param("banner") String banner);
 
     @Modifying
     @Query(value = UserQuerySQL.UPDATE_USER_AVATAR_BY_USER_ID, nativeQuery = true)
     void updateUserAvatarByUserId(@Param("id") int id,
-                                  @Param("path") String path);
+                                  @Param("avatar") String avatar);
 }

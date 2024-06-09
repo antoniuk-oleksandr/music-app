@@ -4,8 +4,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
-import project.musicapp.api.tokens.type.TokenType;
 
 import java.sql.Timestamp;
 import java.time.Duration;
@@ -34,6 +34,15 @@ public abstract class TokenService {
     public Boolean validateToken(String token) {
         Date expiration = getDateFromToken(token);
         return expiration.after(new Date());
+    }
+
+    public String extractTokenFromHeaders(HttpHeaders headers) {
+        String authorizationHeader = headers.getFirst(HttpHeaders.AUTHORIZATION);
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            return authorizationHeader.substring("Bearer ".length());
+        } else {
+            return null;
+        }
     }
 
     public String createToken(Map<String, Object> claims, String username, Duration lifetime) {

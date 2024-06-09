@@ -1,13 +1,16 @@
 package project.musicapp.api.songs.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Timestamp;
 
+
 @Entity
 @Table(name = "songs")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 public class Song {
     @Id

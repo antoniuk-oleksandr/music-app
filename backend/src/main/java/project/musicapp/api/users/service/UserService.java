@@ -1,8 +1,8 @@
 package project.musicapp.api.users.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.tokens.service.AccessTokenService;
 import project.musicapp.api.users.dto.UserBannerDTO;
 import project.musicapp.api.users.dto.UserDTO;
 import project.musicapp.api.users.model.User;
@@ -14,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserQueryService userQueryService;
+    private final AccessTokenService accessTokenService;
 
     public UserBannerDTO findUserBannerById(int id){
         return this.userQueryService.findUserBannerById(id);
@@ -43,11 +44,16 @@ public class UserService {
         this.userQueryService.createUser(userDTO);
     }
 
-    public void updateUserBannerByUserId(int id, String bannerPath) {
-        this.userQueryService.updateUserBannerByUserId(id, bannerPath);
+    public void updateUserBannerByUserId(int id, String banner) {
+        this.userQueryService.updateUserBannerByUserId(id, banner);
     }
 
-    public void updateUserAvatarByUserId(int id, String avatarPath) {
-        this.userQueryService.updateUserAvatarByUserId(id, avatarPath);
+    public void updateUserAvatarByUserId(int id, String avatar) {
+        this.userQueryService.updateUserAvatarByUserId(id, avatar);
+    }
+
+    public Optional<User> getUserFromAccessToken(String accessToken) {
+        String username = this.accessTokenService.getUsernameFromToken(accessToken);
+        return findUserByUsername(username);
     }
 }

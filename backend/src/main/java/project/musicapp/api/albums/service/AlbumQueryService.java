@@ -9,7 +9,7 @@ import project.musicapp.api.albums.mapper.AlbumUserSongsMapper;
 import project.musicapp.api.albums.model.Album;
 import project.musicapp.api.albums.repository.AlbumRepository;
 import project.musicapp.api.songs.dto.SongUserDTO;
-import project.musicapp.api.songs.service.SongService;
+import project.musicapp.api.songs.impl.SongServiceImpl;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class AlbumQueryService {
-    private final SongService songService;
+    private final SongServiceImpl songService;
     private final UserRepository userRepository;
     private final AlbumRepository albumRepository;
 
