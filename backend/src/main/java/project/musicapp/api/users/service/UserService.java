@@ -56,4 +56,8 @@ public class UserService {
         String username = this.accessTokenService.getUsernameFromToken(accessToken);
         return findUserByUsername(username);
     }
+
+    public void setTrueIsArtistForUser(int userId) {
+        this.userQueryService.setTrueIsArtistForUser(userId);
+    }
 }

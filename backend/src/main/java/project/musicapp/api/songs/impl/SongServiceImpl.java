@@ -83,8 +83,11 @@ public class SongServiceImpl implements SongService {
                 .map(ResponseEntity::ok)
                 .onErrorResume(e -> Mono.just(ResponseEntity.status(500).body(e.getMessage()))).block();
 
+
         Song song = mapToSong(requestDTO, songNameWithExtension, pictureNameWithExtension, mp3);
         this.songRepository.save(song);
+
+        this.userService.setTrueIsArtistForUser(user.getId());
 
         SongUser songUser = SongUser.builder().user(user).song(song).build();
         this.songUserRepository.save(songUser);

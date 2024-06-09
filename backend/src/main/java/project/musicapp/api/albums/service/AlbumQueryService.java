@@ -1,9 +1,12 @@
 package project.musicapp.api.albums.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.albums.dto.AlbumCreateDTO;
 import project.musicapp.api.albums.dto.AlbumDTO;
 import project.musicapp.api.albums.dto.AlbumUserSongsDTO;
+import project.musicapp.api.albums.mapper.AlbumCreateMapper;
 import project.musicapp.api.albums.mapper.AlbumObjectMapper;
 import project.musicapp.api.albums.mapper.AlbumUserSongsMapper;
 import project.musicapp.api.albums.model.Album;
@@ -56,5 +59,11 @@ public class AlbumQueryService {
     public List<AlbumDTO> findAllAlbumsByName(String value, int limit, int offset) {
         List<Object[]> albums = this.albumRepository.findAllAlbumsByName(value, limit, offset);
         return new AlbumObjectMapper(albums).toAlbumDTOs();
+    }
+
+    public void createAlbum(AlbumCreateDTO albumCreateDTO, User user) {
+        this.albumRepository.save(
+            new AlbumCreateMapper(albumCreateDTO, user).toAlbum()
+        );
     }
 }

@@ -1,14 +1,16 @@
 package project.musicapp.api.playlists.repository;
 
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import project.musicapp.api.albums.utils.AlbumQuerySQL;
 import project.musicapp.api.playlists.model.Playlist;
 import project.musicapp.api.playlists.utils.PlaylistQuerySQL;
 
 import java.util.List;
+import java.util.Optional;
+
 
 @Repository
 public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
@@ -26,4 +28,9 @@ public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
                                              @Param("limit") int limit,
                                              @Param("offset") int offset
     );
+
+
+    @Query(value = PlaylistQuerySQL.FIND_PLAYLIST_BY_USER_ID_AND_PLAYLIST_NAME, nativeQuery = true)
+    Optional<Playlist> findByNameAndUserId(@Param("name") String name,
+                                           @Param("creatorId") int userId);
 }
