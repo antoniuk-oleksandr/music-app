@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import project.musicapp.api.profiles.dto.ProfileMeDTO;
 import project.musicapp.api.tokens.service.AccessTokenService;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.service.UserService;
@@ -19,15 +20,12 @@ public class ProfileByTokenService {
         return getResponseEntity(accessToken);
     }
 
-    private User getUserFromToken(String accessToken) {
-        String username = this.accessTokenService.getUsernameFromToken(accessToken);
-        System.out.println(username);
-        return this.userService.getUserFromAccessToken(username).orElseThrow(
+    private ResponseEntity<?> getResponseEntity(String accessToken) {
+        User user = this.userService.getUserFromAccessToken(accessToken).orElseThrow(
             () -> new IllegalStateException("Could not find user with access token " + accessToken)
         );
-    }
-
-    private ResponseEntity<?> getResponseEntity(String accessToken) {
-        return ResponseEntity.ok().body(getUserFromToken(accessToken));
+        return ResponseEntity.ok().body(
+            new ProfileMeDTO(user.getId(), user.getUsername(), user.getAvatar())
+        );
     }
 }
