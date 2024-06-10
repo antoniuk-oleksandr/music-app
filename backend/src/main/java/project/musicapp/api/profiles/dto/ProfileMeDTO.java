@@ -8,6 +8,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProfileMeDTO {
     private Integer id;
-    private String name;
-    private String avatar;
+    private String username;
+    private String avatarPath;
 }
