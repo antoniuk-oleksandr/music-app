@@ -10,7 +10,6 @@ import project.musicapp.api.songs.model.Song;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateSongMapper {
-    private int duration;
     private String songFileName;
     private String imageFileName;
     private CreateSongDTO songDTO;
@@ -18,7 +17,7 @@ public class CreateSongMapper {
     public Song toSongWithDuration() {
         return Song.builder()
                 .name(songDTO.getName())
-                .duration(duration)
+                .duration(songDTO.getDuration())
                 .releaseDate(songDTO.getReleaseDate())
                 .songPath(songFileName)
                 .imagePath(imageFileName)

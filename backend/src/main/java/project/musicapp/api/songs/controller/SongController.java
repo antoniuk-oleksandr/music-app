@@ -2,6 +2,7 @@ package project.musicapp.api.songs.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import project.musicapp.api.songs.dto.CreateSongDTO;
@@ -29,10 +30,10 @@ public class SongController {
     }
 
     @PostMapping("/create")
-    public void createSongUser(@RequestHeader HttpHeaders headers,
-                               @RequestPart CreateSongDTO songData,
-                               @RequestPart MultipartFile mp3,
-                               @RequestPart MultipartFile picture) {
-        this.songService.createSongWithUserInfo(headers, songData, mp3, picture);
+    public ResponseEntity<?> createSongUser(@RequestHeader HttpHeaders headers,
+                                            @RequestPart CreateSongDTO songData,
+                                            @RequestPart MultipartFile mp3,
+                                            @RequestPart MultipartFile picture) {
+        return this.songService.createSongWithUserInfo(headers, songData, mp3, picture);
     }
 }

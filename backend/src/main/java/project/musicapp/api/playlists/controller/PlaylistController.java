@@ -29,4 +29,10 @@ public class PlaylistController {
                                                                     @RequestBody PlaylistCreateDTO playlistCreateDTO) {
         return this.playlistService.createPlaylist(headers, playlistCreateDTO);
     }
+
+    @PostMapping("/{id}/add-song")
+    public void addSongsToPlaylist(@PathVariable String id,
+                                   @RequestBody Integer songId) {
+
+    }
 }

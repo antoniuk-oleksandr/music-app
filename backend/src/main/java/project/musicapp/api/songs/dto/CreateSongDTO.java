@@ -9,4 +9,5 @@ import java.sql.Timestamp;
 public class CreateSongDTO {
     private String name;
     private Timestamp releaseDate;
+    private Integer duration;
 }

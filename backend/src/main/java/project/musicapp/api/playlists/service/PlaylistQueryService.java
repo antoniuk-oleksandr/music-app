@@ -74,4 +74,8 @@ public class PlaylistQueryService {
             playlistCreateDTO.getName(), user.getId()
         ).isPresent();
     }
+
+    public void addSongToPlaylist() {
+
+    }
 }
