@@ -7,7 +7,7 @@ const ProfileListsImage = (props: ProfileListsImageProps) => {
 
     return (
         <img
-            className={"object-center object-cover aspect-1 rounded-md"}
+            className={"object-center object-cover aspect-1 rounded-md size-full"}
             src={src}
             alt="listCover"
         />

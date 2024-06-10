@@ -1,5 +1,5 @@
 import FileUploaderContainerLayout from "./FileUploaderContainerLayout";
-import ImageUploader from "@/common-components/FileUploader/ImageUploader";
+import ImageUploader from "@/common-components/ImageUploader/ImageUploader";
 import FileUploaderHeader
     from "@/common-components/FileUploaderContainer/components/FileUploaderHeader/FileUploaderHeader";
 import LightButton from "@/common-components/LightButton";

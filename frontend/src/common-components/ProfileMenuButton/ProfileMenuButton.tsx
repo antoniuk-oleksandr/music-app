@@ -1,22 +1,20 @@
 import ProfileMenuButtonLayout from "./ProfileMenuButtonLayout";
 import ProfileMenu from "@/common-components/ProfileMenu/ProfileMenu";
-import {User} from "@/types/User";
 import {useMenu} from "@/common-components/ProfileMenu/use-menu";
-import {AnimatePresence} from "framer-motion";
-import {Dispatch, SetStateAction, useRef, useState} from "react";
-import ModalElement from "@/common-components/ModalElement/ModalElement";
+import {useRef} from "react";
+import {useUserProfileData} from "@/common-components/ProfileMenu/use-user-profile-data";
+import {useDispatch, useSelector} from "react-redux";
 
 const ProfileMenuButton = () => {
-    const data = {
-        username: 'alex',
-        id: 328,
-        avatarPath: '/images/default-avatar.jpg',
-    } as User;
+    const jwt = useSelector((state: any) => state.token.tokens.jwt.token);
+    const dispatch = useDispatch();
+    const data = useUserProfileData(jwt, dispatch);
 
     const profileMenuRef = useRef<HTMLDivElement | null>(null);
     const profileMenuButtonRef = useRef<HTMLImageElement | null>(null);
     const {isMenuOpened, setIsMenuOpened} = useMenu(profileMenuRef, profileMenuButtonRef);
 
+    if (!data) return;
     return (
         <ProfileMenuButtonLayout>
             <img

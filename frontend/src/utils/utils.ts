@@ -95,3 +95,9 @@ export const showDialog = (
     dispatch(setDialog([true, text, color]));
     setTimeout(() => dispatch(setIsDialogShown(false)), 3500);
 }
+
+export const convertToFormData = (file: File, name: string) => {
+    const formData = new FormData();
+    formData.append(name, file);
+    return formData;
+}

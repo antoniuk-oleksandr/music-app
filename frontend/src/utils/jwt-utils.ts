@@ -46,7 +46,6 @@ export const updateJwt = async (tokenInfo: TokenInfo, dispatch: Dispatch<Unknown
     const response: { jwt: Jwt } = await refreshJwtRequest(refreshToken);
     setJwtToCookies(response.jwt);
     dispatch(setTokenInfo(response));
-    console.log('updated!!!');
     return response.jwt;
 };
 

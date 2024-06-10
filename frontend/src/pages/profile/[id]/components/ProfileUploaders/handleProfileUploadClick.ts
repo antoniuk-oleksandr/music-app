@@ -5,6 +5,7 @@ import {UnknownAction} from "redux";
 import {profileChangePictureRequest} from "@/api/profile-change-picture-request";
 import {capitalize, showDialog} from "@/utils/utils";
 import {profileBannerSignal} from "@/pages/profile/[id]/profile-banner-signal";
+import {profileAvatarSignal} from "@/common-components/ProfileMenu/profile-avatar-signal";
 
 export const handleProfileUploadClick = async (
     file: MutableRefObject<File | null>,
@@ -25,7 +26,8 @@ export const handleProfileUploadClick = async (
         showDialog(dispatch, text, 'text-green-400');
 
         getUrlFromFile(file.current, (img) => {
-            profileBannerSignal.value = img;
+            if (type === 'banner') profileBannerSignal.value = img;
+            else profileAvatarSignal.value = img;
         })
 
     } else {

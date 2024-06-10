@@ -6,16 +6,26 @@ import EditProfileButtonLayout from "@/pages/profile/[id]/components/EditProfile
 import {useMenu} from "@/common-components/ProfileMenu/use-menu";
 import {SetRef} from "@/types/SetRef";
 import ProfileUploader from "@/pages/profile/[id]/components/ProfileUploaders/ProfileUploaders";
+import {useSelector} from "react-redux";
+import {Profile} from "@/types/Profile";
 
-const EditProfileButton = () => {
+type EditProfileButtonProps = {
+    profileData: Profile,
+}
+
+const EditProfileButton = (props: EditProfileButtonProps) => {
+    const {profileData} = props;
     const buttonRef = useRef<HTMLButtonElement | null>(null);
     const menuRef = useRef<HTMLDivElement | null>(null);
     const {isMenuOpened, setIsMenuOpened} = useMenu(menuRef, buttonRef);
+    const userProfile = useSelector((state: any) => state.userProfile);
+    const tokenInfo = useSelector((state: any) => state.token);
 
     const setAvatarRef = useRef<SetRef>(null);
     const setBannerRef = useRef<SetRef>(null);
     const setRefs = [setAvatarRef, setBannerRef];
 
+    if (userProfile.id === null || userProfile.id !== profileData.user.id || !tokenInfo.signedIn) return null;
     return (
         <EditProfileButtonLayout>
             <LightButton

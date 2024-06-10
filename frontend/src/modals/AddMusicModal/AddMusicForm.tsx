@@ -1,18 +1,27 @@
 import {LayoutProps} from "@/types/LayoutProps";
-import {FieldValues, FormProvider, SubmitHandler, useForm} from "react-hook-form";
+import {FormProvider, useForm} from "react-hook-form";
+import {MutableRefObject} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {TokenInfo} from "@/types/TokenInfo";
+import {handleAddMusicFormSubmit} from "@/modals/AddMusicModal/handlers";
 
-const AddMusicForm = (props: LayoutProps) => {
+type AddMusicFormProps = LayoutProps & {
+    imageFileRef: MutableRefObject<File | null>,
+    audioFileRef: MutableRefObject<File | null>,
+}
+
+const AddMusicForm = (props: AddMusicFormProps) => {
     const {children} = props;
     const methods = useForm();
-
-    const onSubmit: SubmitHandler<FieldValues> = (data) =>
-        console.log(data);
+    const tokenInfo: TokenInfo = useSelector((state: any) => state.token.tokens);
+    const dispatch = useDispatch();
 
     return (
         <FormProvider {...methods}>
             <form
                 className={"flex flex-col"}
-                onSubmit={methods.handleSubmit(onSubmit)}>
+                onSubmit={methods.handleSubmit((data) =>
+                    handleAddMusicFormSubmit(data, tokenInfo, dispatch))}>
                 {children}
             </form>
         </FormProvider>

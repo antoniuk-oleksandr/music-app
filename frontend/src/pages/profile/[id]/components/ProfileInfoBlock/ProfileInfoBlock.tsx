@@ -16,7 +16,6 @@ type ProfileInfoBlockProps = {
 
 const ProfileInfoBlock = (props: ProfileInfoBlockProps) => {
     const {profileData} = props;
-    const tokenInfo = useSelector((state: any) => state.token);
 
     return (
         <ProfileInfoBlockLayout>
@@ -26,7 +25,7 @@ const ProfileInfoBlock = (props: ProfileInfoBlockProps) => {
                     <ProfilePlayButton songs={profileData.songs}/>
                     <SubscribeButton profileData={profileData}/>
                 </PlaySubButtonsLayout>
-                <EditProfileButton/>
+                <EditProfileButton profileData={profileData}/>
             </BannerButtonsLayout>
         </ProfileInfoBlockLayout>
     )
