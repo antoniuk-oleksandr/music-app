@@ -11,7 +11,6 @@ import project.musicapp.api.playlists.utils.PlaylistQuerySQL;
 import java.util.List;
 import java.util.Optional;
 
-
 @Repository
 public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
     @Query(value = PlaylistQuerySQL.FIND_ALL_PLAYLISTS_BY_NAME, nativeQuery = true)
@@ -28,7 +27,6 @@ public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
                                              @Param("limit") int limit,
                                              @Param("offset") int offset
     );
-
 
     @Query(value = PlaylistQuerySQL.FIND_PLAYLIST_BY_USER_ID_AND_PLAYLIST_NAME, nativeQuery = true)
     Optional<Playlist> findByNameAndUserId(@Param("name") String name,

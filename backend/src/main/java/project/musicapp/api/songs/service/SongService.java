@@ -1,6 +1,7 @@
 package project.musicapp.api.songs.service;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import project.musicapp.api.songs.dto.CreateSongDTO;
@@ -16,8 +17,8 @@ public interface SongService {
 
     List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset);
 
-    void createSongWithUserInfo(HttpHeaders headers,
-                                CreateSongDTO requestDTO,
-                                MultipartFile mp3,
-                                MultipartFile picture);
+    ResponseEntity<?> createSongWithUserInfo(HttpHeaders headers,
+                                          CreateSongDTO requestDTO,
+                                          MultipartFile mp3,
+                                          MultipartFile picture);
 }

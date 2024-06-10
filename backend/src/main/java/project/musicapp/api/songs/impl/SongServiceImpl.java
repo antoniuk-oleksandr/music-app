@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 import project.musicapp.api.albums.dto.AlbumNameDTO;
 import project.musicapp.api.albums.service.AlbumCreatorService;
 import project.musicapp.api.files.service.FileService;
-import project.musicapp.api.files.utils.Mp3Utils;
 import project.musicapp.api.songs.dto.CreateSongDTO;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.mapper.CreateSongMapper;
@@ -36,7 +35,6 @@ public class SongServiceImpl implements SongService {
     private final AlbumCreatorService albumCreatorService;
     private final SongRepository songRepository;
     private final SongUserRepository songUserRepository;
-    private final Mp3Utils mp3Utils;
     private final FileService fileService;
 
     @Override
@@ -63,8 +61,9 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public void createSongWithUserInfo(HttpHeaders headers, CreateSongDTO requestDTO,
-                                       MultipartFile mp3, MultipartFile songImage
+    public ResponseEntity<?> createSongWithUserInfo(
+        HttpHeaders headers, CreateSongDTO requestDTO,
+        MultipartFile mp3, MultipartFile picture
     ) {
         String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
         User user = this.userService.getUserFromAccessToken(accessToken).orElseThrow(
@@ -73,37 +72,36 @@ public class SongServiceImpl implements SongService {
 
         String uuidFileName = String.valueOf(UUID.randomUUID());
         String songNameWithExtension = uuidFileName + "." + mp3.getOriginalFilename().split("\\.")[1];
-        String pictureNameWithExtension = uuidFileName + "." + songImage.getOriginalFilename().split("\\.")[1];
+        String pictureNameWithExtension = uuidFileName + "." + picture.getOriginalFilename().split("\\.")[1];
 
         this.fileService.upload(uuidFileName, mp3)
                 .map(ResponseEntity::ok)
                 .onErrorResume(e -> Mono.just(ResponseEntity.status(500).body(e.getMessage()))).block();
 
-        this.fileService.upload(uuidFileName, songImage)
+        this.fileService.upload(uuidFileName, picture)
                 .map(ResponseEntity::ok)
                 .onErrorResume(e -> Mono.just(ResponseEntity.status(500).body(e.getMessage()))).block();
 
-
-        Song song = mapToSong(requestDTO, songNameWithExtension, pictureNameWithExtension, mp3);
+        Song song = mapToSong(requestDTO, songNameWithExtension, pictureNameWithExtension);
         this.songRepository.save(song);
 
         this.userService.setTrueIsArtistForUser(user.getId());
 
         SongUser songUser = SongUser.builder().user(user).song(song).build();
         this.songUserRepository.save(songUser);
+
+        return ResponseEntity.ok().body(songNameWithExtension);
     }
 
     private List<SongUserDTO> getSongUsersByIndices(List<Integer> indices) {
         return indices.stream().map(this::findSongUserBySongId).collect(Collectors.toList());
     }
 
-    private Song mapToSong(CreateSongDTO createSongDTO, String mp3FileName,
-                           String pictureFileName, MultipartFile mp3)  {
+    private Song mapToSong(CreateSongDTO createSongDTO, String mp3FileName, String pictureFileName)  {
         return CreateSongMapper.builder()
                 .songDTO(createSongDTO)
                 .songFileName(mp3FileName)
                 .imageFileName(pictureFileName)
-                .duration(this.mp3Utils.getDurationFromMp3(mp3))
                 .build().toSongWithDuration();
     }
 }
