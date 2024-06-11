@@ -2,7 +2,6 @@ import {ChangeEvent, Dispatch, FormEvent, MutableRefObject, SetStateAction} from
 import {SignInInputs, SignUpInputs} from "@/types/SignInInputs";
 import {signRequest} from "@/api/sign-request";
 import {SignType} from "@/types/SignType";
-import Cookies from 'js-cookie';
 import {NextRouter} from "next/router";
 import {UnknownAction} from "redux";
 import {setDialog, setIsDialogShown} from "@/redux/reducers/dialog-slice";

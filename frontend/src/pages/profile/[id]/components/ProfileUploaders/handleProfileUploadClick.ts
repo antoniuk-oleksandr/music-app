@@ -4,7 +4,7 @@ import {checkIfJWTExpired, updateJwt} from "@/utils/jwt-utils";
 import {UnknownAction} from "redux";
 import {profileChangePictureRequest} from "@/api/profile-change-picture-request";
 import {capitalize, showDialog} from "@/utils/utils";
-import {profileBannerSignal} from "@/pages/profile/[id]/profile-banner-signal";
+import {profileBannerSignal} from "@/pages/profile/[id]/signals/profile-banner-signal";
 import {profileAvatarSignal} from "@/common-components/ProfileMenu/profile-avatar-signal";
 
 export const handleProfileUploadClick = async (

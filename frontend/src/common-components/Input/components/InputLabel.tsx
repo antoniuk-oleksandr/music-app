@@ -11,6 +11,7 @@ const InputLabel = (props: InputLabelProps) => {
     return (
         <label
             className={`absolute bg-white px-1 left-2 duration-150 ease-out cursor-text ${color}
+                ${isFocused ? 'text-red-500' : ''}
                 ${isFocused || value.length > 0 ? 'top-[-12px]' : 'top-[calc((100%-24px)/2)]'}`}
             htmlFor=""
         >{label}</label>

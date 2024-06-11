@@ -4,7 +4,7 @@ const AddMusicModalHeaderLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div className="flex justify-between text-lg m-4">
+        <div className="flex justify-between text-lg px-6 pt-6 items-center">
             {children}
         </div>
     )

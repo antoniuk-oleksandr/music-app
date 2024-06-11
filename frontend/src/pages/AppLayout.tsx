@@ -23,7 +23,7 @@ const AppLayout = (props: AppLayoutProps) => {
     const {children, hideNavbarHeader} = props;
 
     return (
-        <AudioProvider>
+        <AudioProvider font={inter.className}>
             <Provider store={store}>
                 <Modals/>
                 <Dialog/>

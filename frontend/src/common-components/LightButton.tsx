@@ -6,13 +6,15 @@ type LightButtonProps = LayoutProps & {
     onClick?: () => void,
     buttonRef?: MutableRefObject<HTMLButtonElement | null>,
     type?: "button" | "submit" | "reset",
+    disabled?: boolean,
 }
 
 const LightButton = (props: LightButtonProps) => {
-    const {className, onClick, children, buttonRef, type} = props;
+    const {className, onClick, children, buttonRef, type, disabled} = props;
 
     return (
         <button
+            disabled={disabled}
             ref={buttonRef}
             onClick={onClick}
             type={type ? type : "button"}

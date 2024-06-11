@@ -71,14 +71,14 @@ export const getWrapperWidth = (device: Device | null, isNavbarHidden: boolean |
 }
 
 export const setTokensToCookies = (jwt: any, refresh: string) => {
-    Cookies.set('jwt', jwt.token);
-    Cookies.set('jwtExpiration', jwt.expiration);
-    Cookies.set('refreshToken', refresh);
+    Cookies.set('jwt', jwt.token, {expires: 30});
+    Cookies.set('jwtExpiration', jwt.expiration, {expires: 30});
+    Cookies.set('refreshToken', refresh, {expires: 30});
 }
 
 export const setJwtToCookies = (jwt: Jwt) => {
-    Cookies.set('jwt', jwt.token);
-    Cookies.set('jwtExpiration', JSON.stringify(jwt.expiration));
+    Cookies.set('jwt', jwt.token, {expires: 30});
+    Cookies.set('jwtExpiration', JSON.stringify(jwt.expiration), {expires: 30});
 }
 
 export const clearJwtCookies = () => {

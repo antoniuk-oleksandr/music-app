@@ -17,10 +17,10 @@ const LeftAddMusicModalSide = (props: LeftAddMusicModalSideProps) => {
             <ImageUploader
                 id={'songCover'}
                 fileRef={imageFileRef}
-                className={"!size-48"}
+                className={"!size-48 !m-0"}
                 aspect={'none'}
             />
-            <div className={"mx-4 flex w-96 flex-col justify-center"}>
+            <div className={"flex w-96 flex-col justify-center"}>
                 <Input
                     border={'ring-neutral-500'}
                     color={'text-neutral-700'}

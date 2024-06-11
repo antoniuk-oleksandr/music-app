@@ -8,7 +8,12 @@ export const useAudio = () => {
     return useContext(AudioContext);
 }
 
-export const AudioProvider = ({children}: LayoutProps) => {
+type AudioContextProps = LayoutProps & {
+    font: string,
+}
+
+export const AudioProvider = (props: AudioContextProps) => {
+    const {font, children} = props;
     const audioRef = useRef<HTMLAudioElement>(null);
     const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
 
@@ -22,9 +27,11 @@ export const AudioProvider = ({children}: LayoutProps) => {
     }, [audioRef]);
 
     return (
-        <AudioContext.Provider value={audioElement}>
-            <audio ref={audioRef}/>
-            {audioElement ? children: null}
-        </AudioContext.Provider>
+        <div className={font}>
+            <AudioContext.Provider value={audioElement}>
+                <audio ref={audioRef}/>
+                {audioElement ? children : null}
+            </AudioContext.Provider>
+        </div>
     )
 }
