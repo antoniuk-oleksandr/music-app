@@ -41,4 +41,9 @@ public class PlaylistQuerySQL {
     public static final String SAVE_SONG_TO_PLAYLIST =
         "INSERT INTO songs_playlists(playlist_id, user_song_id) " +
         "VALUES (:playlistId, :userSongId)";
+
+    public static final String DELETE_SONG_FROM_PLAYLIST =
+        "DELETE FROM songs_playlists " +
+        "WHERE playlist_id = :playlistId " +
+        "AND user_song_id = :userSongId";
 }
