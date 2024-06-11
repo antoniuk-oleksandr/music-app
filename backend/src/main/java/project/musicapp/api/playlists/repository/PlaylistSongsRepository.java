@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 import project.musicapp.api.playlists.model.PlaylistSongs;
 import project.musicapp.api.playlists.utils.PlaylistQuerySQL;
@@ -24,4 +25,9 @@ public interface PlaylistSongsRepository extends CrudRepository<PlaylistSongs, I
     void saveSongToPlaylist(@Param("playlistId") int playlistId,
                             @Param("userSongId") int userSongId
     );
+
+    @Modifying
+    @Query(value = PlaylistQuerySQL.DELETE_SONG_FROM_PLAYLIST, nativeQuery = true)
+    void deleteSongFromPlaylist(@Param("playlistId") int playlistId,
+                                @Param("userSongId") int userSongId);
 }

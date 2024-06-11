@@ -14,7 +14,6 @@ import project.musicapp.api.playlists.repository.PlaylistRepository;
 import project.musicapp.api.playlists.repository.PlaylistSongsRepository;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.impl.SongServiceImpl;
-import project.musicapp.api.songs.model.Song;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
@@ -69,8 +68,8 @@ public class PlaylistQueryService {
         return new PlaylistMapper(playlists).toPlaylistDTOs();
     }
 
-    public void createPlaylist(PlaylistCreateDTO playlistCreateDTO, User user) {
-        this.playlistRepository.save(
+    public Playlist createPlaylist(PlaylistCreateDTO playlistCreateDTO, User user) {
+        return this.playlistRepository.save(
             new PlaylistCreateMapper(playlistCreateDTO, user).toPlaylist()
         );
     }
@@ -91,5 +90,9 @@ public class PlaylistQueryService {
         if(!isPresentSongInPlaylist(playlistId, userSongId)) {
             this.playlistSongsRepository.saveSongToPlaylist(playlistId, userSongId);
         }
+    }
+
+    public void deleteSongFromPlaylist(int playlistId, int userSongId) {
+        this.playlistSongsRepository.deleteSongFromPlaylist(playlistId, userSongId);
     }
 }
