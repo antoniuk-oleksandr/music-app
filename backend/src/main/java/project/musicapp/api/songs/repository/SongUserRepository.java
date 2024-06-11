@@ -8,6 +8,7 @@ import project.musicapp.api.songs.model.SongUser;
 import project.musicapp.api.songs.utils.SongsQuerySQL;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SongUserRepository extends JpaRepository<SongUser, Integer> {
@@ -22,4 +23,7 @@ public interface SongUserRepository extends JpaRepository<SongUser, Integer> {
                                                   @Param("limit") int limit,
                                                   @Param("offset") int offset
     );
+
+    @Query(value = SongsQuerySQL.FIND_SONG_USER_ID_BY_SONG_ID, nativeQuery = true)
+    Optional<Integer> findSongsUsersIndicesBySongId(@Param("songId") int songId);
 }

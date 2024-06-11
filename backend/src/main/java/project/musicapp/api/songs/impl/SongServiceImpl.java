@@ -43,9 +43,7 @@ public class SongServiceImpl implements SongService {
         AlbumNameDTO album = this.albumCreatorService.getAlbumCreatorBySongId(song.getId());
         List<UserDTO> users = this.userService.findAllUsersBySongId(song.getId());
 
-        return SongUserMapper.builder()
-                .song(song).album(album).users(users)
-                .build().toSongUserDTO();
+        return SongUserMapper.toSongUserDTO(song, album, users);
     }
 
     @Override
@@ -91,6 +89,12 @@ public class SongServiceImpl implements SongService {
         this.songUserRepository.save(songUser);
 
         return ResponseEntity.ok().body(songNameWithExtension);
+    }
+
+    @Override
+    public Integer findFirstUserSongIdBySongId(int id) {
+        return this.songUserRepository.findSongsUsersIndicesBySongId(id)
+            .orElseThrow(() -> new IllegalArgumentException("Current song_user_id doesn't exist"));
     }
 
     private List<SongUserDTO> getSongUsersByIndices(List<Integer> indices) {

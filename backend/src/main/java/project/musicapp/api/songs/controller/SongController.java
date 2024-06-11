@@ -7,15 +7,19 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import project.musicapp.api.songs.dto.CreateSongDTO;
 import project.musicapp.api.songs.dto.SongUserDTO;
+import project.musicapp.api.songs.model.SongUser;
+import project.musicapp.api.songs.repository.SongUserRepository;
 import project.musicapp.api.songs.service.SongService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("songs")
 @RequiredArgsConstructor
 public class SongController {
     private final SongService songService;
+    private final SongUserRepository songUserRepository;
 
     @GetMapping("/{id}")
     public SongUserDTO findSongUserById(@PathVariable int id) {

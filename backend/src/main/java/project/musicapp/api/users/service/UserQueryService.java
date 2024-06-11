@@ -48,6 +48,10 @@ public class UserQueryService {
         return this.userRepository.findByEmail(usernameEmail);
     }
 
+    public Optional<User> findUserById(int id) {
+        return this.userRepository.findById(id);
+    }
+
     public void createUser(User user) {
         if(this.userRepository.findByUsername(user.getUsername()).isEmpty()) {
             this.userRepository.save(user);

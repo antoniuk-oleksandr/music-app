@@ -4,10 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import project.musicapp.api.playlists.dto.PlaylistCreateDTO;
-import project.musicapp.api.playlists.dto.PlaylistCreateResponseDTO;
-import project.musicapp.api.playlists.dto.PlaylistDTO;
-import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
+import project.musicapp.api.playlists.dto.*;
+import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.tokens.service.AccessTokenService;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.service.UserService;
@@ -17,6 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class PlaylistService {
+    private final SongService songService;
     private final UserService userService;
     private final AccessTokenService accessTokenService;
     private final PlaylistQueryService playlistQueryService;
@@ -33,8 +32,8 @@ public class PlaylistService {
         return this.playlistQueryService.findAllPlayListsByName(value, limit, offset);
     }
 
-    public ResponseEntity<PlaylistCreateResponseDTO> createPlaylist(HttpHeaders header,
-                                                                    PlaylistCreateDTO playlistCreateDTO) {
+    public ResponseEntity<PlaylistResponseDTO> createPlaylist(HttpHeaders header,
+                                                              PlaylistCreateDTO playlistCreateDTO) {
         String accessToken = this.accessTokenService.extractTokenFromHeaders(header);
         User user = this.userService.getUserFromAccessToken(accessToken).orElseThrow(
             () -> new IllegalArgumentException("Invalid access token")
@@ -42,19 +41,28 @@ public class PlaylistService {
         return createPlaylistWithResponse(playlistCreateDTO, user);
     }
 
-    private ResponseEntity<PlaylistCreateResponseDTO> createPlaylistWithResponse(
+    public ResponseEntity<?> addSongToPlaylist(int playlistId, int songId) {
+        int userSongId = this.songService.findFirstUserSongIdBySongId(songId);
+        this.playlistQueryService.addSongToPlaylist(playlistId, userSongId);
+
+        return ResponseEntity.ok().body(
+            new PlaylistResponseDTO("POST", "Song added successfully", true)
+        );
+    }
+
+    private ResponseEntity<PlaylistResponseDTO> createPlaylistWithResponse(
             PlaylistCreateDTO playlistCreateDTO, User user
     ) {
         if(this.playlistQueryService.isPresentPlaylist(playlistCreateDTO, user)){
             return ResponseEntity.badRequest().body(
-                new PlaylistCreateResponseDTO("POST", "Playlist already exists", false)
+                new PlaylistResponseDTO("POST", "Playlist already exists", false)
             );
         }
 
         this.playlistQueryService.createPlaylist(playlistCreateDTO, user);
 
         return ResponseEntity.ok().body(
-            new PlaylistCreateResponseDTO("POST", "Playlist created successfully", true)
+            new PlaylistResponseDTO("POST", "Playlist created successfully", true)
         );
     }
 }

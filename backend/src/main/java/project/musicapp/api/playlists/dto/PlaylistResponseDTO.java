@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @AllArgsConstructor
-public class PlaylistCreateResponseDTO {
+public class PlaylistResponseDTO {
     private String method;
     private String message;
     private Boolean success;

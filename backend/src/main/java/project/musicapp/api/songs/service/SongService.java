@@ -8,6 +8,7 @@ import project.musicapp.api.songs.dto.CreateSongDTO;
 import project.musicapp.api.songs.dto.SongUserDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface SongService {
@@ -21,4 +22,6 @@ public interface SongService {
                                           CreateSongDTO requestDTO,
                                           MultipartFile mp3,
                                           MultipartFile picture);
+
+    Integer findFirstUserSongIdBySongId(int id);
 }

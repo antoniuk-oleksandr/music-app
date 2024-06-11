@@ -9,9 +9,12 @@ import project.musicapp.api.playlists.mapper.PlaylistCreateMapper;
 import project.musicapp.api.playlists.mapper.PlaylistMapper;
 import project.musicapp.api.playlists.mapper.PlaylistUserSongsMapper;
 import project.musicapp.api.playlists.model.Playlist;
+import project.musicapp.api.playlists.model.PlaylistSongs;
 import project.musicapp.api.playlists.repository.PlaylistRepository;
+import project.musicapp.api.playlists.repository.PlaylistSongsRepository;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.impl.SongServiceImpl;
+import project.musicapp.api.songs.model.Song;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
@@ -25,6 +28,7 @@ public class PlaylistQueryService {
     private final SongServiceImpl songService;
     private final UserRepository userRepository;
     private final PlaylistRepository playlistRepository;
+    private final PlaylistSongsRepository playlistSongsRepository;
 
     public List<SongUserDTO> getSongsByPlaylistId(int id){
         return this.playlistRepository
@@ -51,7 +55,7 @@ public class PlaylistQueryService {
                 .build().toAlbumUserSongsDTO();
     }
 
-    public List<PlaylistUserSongsDTO> getAllPlaylistUserSongsByUserId(int userId, int limit, int offset){
+    public List<PlaylistUserSongsDTO> getAllPlaylistUserSongsByUserId(int userId, int limit, int offset) {
         return this.playlistRepository
                 .findAllPlaylistIdsByUserId(userId, limit, offset).stream()
                 .map(this::findPlaylistUserSongsById)
@@ -59,7 +63,9 @@ public class PlaylistQueryService {
     }
 
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){
-        List<Object[]> playlists = this.playlistRepository.findAllPlaylistsByName(value, limit, offset);
+        List<Object[]> playlists = this.playlistRepository.findAllPlaylistsByName(
+            value, limit, offset
+        );
         return new PlaylistMapper(playlists).toPlaylistDTOs();
     }
 
@@ -75,7 +81,15 @@ public class PlaylistQueryService {
         ).isPresent();
     }
 
-    public void addSongToPlaylist() {
+    public boolean isPresentSongInPlaylist(int playlistId, int songId) {
+        return this.playlistSongsRepository.findPlaylistSongsByPlaylistIdAndUserSongId(
+            playlistId, songId
+        ).isPresent();
+    }
 
+    public void addSongToPlaylist(int playlistId, int userSongId) {
+        if(!isPresentSongInPlaylist(playlistId, userSongId)) {
+            this.playlistSongsRepository.saveSongToPlaylist(playlistId, userSongId);
+        }
     }
 }
