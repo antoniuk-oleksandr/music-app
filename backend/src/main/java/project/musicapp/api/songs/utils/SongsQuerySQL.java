@@ -18,4 +18,9 @@ public class SongsQuerySQL {
             "WHERE us.user_id = :userId " +
             "ORDER BY s.release_date DESC " +
             "LIMIT :limit OFFSET :offset";
+
+    public static final String FIND_SONG_USER_ID_BY_SONG_ID =
+            "SELECT user_songs_id FROM user_songs " +
+            "WHERE song_id = :songId " +
+            "LIMIT 1";
 }

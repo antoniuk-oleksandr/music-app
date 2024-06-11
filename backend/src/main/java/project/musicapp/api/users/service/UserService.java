@@ -40,6 +40,10 @@ public class UserService {
         return this.userQueryService.findUserByUsernameEmail(usernameEmail);
     }
 
+    public Optional<User> findUserByUserId(int userId) {
+        return this.userQueryService.findUserById(userId);
+    }
+
     public void createUser(User userDTO) {
         this.userQueryService.createUser(userDTO);
     }

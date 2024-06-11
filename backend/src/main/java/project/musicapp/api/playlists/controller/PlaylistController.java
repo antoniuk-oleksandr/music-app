@@ -5,7 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.musicapp.api.playlists.dto.PlaylistCreateDTO;
-import project.musicapp.api.playlists.dto.PlaylistCreateResponseDTO;
+import project.musicapp.api.playlists.dto.PlaylistResponseDTO;
 import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
 
@@ -25,14 +25,14 @@ public class PlaylistController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<PlaylistCreateResponseDTO> createPlaylist(@RequestHeader HttpHeaders headers,
-                                                                    @RequestBody PlaylistCreateDTO playlistCreateDTO) {
+    public ResponseEntity<PlaylistResponseDTO> createPlaylist(@RequestHeader HttpHeaders headers,
+                                                              @RequestBody PlaylistCreateDTO playlistCreateDTO) {
         return this.playlistService.createPlaylist(headers, playlistCreateDTO);
     }
 
-    @PostMapping("/{id}/add-song")
-    public void addSongsToPlaylist(@PathVariable String id,
-                                   @RequestBody Integer songId) {
-
+    @PostMapping("/{playlistId}/add-song/{songUserId}")
+    public ResponseEntity<?> addSongsToPlaylist(@PathVariable Integer playlistId,
+                                                @PathVariable Integer songUserId) {
+        return this.playlistService.addSongToPlaylist(playlistId, songUserId);
     }
 }

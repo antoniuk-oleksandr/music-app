@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import project.musicapp.api.users.model.User;
 
+import java.util.List;
+
 @Entity
 @Table(name = "user_songs")
 @Builder
