@@ -7,14 +7,28 @@ export const getSongDuration = (file: File) => {
             audio.src = (event.target && event.target.result) as string;
 
             audio.onloadedmetadata = function () {
-                resolve(Math.floor(audio.duration));
+                if (!isNaN(audio.duration) && audio.duration !== Infinity) {
+                    resolve(Math.floor(audio.duration));
+                }
             };
 
             audio.onerror = function (error) {
-                reject(error);
+                reject(new Error('Error loading audio file'));
             };
+
+            setTimeout(() => {
+                if (!isNaN(audio.duration) && audio.duration !== Infinity) {
+                    resolve(Math.floor(audio.duration));
+                } else {
+                    reject(new Error('Unable to retrieve duration'));
+                }
+            }, 2000);
+        };
+
+        reader.onerror = function () {
+            reject(new Error('Error reading file'));
         };
 
         reader.readAsDataURL(file);
     });
-}
+};

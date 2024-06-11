@@ -5,7 +5,6 @@ const PlaylistsHeader = () => {
     return (
         <PlaylistsHeaderLayout>
             <span>playlists</span>
-            <FiPlus className={"text-base cursor-pointer"}/>
         </PlaylistsHeaderLayout>
     )
 }

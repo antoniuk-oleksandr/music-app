@@ -6,18 +6,18 @@ import {useDispatch, useSelector} from "react-redux";
 type ModalElementLayoutProps = LayoutProps & {
     className?: string,
     additionalStyles?: string,
-    name: string,
+    modalName: string,
 }
 
 const ModalElementLayout = (props: ModalElementLayoutProps) => {
-    const {children, className, additionalStyles, name} = props;
+    const {children, className, additionalStyles, modalName} = props;
     const modals = useSelector((state: any) => state.modals);
     const dispatch = useDispatch();
     let isOpened = false;
 
     let currentModal;
     if (modals !== undefined) {
-        currentModal = modals[name];
+        currentModal = modals[modalName];
     }
 
     if (currentModal !== undefined) {
@@ -32,7 +32,7 @@ const ModalElementLayout = (props: ModalElementLayoutProps) => {
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     transition={{duration: 0.2, easings: 'easeOut'}}
-                    onClick={(e) => handleModalBackdropClick(e, dispatch, name)}
+                    onClick={(e) => handleModalBackdropClick(e, dispatch, modalName)}
                     className={"left-0 z-50 top-0 fixed w-full h-screen grid place-items-center bg-neutral-800 bg-opacity-50"}>
                     <div
                         className={`${className ? className : 'bg-white rounded-xl flex flex-col'} ${additionalStyles}`}>

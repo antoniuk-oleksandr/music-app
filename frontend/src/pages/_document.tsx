@@ -4,7 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
         <Head/>
-        <body className="text-neutral-800 bg-neutral-100 select-none">
+        <body className="text-neutral-800 bg-neutral-100 select-none
+
+            font-['Manrope']
+
+        ">
         <Main/>
         <NextScript/>
         </body>

@@ -4,7 +4,7 @@ import {LayoutProps} from "@/types/LayoutProps";
 type ModalElementProps = LayoutProps & {
     className?: string,
     additionalStyles?: string,
-    name: string,
+    modalName: string,
 }
 
 const ModalElement = (props: ModalElementProps) => {

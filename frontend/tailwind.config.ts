@@ -23,9 +23,15 @@ const config: Config = {
                 "full-profile-page" : "calc(100% - 270px)",
                 225: "56.25rem",
                 288: "72rem",
+                140: "35rem",
             },
             height: {
-                30: "7.5rem"
+                30: "7.5rem",
+                13: "3.25rem",
+            },
+            margin:{
+                13: "3.25rem",
+
             },
             gridTemplateColumns: {
                 "playlist-song-row": "repeat(3, minmax(0, calc(5/12 * (100vw - (4 * 1rem))))) minmax(96px, auto) minmax(54px, auto)",

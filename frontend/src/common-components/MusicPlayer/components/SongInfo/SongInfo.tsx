@@ -10,11 +10,9 @@ const SongInfo = () => {
     return (
         <SongInfoLayout>
             <img
-                width={48}
-                height={48}
                 src={song.imagePath}
                 alt={"cover"}
-                className="rounded-md object-center object-cover aspect-square"
+                className="rounded-md object-center object-cover aspect-square size-12"
             />
             <SongDetails/>
             <IoHeartOutline className="text-2xl cursor-pointer font-semibold ml-4"/>

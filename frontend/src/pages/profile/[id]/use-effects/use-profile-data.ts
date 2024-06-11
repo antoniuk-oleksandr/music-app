@@ -4,7 +4,8 @@ import {useRouter} from "next/router";
 import {Profile} from "@/types/Profile";
 import {getImagesForSongs, formatImageUrl, getImagesForList} from "@/utils/utils";
 import {effect} from "@preact/signals-react";
-import {profileBannerSignal} from "@/pages/profile/[id]/profile-banner-signal";
+import {profileBannerSignal} from "@/pages/profile/[id]/signals/profile-banner-signal";
+import {profilePlaylistsSignal} from "@/pages/profile/[id]/signals/profile-playlists-signal";
 
 export const useProfileData = () => {
     const [profile, setProfile] = useState<null | Profile>(null);
@@ -43,8 +44,18 @@ export const useProfileData = () => {
                 };
             });
         });
-    }, [router]);
 
+        effect(() => {
+            const newPlaylist = profilePlaylistsSignal.value;
+            setProfile((prev) => {
+                if (!prev) return prev;
+                return {
+                    ...prev,
+                    playlists: [...prev.playlists, newPlaylist]
+                }
+            })
+        })
+    }, [router]);
 
     return profile;
 }

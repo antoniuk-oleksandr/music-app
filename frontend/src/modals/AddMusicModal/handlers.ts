@@ -11,6 +11,8 @@ export const handleAddMusicFormSubmit = async (
     dispatch: Dispatch<UnknownAction>
 ) => {
     const duration = await getSongDuration(data.audioFile[0]) as number;
+    console.log(duration);
+
     const songData = {
         name: data.songName,
         duration,
