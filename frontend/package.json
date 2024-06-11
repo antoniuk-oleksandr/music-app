@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@preact/signals-react": "^2.0.1",
     "@reduxjs/toolkit": "^2.2.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/js-cookie": "^3.0.6",

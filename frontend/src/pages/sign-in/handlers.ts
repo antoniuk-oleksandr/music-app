@@ -6,8 +6,10 @@ import Cookies from 'js-cookie';
 import {NextRouter} from "next/router";
 import {UnknownAction} from "redux";
 import {setDialog, setIsDialogShown} from "@/redux/reducers/dialog-slice";
+import {setTokensToCookies} from "@/utils/utils";
+import {setTokenStore} from "@/redux/reducers/token-slice";
 
-export const handleSignInputFocus = (
+export const handleInputFocus = (
     setIsFocused: Dispatch<SetStateAction<boolean>>,
     inputRef: MutableRefObject<HTMLInputElement | null>
 ) => {
@@ -38,9 +40,8 @@ const handleSignSuccess = async (
     dispatch: Dispatch<UnknownAction>,
     text: string,
 ) => {
-    Cookies.set('jwt', response.data.jwt.token);
-    Cookies.set('jwtExpiration', response.data.jwt.expiration);
-    Cookies.set('refreshToken', response.data.refresh);
+    setTokensToCookies(response.data.jwt, response.data.refresh);
+    dispatch(setTokenStore([true, response.data],))
 
     await router.push("/");
 

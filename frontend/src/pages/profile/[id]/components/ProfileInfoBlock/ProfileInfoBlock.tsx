@@ -4,6 +4,11 @@ import BannerButtonsLayout from "@/pages/profile/[id]/components/BannerButtons/B
 import ProfilePlayButton from "@/pages/profile/[id]/components/ProfilePlayButton";
 import ProfileUsernameName from "@/pages/profile/[id]/components/ProfileUsernameName";
 import SubscribeButton from "@/pages/profile/[id]/components/SubscribeButton";
+import {useSelector} from "react-redux";
+import LightButton from "@/common-components/LightButton";
+import {MdModeEdit, MdOutlineEdit} from "react-icons/md";
+import EditProfileButton from "@/pages/profile/[id]/components/EditProfileButton/EditProfileButton";
+import PlaySubButtonsLayout from "../PlaySubButtonsLayout";
 
 type ProfileInfoBlockProps = {
     profileData: Profile,
@@ -16,8 +21,11 @@ const ProfileInfoBlock = (props: ProfileInfoBlockProps) => {
         <ProfileInfoBlockLayout>
             <ProfileUsernameName username={profileData.user.username}/>
             <BannerButtonsLayout>
-                <ProfilePlayButton songs={profileData.songs}/>
-                <SubscribeButton profileData={profileData}/>
+                <PlaySubButtonsLayout>
+                    <ProfilePlayButton songs={profileData.songs}/>
+                    <SubscribeButton profileData={profileData}/>
+                </PlaySubButtonsLayout>
+                <EditProfileButton profileData={profileData}/>
             </BannerButtonsLayout>
         </ProfileInfoBlockLayout>
     )

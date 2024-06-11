@@ -20,7 +20,9 @@ const config: Config = {
                 67.5: "16.875rem",
                 25: "6.25rem",
                 96.5: "24.125rem",
-                "full-profile-page" : "calc(100% - 270px)"
+                "full-profile-page" : "calc(100% - 270px)",
+                225: "56.25rem",
+                288: "72rem",
             },
             height: {
                 30: "7.5rem"

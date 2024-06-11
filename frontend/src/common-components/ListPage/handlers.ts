@@ -2,7 +2,7 @@ import {Song} from "@/types/Song";
 import {Dispatch} from "react";
 import {UnknownAction} from "redux";
 import {setSong, setSongQueue} from "@/redux/reducers/music-player-slice";
-import {getSongImagesForList, getSongSrcs, getUrlFromString} from "@/utils/utils";
+import {getSongImagesForList, getSongSrcs, formatImageUrl} from "@/utils/utils";
 
 export const handleListPlayButtonClick = async (songs: Song[], dispatch: Dispatch<UnknownAction>,
                                                 audioElement: HTMLAudioElement) => {

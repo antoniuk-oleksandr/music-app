@@ -7,7 +7,6 @@ const SearchPage = () => {
     const searchData = useSearch();
 
     if (!searchData) return null;
-
     return (
         <SearchLayout>
             <TabsBlock
