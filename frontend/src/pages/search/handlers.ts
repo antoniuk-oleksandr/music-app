@@ -9,7 +9,6 @@ import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {NextRouter} from "next/router";
 import {IconHoverState} from "@/types/IconHoverState";
-import {FileType} from "@/types/File";
 
 export const handleSongClick = async (audioElement: HTMLAudioElement | null,
                                       dispatch: Dispatch<UnknownAction>,

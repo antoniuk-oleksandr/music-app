@@ -6,7 +6,6 @@ import {User} from "@/types/User";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {formatImageUrl} from "@/utils/utils";
-import {FileType} from "@/types/File";
 
 export const changeSearchTab = (router: AppRouterInstance, tab: SearchTab, searchQuery: string) => {
     router.push(`/search?q=${searchQuery}&tab=${tab}`);

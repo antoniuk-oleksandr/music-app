@@ -1,14 +1,11 @@
 import ModalElement from "@/common-components/ModalElement/ModalElement";
 import {useDispatch} from "react-redux";
-import {useEffect, useRef} from "react";
-import {addModal} from "@/redux/reducers/modal-slice";
+import {useRef} from "react";
 import AddMusicModalHeader from "./components/AddMusicModalHeader/AddMusicModalHeader";
-import ImageUploader from "@/common-components/ImageUploader/ImageUploader";
 import LightButton from "@/common-components/LightButton";
 import AddMusicForm from "./AddMusicForm";
-import Input from "@/common-components/Input/Input";
 import LeftAddMusicModalSide from "@/modals/AddMusicModal/components/LeftModalSide/LeftAddMusicModalSide";
-import {useCreateModal} from "@/modals/useCreateModal";
+import {useCreateModal} from "@/modals/Modal/useCreateModal";
 
 const AddMusicModal = () => {
     const dispatch = useDispatch();

@@ -8,7 +8,8 @@ import MusicPlayer from "@/common-components/MusicPlayer/MusicPlayer";
 import Dialog from "@/common-components/Dialog/Dialog";
 import TokenHandler from "@/TokenHandler";
 import ModalElement from "@/common-components/ModalElement/ModalElement";
-import Modals from "../common-components/Modals/Modals";
+import Modals from "../modals/Modal/Modals";
+import Menus from "@/menus/Menus";
 
 const inter = Manrope({
     subsets: ['latin'],
@@ -26,6 +27,7 @@ const AppLayout = (props: AppLayoutProps) => {
         <AudioProvider font={inter.className}>
             <Provider store={store}>
                 <Modals/>
+                <Menus/>
                 <Dialog/>
                 <TokenHandler/>
                 <MusicPlayer/>

@@ -9,7 +9,7 @@ import ShowAllButton from "@/pages/search/components/ShowAllButton";
 import {capitalize} from "@/utils/utils";
 import {SearchTab} from "@/types/SearchTab";
 import {useAudio} from "@/common-components/AudioContext";
-import {useIsPlaying} from "@/utils/use-is-playing";
+import {useIsPlaying} from "@/common-use-effects/use-is-playing";
 
 type SearchResultBlockProps = {
     name: string,

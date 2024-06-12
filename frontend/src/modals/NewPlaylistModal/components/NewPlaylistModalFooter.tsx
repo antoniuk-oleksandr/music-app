@@ -1,4 +1,4 @@
-import NewPlaylistModalFooterLayout from "./NewPlaylistModalFooterLayout";
+import ModalFooterLayout from "../../Modal/common-components/ModalFooterLayout";
 import LightButton from "@/common-components/LightButton";
 
 type NewPlaylistModalBottomProps = {
@@ -9,7 +9,7 @@ const NewPlaylistModalFooter = (props: NewPlaylistModalBottomProps) => {
     const {isSending} = props;
 
     return (
-        <NewPlaylistModalFooterLayout>
+        <ModalFooterLayout>
             <LightButton
                 disabled={isSending}
                 type={"submit"}
@@ -18,7 +18,7 @@ const NewPlaylistModalFooter = (props: NewPlaylistModalBottomProps) => {
             >
                 <span>Create</span>
             </LightButton>
-        </NewPlaylistModalFooterLayout>
+        </ModalFooterLayout>
     )
 }
 

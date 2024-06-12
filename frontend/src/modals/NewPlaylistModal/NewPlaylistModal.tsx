@@ -1,10 +1,10 @@
 import {useDispatch} from "react-redux";
-import {useCreateModal} from "@/modals/useCreateModal";
+import {useCreateModal} from "@/modals/Modal/useCreateModal";
 import ModalElement from "@/common-components/ModalElement/ModalElement";
-import NewPlaylistModalHeader from "@/modals/NewPlaylistModal/components/NewPlaylistModalHeader/NewPlaylistModalHeader";
+import ModalHeader from "@/modals/Modal/common-components/ModalHeader/ModalHeader";
 import NewPlaylistModalForm from "@/modals/NewPlaylistModal/NewPlaylistModalForm";
-import NewPlaylistModalBody from "./components/NewPlaylistModalBody/NewPlaylistModalBody";
-import NewPlaylistModalFooter from "@/modals/NewPlaylistModal/components/NewPlaylistModalFooter/NewPlaylistModalFooter";
+import NewPlaylistModalBody from "./components/NewPlaylistModalBody";
+import NewPlaylistModalFooter from "@/modals/NewPlaylistModal/components/NewPlaylistModalFooter";
 import {useState} from "react";
 
 const NewPlaylistModal = () => {
@@ -16,7 +16,7 @@ const NewPlaylistModal = () => {
     return (
         <ModalElement modalName={modalName}>
             <NewPlaylistModalForm setSending={setSending} modalName={modalName}>
-                <NewPlaylistModalHeader modalName={modalName}/>
+                <ModalHeader text={'New playlist'} modalName={modalName}/>
                 <NewPlaylistModalBody/>
                 <NewPlaylistModalFooter isSending={isSending}/>
             </NewPlaylistModalForm>

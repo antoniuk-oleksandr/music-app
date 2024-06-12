@@ -5,6 +5,7 @@ import {useState} from "react";
 import PlaylistFirstColumn from "@/pages/playlist/[id]/components/PlaylistFirstColumn/PlaylistFirstColumn";
 import PlaylistSecondColumn from "@/pages/playlist/[id]/components/PlaylistSecondColumn";
 import AlbumLink from "@/common-components/AlbumLink";
+import SongListButtons from "@/common-components/SongListButtons/SongListButtons";
 
 type PlaylistSongRowProps = {
     song: Song,
@@ -29,7 +30,7 @@ const PlaylistSongRow = (props: PlaylistSongRowProps) => {
             />
             <PlaylistSecondColumn song={song}/>
             <AlbumLink album={song.album}/>
-            <span>buttons</span>
+            <SongListButtons isShown={isHovered} song={song}/>
             <span className={"text-end"}>{formatTime(song.duration)}</span>
         </PlaylistSongRowLayout>
     )

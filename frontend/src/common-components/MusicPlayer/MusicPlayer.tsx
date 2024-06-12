@@ -35,8 +35,7 @@ const MusicPlayer = () => {
                 showValueIndicator
                 percentage={percentage}
                 setPercentage={(v) => setMusicPercentage(v)}
-                barRef={timelineRef as MutableRefObject<HTMLDivElement>}
-            />
+                barRef={timelineRef as MutableRefObject<HTMLDivElement>}/>
             <Control volumeBarRef={volumeBarRef as MutableRefObject<HTMLDivElement>}/>
         </MusicPlayerLayout>
     )
