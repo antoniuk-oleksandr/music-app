@@ -19,7 +19,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SongController {
     private final SongService songService;
-    private final SongUserRepository songUserRepository;
 
     @GetMapping("/{id}")
     public SongUserDTO findSongUserById(@PathVariable int id) {

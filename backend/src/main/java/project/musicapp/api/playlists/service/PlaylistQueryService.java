@@ -9,16 +9,17 @@ import project.musicapp.api.playlists.mapper.PlaylistCreateMapper;
 import project.musicapp.api.playlists.mapper.PlaylistMapper;
 import project.musicapp.api.playlists.mapper.PlaylistUserSongsMapper;
 import project.musicapp.api.playlists.model.Playlist;
-import project.musicapp.api.playlists.model.PlaylistSongs;
+import project.musicapp.api.playlists.model.PlaylistLikes;
+import project.musicapp.api.playlists.repository.PlaylistLikesRepository;
 import project.musicapp.api.playlists.repository.PlaylistRepository;
 import project.musicapp.api.playlists.repository.PlaylistSongsRepository;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.impl.SongServiceImpl;
+import project.musicapp.api.songs.model.Song;
 import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.repository.UserRepository;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,6 +29,7 @@ public class PlaylistQueryService {
     private final UserRepository userRepository;
     private final PlaylistRepository playlistRepository;
     private final PlaylistSongsRepository playlistSongsRepository;
+    private final PlaylistLikesRepository playlistLikesRepository;
 
     public List<SongUserDTO> getSongsByPlaylistId(int id){
         return this.playlistRepository
@@ -62,9 +64,8 @@ public class PlaylistQueryService {
     }
 
     public List<PlaylistDTO> findAllPlayListsByName(String value, int limit, int offset){
-        List<Object[]> playlists = this.playlistRepository.findAllPlaylistsByName(
-            value, limit, offset
-        );
+        List<Object[]> playlists = this.playlistRepository
+                .findAllPlaylistsByName(value, limit, offset);
         return new PlaylistMapper(playlists).toPlaylistDTOs();
     }
 
@@ -75,15 +76,14 @@ public class PlaylistQueryService {
     }
 
     public boolean isPresentPlaylist(PlaylistCreateDTO playlistCreateDTO, User user) {
-        return this.playlistRepository.findByNameAndUserId(
-            playlistCreateDTO.getName(), user.getId()
-        ).isPresent();
+        return this.playlistRepository
+                .findByNameAndUserId(playlistCreateDTO.getName(), user.getId())
+                .isPresent();
     }
 
     public boolean isPresentSongInPlaylist(int playlistId, int songId) {
-        return this.playlistSongsRepository.findPlaylistSongsByPlaylistIdAndUserSongId(
-            playlistId, songId
-        ).isPresent();
+        return this.playlistSongsRepository
+                .findSongsByPlaylistIdAndSongId(playlistId, songId).isPresent();
     }
 
     public void addSongToPlaylist(int playlistId, int userSongId) {

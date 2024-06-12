@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.playlists.dto.*;
 import project.musicapp.api.playlists.model.Playlist;
+import project.musicapp.api.playlists.model.PlaylistLikes;
 import project.musicapp.api.songs.service.SongService;
 import project.musicapp.api.tokens.service.AccessTokenService;
 import project.musicapp.api.users.model.User;
@@ -42,23 +43,21 @@ public class PlaylistService {
         return createPlaylistWithResponse(playlistCreateDTO, user);
     }
 
-    private ResponseEntity<?> createPlaylistWithResponse(
-            PlaylistCreateDTO playlistCreateDTO, User user) {
+    private ResponseEntity<?> createPlaylistWithResponse(PlaylistCreateDTO playlistCreateDTO,
+                                                         User user) {
         if (this.playlistQueryService.isPresentPlaylist(playlistCreateDTO, user)){
             return ResponseEntity.badRequest().body(
                 new PlaylistResponseDTO("POST", "Playlist already exists", false)
             );
         }
+
         Playlist playlist = this.playlistQueryService.createPlaylist(playlistCreateDTO, user);
 
         return ResponseEntity.ok().body(new PlaylistIdDTO(playlist.getId()));
     }
 
     public ResponseEntity<?> addSongToPlaylist(HttpHeaders headers, int playlistId, int songId) {
-        String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
-        User userFromToken = this.userService.getUserFromAccessToken(accessToken).orElseThrow(
-            () -> new IllegalArgumentException("Invalid access token")
-        );
+        User userFromToken = getUserFromTokenInHeaders(headers);
 
         Playlist playlist = this.playlistQueryService.getPlaylistByPlaylistId(playlistId);
         User userFromPlaylist = playlist.getUser();
@@ -78,10 +77,7 @@ public class PlaylistService {
     }
 
     public ResponseEntity<?> removeSongFromPlaylist(HttpHeaders headers, int playlistId, int songId) {
-        String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
-        User userFromToken = this.userService.getUserFromAccessToken(accessToken).orElseThrow(
-                () -> new IllegalArgumentException("Invalid access token")
-        );
+        User userFromToken = getUserFromTokenInHeaders(headers);
 
         Playlist playlist = this.playlistQueryService.getPlaylistByPlaylistId(playlistId);
         User userFromPlaylist = playlist.getUser();
@@ -97,6 +93,13 @@ public class PlaylistService {
 
         return ResponseEntity.ok().body(
             new PlaylistResponseDTO("DELETE", "Song deleted successfully", true)
+        );
+    }
+
+    private User getUserFromTokenInHeaders(HttpHeaders headers) {
+        String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
+        return this.userService.getUserFromAccessToken(accessToken).orElseThrow(
+            () -> new IllegalArgumentException("Invalid access token")
         );
     }
 }
