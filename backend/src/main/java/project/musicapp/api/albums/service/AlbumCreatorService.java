@@ -1,7 +1,6 @@
 package project.musicapp.api.albums.service;
 
 import org.springframework.stereotype.Service;
-import project.musicapp.api.albums.dto.AlbumCreatorDTO;
 import project.musicapp.api.albums.dto.AlbumNameDTO;
 import project.musicapp.api.albums.mapper.AlbumNameMapper;
 import project.musicapp.api.albums.repository.AlbumRepository;

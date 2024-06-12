@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 import project.musicapp.api.playlists.model.PlaylistSongs;
 import project.musicapp.api.playlists.utils.PlaylistQuerySQL;
@@ -16,8 +15,8 @@ import java.util.Optional;
 @Transactional
 public interface PlaylistSongsRepository extends CrudRepository<PlaylistSongs, Integer> {
     @Query(value = PlaylistQuerySQL.FIND_SONG_BY_PLAYLIST_ID_AND_USER_SONG_ID, nativeQuery = true)
-    Optional<Object> findPlaylistSongsByPlaylistIdAndUserSongId(@Param("playlistId") int playlistId,
-                                                                @Param("userSongId") int userSongId
+    Optional<Object> findSongsByPlaylistIdAndSongId(@Param("playlistId") int playlistId,
+                                                    @Param("userSongId") int userSongId
     );
 
     @Modifying
