@@ -10,7 +10,6 @@ import {Playlist} from "@/types/Playlist";
 
 export const useProfileData = () => {
     const [profile, setProfile] = useState<null | Profile>(null);
-
     const router = useRouter();
 
     useEffect(() => {
@@ -45,18 +44,20 @@ export const useProfileData = () => {
                 };
             });
         });
+    }, [router]);
 
+    useEffect(() => {
         effect(() => {
             const newPlaylist = profilePlaylistsSignal.value as Playlist;
             setProfile((prev) => {
                 if (!prev) return prev;
                 return {
                     ...prev,
-                    playlists: [...prev.playlists, newPlaylist]
+                    playlists: [newPlaylist, ...prev.playlists]
                 }
             })
         })
-    }, [router]);
+    }, []);
 
     return profile;
 }

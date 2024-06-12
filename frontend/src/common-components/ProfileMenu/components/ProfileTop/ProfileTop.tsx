@@ -7,7 +7,7 @@ type ProfileTopProps = {
 }
 
 const ProfileTop = (props: ProfileTopProps) => {
-    const {username, id, avatarPath} = props.user;
+    const {username, avatarPath} = props.user;
 
     return (
         <ProfileTopLayout>
