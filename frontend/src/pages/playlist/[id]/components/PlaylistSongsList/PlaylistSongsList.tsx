@@ -2,7 +2,7 @@ import PlaylistSongsListLayout from "./PlaylistSongsListLayout";
 import {Song} from "@/types/Song";
 import PlaylistSongRow from "@/pages/playlist/[id]/components/PlaylistSongRow/PlaylistSongRow";
 import {useAudio} from "@/common-components/AudioContext";
-import {useIsPlaying} from "@/utils/use-is-playing";
+import {useIsPlaying} from "@/common-use-effects/use-is-playing";
 
 type PlaylistSongsListProps = {
     songs: Song[],

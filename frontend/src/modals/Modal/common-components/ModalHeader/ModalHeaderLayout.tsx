@@ -1,6 +1,6 @@
 import {LayoutProps} from "@/types/LayoutProps";
 
-const NewPlaylistModalHeaderLayout = (props: LayoutProps) => {
+const ModalHeaderLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
@@ -10,4 +10,4 @@ const NewPlaylistModalHeaderLayout = (props: LayoutProps) => {
     )
 }
 
-export default NewPlaylistModalHeaderLayout;
+export default ModalHeaderLayout;

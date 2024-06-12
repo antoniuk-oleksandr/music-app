@@ -1,13 +1,13 @@
 import {LayoutProps} from "@/types/LayoutProps";
 
-const NewPlaylistModalBodyLayout = (props: LayoutProps) => {
+const ModalFooterLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div className={"p-6"}>
+        <div className={"p-6 pt-4 flex justify-end"}>
             {children}
         </div>
     )
 }
 
-export default NewPlaylistModalBodyLayout;
+export default ModalFooterLayout;

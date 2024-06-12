@@ -1,4 +1,4 @@
-import NewPlaylistModalBodyLayout from "./NewPlaylistModalBodyLayout";
+import ModalBodyLayout from "../../Modal/common-components/ModalBodyLayout";
 import Input from "@/common-components/Input/Input";
 import Select from "@/common-components/Select/Select";
 import {SelectItemType} from "@/types/SelectItemType";
@@ -19,7 +19,7 @@ const NewPlaylistModalBody = () => {
     }
 
     return (
-        <NewPlaylistModalBodyLayout>
+        <ModalBodyLayout>
             <Input
                 id={'name'}
                 label={'Playlist name'}
@@ -35,7 +35,7 @@ const NewPlaylistModalBody = () => {
                 selectedItem={selectedItem}
                 menuWidth={'w-56'}
             />
-        </NewPlaylistModalBodyLayout>
+        </ModalBodyLayout>
     )
 }
 

@@ -20,9 +20,8 @@ export const handleOnNewPlaylistsFormSubmit = async (
     if (checkIfJWTExpired(expiration)) {
         ({token} = await updateJwt(tokenInfo, dispatch));
     }
-    await createPlaylistRequest(token, data);
 
-    const id = 1;
+    const {id} = await createPlaylistRequest(token, data);
     profilePlaylistsSignal.value = {
         ...data,
         id,

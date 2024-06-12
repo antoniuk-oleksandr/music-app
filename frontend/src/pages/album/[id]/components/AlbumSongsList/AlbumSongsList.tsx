@@ -1,7 +1,7 @@
 import AlbumSongsListLayout from "./AlbumSongsListLayout";
 import {Song} from "@/types/Song";
 import AlbumSongRow from "@/pages/album/[id]/components/AlbumSongRow/AlbumSongRow";
-import {useIsPlaying} from "@/utils/use-is-playing";
+import {useIsPlaying} from "@/common-use-effects/use-is-playing";
 import {useAudio} from "@/common-components/AudioContext";
 
 type AlbumSongsListProps = {

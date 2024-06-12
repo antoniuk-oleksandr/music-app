@@ -6,6 +6,7 @@ import {getImagesForSongs, formatImageUrl, getImagesForList} from "@/utils/utils
 import {effect} from "@preact/signals-react";
 import {profileBannerSignal} from "@/pages/profile/[id]/signals/profile-banner-signal";
 import {profilePlaylistsSignal} from "@/pages/profile/[id]/signals/profile-playlists-signal";
+import {Playlist} from "@/types/Playlist";
 
 export const useProfileData = () => {
     const [profile, setProfile] = useState<null | Profile>(null);
@@ -46,7 +47,7 @@ export const useProfileData = () => {
         });
 
         effect(() => {
-            const newPlaylist = profilePlaylistsSignal.value;
+            const newPlaylist = profilePlaylistsSignal.value as Playlist;
             setProfile((prev) => {
                 if (!prev) return prev;
                 return {

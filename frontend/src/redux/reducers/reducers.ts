@@ -5,6 +5,7 @@ import dialogSlice from "@/redux/reducers/dialog-slice";
 import tokenSlice from "@/redux/reducers/token-slice";
 import modalSlice from "@/redux/reducers/modal-slice";
 import userProfileSlice from "@/redux/reducers/user-profile-slice";
+import menuSlice from "@/redux/reducers/menu-slice";
 
 const rootReducer = combineReducers({
     musicPlayer: musicPlayerSlice,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     dialog: dialogSlice,
     token: tokenSlice,
     modals: modalSlice,
-    userProfile: userProfileSlice
+    userProfile: userProfileSlice,
+    menus: menuSlice,
 });
 
 export default rootReducer;

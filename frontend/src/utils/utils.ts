@@ -1,7 +1,6 @@
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
 import {Song} from "@/types/Song";
-import {FileType} from "@/types/File";
 import {Device} from "@/types/Device";
 import Cookies from "js-cookie";
 import {getIpAddress} from "@/api/ip-address";
@@ -94,10 +93,4 @@ export const showDialog = (
 ) => {
     dispatch(setDialog([true, text, color]));
     setTimeout(() => dispatch(setIsDialogShown(false)), 3500);
-}
-
-export const convertToFormData = (file: File, name: string) => {
-    const formData = new FormData();
-    formData.append(name, file);
-    return formData;
 }
