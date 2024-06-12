@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProfileMeDTO {
     private Integer id;
-    private String name;
+    private String username;
     private String avatarPath;
     private List<PlaylistUserSongsDTO> playlists;
 }
