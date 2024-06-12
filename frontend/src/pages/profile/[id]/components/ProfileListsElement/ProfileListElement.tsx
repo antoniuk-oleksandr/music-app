@@ -20,6 +20,7 @@ const ProfileListElement = (props: ProfileListElementProps) => {
     const buttonRef = useRef<HTMLButtonElement | null>(null);
     const router = useRouter();
 
+    if(!element) return null;
     return (
         <ProfileListElementLayout>
             <div
