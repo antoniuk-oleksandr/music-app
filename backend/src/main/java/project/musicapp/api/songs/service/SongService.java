@@ -19,9 +19,9 @@ public interface SongService {
     List<SongUserDTO> findAllSongUsersBySongName(String value, int limit, int offset);
 
     ResponseEntity<?> createSongWithUserInfo(HttpHeaders headers,
-                                          CreateSongDTO requestDTO,
-                                          MultipartFile mp3,
-                                          MultipartFile picture);
+                                             CreateSongDTO requestDTO,
+                                             MultipartFile mp3,
+                                             MultipartFile picture);
 
     Integer findFirstUserSongIdBySongId(int id);
 }
