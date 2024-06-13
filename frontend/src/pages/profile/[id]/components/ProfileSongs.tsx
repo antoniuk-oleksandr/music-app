@@ -13,7 +13,7 @@ const ProfileSongs = (props: ProfilePageProps) => {
     return (
         <div>
             <SearchResultHeader text={SearchTab.Songs}/>
-            <PlaylistSongsList songs={profileData.songs}/>
+            <PlaylistSongsList songs={profileData.songs.slice(0, 5)}/>
             <ProfileShowAllButton
                 action={() => router.push(`/profile/${profileData.user.id}/songs`)}
             />

@@ -4,7 +4,7 @@ const PlayListsBlockLayout = (props: LayoutProps) => {
     const {children} = props;
 
     return (
-        <div className="p-4 gap-y-6">
+        <div className="py-4 px-2 gap-y-6">
             {children}
         </div>
     )

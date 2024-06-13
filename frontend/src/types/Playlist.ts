@@ -4,7 +4,7 @@ import {Song} from "@/types/Song";
 export type Playlist = {
     id: number,
     isPublic: boolean,
-    creatingDate: number,
+    creatingDate: string,
     name: string,
     imagePath: string,
     creator: User,

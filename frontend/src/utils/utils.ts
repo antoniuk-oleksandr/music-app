@@ -22,21 +22,23 @@ export const capitalize = (str: any) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export const formatImageUrl = (url: string) => {
+export const formatUrl = (url: string) => {
+    if (url.includes('files') || url.includes('blob'))  return url;
+
     const ip = getIpAddress();
     return `http://${ip}:8030/files/${url}`;
 }
 
-export const getYearFromTimestamp = (timestamp: number) => {
-    const date = new Date(timestamp);
+export const getYearFromTimestamp = (timestamp: string) => {
+    const date = new Date(parseInt(timestamp));
 
     return date.getFullYear();
 }
 
 export const getSongImagesForList = async (list: Album | Playlist) => {
-    list.imagePath = formatImageUrl(list.imagePath)
+    list.imagePath = formatUrl(list.imagePath)
     for (let song of list.songs) {
-        song.imagePath = formatImageUrl(song.imagePath);
+        song.imagePath = formatUrl(song.imagePath);
     }
 
     return list;
@@ -44,7 +46,7 @@ export const getSongImagesForList = async (list: Album | Playlist) => {
 
 export const getImagesForList = (list: Album[] | Playlist[]) => {
     for (let element of list) {
-        element.imagePath = formatImageUrl(element.imagePath);
+        element.imagePath = formatUrl(element.imagePath);
     }
 
     return list;
@@ -52,14 +54,16 @@ export const getImagesForList = (list: Album[] | Playlist[]) => {
 
 export const getImagesForSongs = (element: { songs: Song[] }) => {
     for (let song of element.songs) {
-        song.imagePath = formatImageUrl(song.imagePath);
+        song.imagePath = formatUrl(song.imagePath);
     }
 }
 
 export const getSongSrcs = (songs: Song[]) => {
-    for (let song of songs) {
-        song.songPath = formatImageUrl(song.songPath);
-    }
+    return songs.map((song) => ({
+        ...song,
+        releaseDate: song.releaseDate.toString(),
+        songPath: formatUrl(song.songPath),
+    }))
 }
 
 export const getWrapperWidth = (device: Device | null, isNavbarHidden: boolean | null) => {
@@ -93,4 +97,18 @@ export const showDialog = (
 ) => {
     dispatch(setDialog([true, text, color]));
     setTimeout(() => dispatch(setIsDialogShown(false)), 3500);
+}
+
+export const formatListDates = (lists: Playlist[] | Album[]) => {
+    return lists.map((list) => ({
+        ...list,
+        creatingDate: list.creatingDate.toString(),
+    }))
+}
+
+export const formatListSongsDates = (songs: Song[]) => {
+    return songs.map((item) => ({
+        ...item,
+        releaseDate: item.releaseDate.toString(),
+    }))
 }

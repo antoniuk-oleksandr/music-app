@@ -8,8 +8,6 @@ const ListOfPlaylists = () => {
     const playlistsData: Playlist[] | null = useSelector((state: any) => state.userProfile.playlists);
     const {playlists} = useNavbarPlaylists(playlistsData);
 
-    console.log(playlists);
-
     return (
         <ListOfPlaylistsLayout>
             {playlists.map((playlist, index) => (

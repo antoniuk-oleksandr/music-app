@@ -4,9 +4,11 @@ import {Playlist} from "@/types/Playlist";
 import {useRouter} from "next/router";
 import ProfileListName from "@/pages/profile/[id]/components/ProfileListName";
 import YearElement from "@/common-components/YearElement";
+import {SearchTab} from "@/types/SearchTab";
 
 type ProfileListsInfoProps = {
     element: Album | Playlist,
+    type: SearchTab,
 }
 
 const ProfileListsInfo = (props: ProfileListsInfoProps) => {

@@ -9,9 +9,9 @@ import MoreSongActionsMenuItem
 const MoreSongActionsMenu = () => {
     const menuName = 'moreSongActionsMenu';
     const dispatch = useDispatch();
-    const items = getMoreSongActionMenuItems(dispatch);
-    useCreateMenu(menuName, dispatch);
     const menuState: MenuState = useSelector((state: any) => state.menus[menuName]);
+    const items = getMoreSongActionMenuItems(dispatch, menuState);
+    useCreateMenu(menuName, dispatch);
 
     return (
         <Menu {...menuState} menuName={menuName}>

@@ -12,5 +12,5 @@ export const useNavbar = () => {
         else dispatch(setIsNavbarHidden(false));
     }, []);
 
-    return isNavbarHidden;
+    return false;
 }

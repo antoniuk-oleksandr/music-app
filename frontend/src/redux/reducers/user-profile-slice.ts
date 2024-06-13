@@ -24,9 +24,17 @@ export const userProfileSlice = createSlice({
             state.playlists = action.payload.playlists;
             state.id = action.payload.id;
             state.avatarPath = action.payload.avatarPath;
+        },
+        addUserProfilePlaylist(state, action) {
+            const {newPlaylist, oldPlaylists} = action.payload;
+            console.log([newPlaylist, ...oldPlaylists]);
+            state.playlists = [newPlaylist, ...oldPlaylists].slice(0, 10);
+        },
+        setUserProfilePlaylists(state, action) {
+            state.playlists = action.payload;
         }
     },
 });
 
-export const {setUserProfile} = userProfileSlice.actions;
+export const {setUserProfile, addUserProfilePlaylist, setUserProfilePlaylists} = userProfileSlice.actions;
 export default userProfileSlice.reducer;

@@ -18,7 +18,7 @@ const AddSongToPlaylistModal = () => {
             modalName={modalName}
         >
             <ModalHeader text={"Save to playlist"} modalName={modalName}/>
-            <AddSongToPlaylistModalBody/>
+            <AddSongToPlaylistModalBody setSending={setSending} modalName={modalName}/>
             <AddSongToPlaylistModalFooter sending={sending}/>
         </ModalElement>
     )

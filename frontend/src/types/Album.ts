@@ -5,7 +5,7 @@ export type Album = {
     id: number,
     name: string,
     imagePath: string,
-    creatingDate: number,
+    creatingDate: string,
     creator: User,
     songs: Song[],
 }

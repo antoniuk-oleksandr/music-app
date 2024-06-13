@@ -35,7 +35,7 @@ const ProfileListElement = (props: ProfileListElementProps) => {
                     isHovered={isHovered}
                 />
             </div>
-            <ProfileListsInfo element={element}/>
+            <ProfileListsInfo {...props}/>
         </ProfileListElementLayout>
     )
 }

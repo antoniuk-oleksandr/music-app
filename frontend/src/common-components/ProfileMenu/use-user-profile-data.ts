@@ -3,7 +3,7 @@ import {User} from "@/types/User";
 import {effect} from "@preact/signals-react";
 import {profileAvatarSignal} from "@/common-components/ProfileMenu/profile-avatar-signal";
 import {userProfileRequest} from "@/api/user-profile-request";
-import {formatImageUrl} from "@/utils/utils";
+import {formatUrl} from "@/utils/utils";
 import {UnknownAction} from "redux";
 import {setUserProfile} from "@/redux/reducers/user-profile-slice";
 
@@ -13,7 +13,7 @@ export const useUserProfileData = (jwt: string, dispatch: Dispatch<UnknownAction
     useEffect(() => {
         const getData = async () => {
             let data = await userProfileRequest(jwt) as User;
-            data.avatarPath = formatImageUrl(data.avatarPath);
+            data.avatarPath = formatUrl(data.avatarPath);
             setUserProfileData(data);
             dispatch(setUserProfile(data));
         }

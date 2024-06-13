@@ -12,12 +12,12 @@ const Navbar = () => {
     const currentPath = usePath();
     const isNavbarHidden = useNavbar();
 
-    if ([null].includes(isNavbarHidden)) return null;
+    // if ([null].includes(isNavbarHidden)) return null;
     return (
         <NavbarLayout isNavbarHidden={isNavbarHidden}>
             {!isNavbarHidden && (
                 <NavbarLogoLayout>
-                    <NavbarHideButton/>
+                    {/*<NavbarHideButton/>*/}
                     <LogoContainer/>
                 </NavbarLogoLayout>
             )}
