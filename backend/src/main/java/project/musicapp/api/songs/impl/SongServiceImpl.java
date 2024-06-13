@@ -9,6 +9,7 @@ import project.musicapp.api.albums.dto.AlbumNameDTO;
 import project.musicapp.api.albums.service.AlbumCreatorService;
 import project.musicapp.api.files.service.FileService;
 import project.musicapp.api.songs.dto.CreateSongDTO;
+import project.musicapp.api.songs.dto.CreateSongIdResponseDTO;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.mapper.CreateSongMapper;
 import project.musicapp.api.songs.mapper.SongUserMapper;
@@ -88,7 +89,7 @@ public class SongServiceImpl implements SongService {
         SongUser songUser = SongUser.builder().user(user).song(song).build();
         this.songUserRepository.save(songUser);
 
-        return ResponseEntity.ok().body(songNameWithExtension);
+        return ResponseEntity.ok().body(new CreateSongIdResponseDTO(song.getId()));
     }
 
     @Override
