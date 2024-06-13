@@ -5,10 +5,8 @@ const Logo = () => {
     return (
         <LogoLayout>
             <div className="leading-6">
-                <p>Music</p>
-                {/*<p>Tunes</p>*/}
+                <p>MusicTunes</p>
             </div>
-            <IoMusicalNotes className="text-xl"/>
         </LogoLayout>
     )
 }

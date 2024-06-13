@@ -5,7 +5,7 @@ export type Song = {
     id: number,
     name: string,
     duration: number,
-    releaseDate: number,
+    releaseDate: string,
     songPath: string,
     imagePath: string,
     users: User[]

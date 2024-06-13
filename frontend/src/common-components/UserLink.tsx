@@ -9,6 +9,7 @@ const UserLink = (props: UserLinkProps) => {
     const {user} = props;
     const router = useRouter();
 
+    if(user === undefined) return null;
     return (
         <span
             onClick={() => router.push(`/profile/${user.id}`)}

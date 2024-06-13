@@ -10,12 +10,12 @@ const LeftSide = () => {
 
     return (
         <LeftSideLayout>
-            {isNavbarHidden && (
-                <NavbarLogoLayout>
-                    <NavbarHideButton/>
-                    <LogoContainer/>
-                </NavbarLogoLayout>
-            )}
+            {/*{isNavbarHidden && (*/}
+            {/*    <NavbarLogoLayout>*/}
+            {/*        <NavbarHideButton/>*/}
+            {/*        <LogoContainer/>*/}
+            {/*    </NavbarLogoLayout>*/}
+            {/*)}*/}
             <Searchbar/>
         </LeftSideLayout>
     )

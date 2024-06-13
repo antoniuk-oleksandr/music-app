@@ -1,7 +1,7 @@
 import {getYearFromTimestamp} from "@/utils/utils";
 
 type YearElementProps = {
-    timestamp: number;
+    timestamp: string;
 }
 
 const YearElement = (props: YearElementProps) => {

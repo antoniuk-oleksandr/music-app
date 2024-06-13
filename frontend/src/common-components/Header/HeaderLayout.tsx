@@ -15,8 +15,8 @@ const HeaderLayout = (props: LayoutProps) => {
             style={{width:'100%'}}
             className={`h-16 flex items-center justify-between  z-10
             ${topOffset > 0 ? 'bg-white' : 'bg-transparent'}
-            ${currentPage === '/profile/[id]' ? 'sticky top-0' : 'sticky top-0'}`}>
-            <Wrapper pt={''} pb={''}>
+            ${currentPage === '/profile/[id]' ? 'fixed top-0 left-0' : 'sticky top-0'}`}>
+            <Wrapper pt={''} pb={''} isHeader>
                 <div className="flex w-full justify-between items-center">
                     {children}
                 </div>

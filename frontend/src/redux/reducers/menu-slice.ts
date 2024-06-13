@@ -13,11 +13,11 @@ export const menuSlice = createSlice({
     reducers: {
         addMenu(state, action) {
             const menuName = action.payload;
-            state[menuName] = {isOpened: false, x: null, y: null};
+            state[menuName] = {isOpened: false, x: null, y: null, additionalData: null};
         },
         setIsMenuOpened(state, action) {
-            const {menuName, isOpened, x, y} = action.payload;
-            state[menuName] = {...state[menuName], x, y, isOpened};
+            const {menuName, isOpened, x, y, additionalData} = action.payload;
+            state[menuName] = {...state[menuName], x, y, isOpened, additionalData};
         },
         setMenuLocation(state, action) {
             const {menuName, x, y} = action.payload;

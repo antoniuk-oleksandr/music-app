@@ -25,6 +25,11 @@ const config: Config = {
                 288: "72rem",
                 140: "35rem",
             },
+            maxWidth: {
+                55.5: "13.875rem",
+                84: "21rem",
+                69: "17.25rem"
+            },
             height: {
                 30: "7.5rem",
                 13: "3.25rem",

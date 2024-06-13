@@ -14,6 +14,7 @@ const AddMusicForm = (props: AddMusicFormProps) => {
     const {children} = props;
     const methods = useForm();
     const tokenInfo: TokenInfo = useSelector((state: any) => state.token.tokens);
+    const userProfile = useSelector((state: any) => state.userProfile);
     const dispatch = useDispatch();
 
     return (
@@ -21,7 +22,7 @@ const AddMusicForm = (props: AddMusicFormProps) => {
             <form
                 className={"flex flex-col"}
                 onSubmit={methods.handleSubmit((data) =>
-                    handleAddMusicFormSubmit(data, tokenInfo, dispatch))}>
+                    handleAddMusicFormSubmit(data, tokenInfo, dispatch, userProfile))}>
                 {children}
             </form>
         </FormProvider>

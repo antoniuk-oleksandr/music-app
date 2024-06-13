@@ -10,6 +10,7 @@ const AlbumLink = (props: AlbumLinkProps) => {
     const {album} = props;
     const router = useRouter();
 
+    if (!album) return <div></div>;
     return (
         <span
             onClick={() => router.push(`/album/${album.id}`)}

@@ -4,8 +4,12 @@ import {MenuItemType} from "@/types/MenuItemType";
 import {setIsModalOpened} from "@/redux/reducers/modal-slice";
 import {Dispatch} from "react";
 import {UnknownAction} from "redux";
+import {MenuState} from "@/types/MenuState";
 
-export const getMoreSongActionMenuItems = (dispatch: Dispatch<UnknownAction>): MenuItemType[] => {
+export const getMoreSongActionMenuItems = (
+    dispatch: Dispatch<UnknownAction>,
+    menuState: MenuState,
+): MenuItemType[] => {
 
     return [
         {
@@ -21,6 +25,7 @@ export const getMoreSongActionMenuItems = (dispatch: Dispatch<UnknownAction>): M
                 dispatch(setIsModalOpened({
                     modalName : 'addSongToPlaylistModal',
                     isOpened: true,
+                    additionalData: menuState.additionalData,
                 }))
             },
         },

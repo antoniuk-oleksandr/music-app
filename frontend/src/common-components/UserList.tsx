@@ -11,6 +11,7 @@ type UsersListProps = {
 const UserList = (props: UsersListProps) => {
     const {users, specialSeparator} = props;
 
+    if(users === undefined) return null;
     return (
         <>
             {users.map((user, index) => (

@@ -3,7 +3,6 @@ import {IoHeartOutline} from "react-icons/io5";
 import {AnimatePresence, motion} from "framer-motion";
 import {BsThreeDotsVertical} from "react-icons/bs";
 import SongListButtonLayout from "@/common-components/SongListButtons/components/SongListButtonLayout";
-import {useRef} from "react";
 import {handleMoreSongsActionsClick} from "@/common-components/SongListButtons/handlers";
 import {useDispatch} from "react-redux";
 
@@ -31,7 +30,7 @@ const SongListButtons = (props: SongListButtonsProps) => {
                             <IoHeartOutline/>
                         </SongListButtonLayout>
                         <SongListButtonLayout
-                            onClick={(e) => handleMoreSongsActionsClick(e, dispatch)}
+                            onClick={(e) => handleMoreSongsActionsClick(e, dispatch, song)}
                         >
                             <BsThreeDotsVertical/>
                         </SongListButtonLayout>

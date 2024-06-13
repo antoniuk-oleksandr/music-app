@@ -1,5 +1,7 @@
 import {getIpAddress} from "@/api/ip-address";
 import axios from "axios";
+import {Profile} from "@/types/Profile";
+import {formatListDates} from "@/utils/utils";
 
 export const userProfileRequest = async (jwt: string) => {
     const ip = getIpAddress();
@@ -10,7 +12,11 @@ export const userProfileRequest = async (jwt: string) => {
         const response = await axios.get(url, {
             headers: {Authorization: `Bearer ${jwt}`},
         });
-        return response.data;
+
+        let data: Profile = response.data;
+        data.playlists = formatListDates(data.playlists);
+
+        return data;
     } catch (error) {
         return null;
     }

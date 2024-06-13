@@ -9,7 +9,7 @@ type ProfileListsProps = ProfilePageProps & {
 
 const ProfileLists = (props: ProfileListsProps) => {
     const {listType, profileData} = props;
-    const lists = profileData[listType.toLowerCase() as 'albums' | 'playlists'];
+    const lists = profileData[listType.toLowerCase() as 'albums' | 'playlists'].slice(0, 6);
 
     return (
         <ProfileListsLayout>

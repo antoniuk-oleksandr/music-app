@@ -2,7 +2,7 @@ import {Song} from "@/types/Song";
 import {Dispatch} from "react";
 import {UnknownAction} from "redux";
 import {setSong} from "@/redux/reducers/music-player-slice";
-import {formatImageUrl} from "@/utils/utils";
+import {formatUrl} from "@/utils/utils";
 import {SearchTab} from "@/types/SearchTab";
 import {User} from "@/types/User";
 import {Album} from "@/types/Album";
@@ -26,7 +26,7 @@ export const handleSongClick = async (audioElement: HTMLAudioElement | null,
     }
 
     if (!song.songPath.includes('blob'))
-        song.songPath = await formatImageUrl(song.songPath);
+        song.songPath = await formatUrl(song.songPath);
 
     (audioElement as HTMLAudioElement).src = song.songPath;
 

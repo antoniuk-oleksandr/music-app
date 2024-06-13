@@ -4,6 +4,7 @@ import {handleOnNewPlaylistsFormSubmit} from "@/modals/NewPlaylistModal/handlers
 import {useDispatch, useSelector} from "react-redux";
 import {Dispatch, SetStateAction} from "react";
 import {User} from "@/types/User";
+import {Profile} from "@/types/Profile";
 
 type NewPlaylistModalFormProps = LayoutProps & {
     modalName: string,
@@ -20,7 +21,7 @@ const NewPlaylistModalForm = (props: NewPlaylistModalFormProps) => {
     const dispatch = useDispatch();
     const methods = useForm({defaultValues});
     const tokenInfo = useSelector((state: any) => state.token.tokens);
-    const userProfile: User = useSelector((state: any) => state.userProfile);
+    const userProfile = useSelector((state: any) => state.userProfile);
 
     return (
         <FormProvider {...methods}>

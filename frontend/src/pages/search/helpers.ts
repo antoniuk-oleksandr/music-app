@@ -5,7 +5,7 @@ import {Song} from "@/types/Song";
 import {User} from "@/types/User";
 import {Album} from "@/types/Album";
 import {Playlist} from "@/types/Playlist";
-import {formatImageUrl} from "@/utils/utils";
+import {formatUrl} from "@/utils/utils";
 
 export const changeSearchTab = (router: AppRouterInstance, tab: SearchTab, searchQuery: string) => {
     router.push(`/search?q=${searchQuery}&tab=${tab}`);
@@ -18,9 +18,9 @@ export const formatSearchImageUrls = async (searchResult: SearchResult) => {
         for (const value of arr) {
             if ('username' in value) {
                 if(value.avatarPath.includes('default')) continue;
-                value.avatarPath = formatImageUrl(value.avatarPath);
+                value.avatarPath = formatUrl(value.avatarPath);
             } else if ('name' in value)
-                value.imagePath = formatImageUrl(value.imagePath);
+                value.imagePath = formatUrl(value.imagePath);
         }
     }
 

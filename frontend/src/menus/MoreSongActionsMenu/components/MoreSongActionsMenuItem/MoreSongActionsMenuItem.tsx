@@ -12,7 +12,7 @@ const MoreSongActionsMenuItem = (props: MoreSongActionsMenuItemProps) => {
     return (
         <MoreSongActionsMenuItemLayout {...props}>
             <MoreSongActionsMenuItemIcon {...props}/>
-            <span>{title}</span>
+            <span className={"truncate"}>{title}</span>
         </MoreSongActionsMenuItemLayout>
     )
 }
