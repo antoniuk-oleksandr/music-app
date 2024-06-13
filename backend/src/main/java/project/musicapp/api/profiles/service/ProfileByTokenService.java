@@ -22,6 +22,7 @@ public class ProfileByTokenService {
 
     public ResponseEntity<?> getProfileInfoByToken(HttpHeaders headers) {
         String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
+
         return getResponseEntity(accessToken);
     }
 
@@ -29,9 +30,7 @@ public class ProfileByTokenService {
         User user = this.userService.getUserFromAccessToken(accessToken).orElseThrow(
             () -> new IllegalStateException("Could not find user with access token " + accessToken)
         );
-
         List<PlaylistUserSongsDTO> integers = this.playlistService.findAllPlaylistUserSongsByUserId(user.getId(), 10, 0);
-
         return ResponseEntity.ok().body(
             new ProfileMeDTO(user.getId(), user.getUsername(), user.getAvatar(), integers)
         );

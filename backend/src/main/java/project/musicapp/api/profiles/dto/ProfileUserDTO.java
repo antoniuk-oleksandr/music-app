@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProfileUserDTO {
     private UserBannerDTO user;
+    private Boolean isSubscribed;
     private List<SongUserDTO> songs;
     private List<AlbumUserSongsDTO> albums;
     private List<PlaylistUserSongsDTO> playlists;

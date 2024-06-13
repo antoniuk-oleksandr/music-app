@@ -21,7 +21,7 @@ public class SubscribeService {
         User followed = this.userService.findUserByUserId(followedId).orElseThrow(
             () -> new IllegalArgumentException("User doesn't exist")
         );
-        User follower = getUserFromTokenInHeaders(headers);
+        User follower = this.userService.getUserFromTokenInHeaders(headers);
         Subscribe subscribe = mapToSubscribe(follower, followed);
         if(!isSubscribed(follower, followed)) {
             this.subscribeRepository.save(subscribe);
@@ -34,9 +34,9 @@ public class SubscribeService {
         User followed = this.userService.findUserByUserId(followedId).orElseThrow(
             () -> new IllegalArgumentException("User doesn't exist")
         );
-        User follower = getUserFromTokenInHeaders(headers);
+        User follower = this.userService.getUserFromTokenInHeaders(headers);
         Subscribe subscribe = findByFollowerIdAndFollowedId(follower, followed);
-        if(isSubscribed(follower, followed)){
+        if(isSubscribed(follower, followed)) {
             this.subscribeRepository.delete(subscribe);
         }
         return ResponseEntity.ok().body(subscribe);
@@ -50,7 +50,7 @@ public class SubscribeService {
         );
     }
 
-    private Boolean isSubscribed(User follower, User followed){
+    public Boolean isSubscribed(User follower, User followed){
         return this.subscribeRepository.findByFollowerIdAndFollowedId(
             follower.getId(), followed.getId()
         ).isPresent();
@@ -60,12 +60,5 @@ public class SubscribeService {
         return Subscribe.builder()
                 .follower(follower)
                 .followed(followed).build();
-    }
-
-    private User getUserFromTokenInHeaders(HttpHeaders headers) {
-        String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
-        return this.userService.getUserFromAccessToken(accessToken).orElseThrow(
-            () -> new IllegalArgumentException("Invalid access token")
-        );
     }
 }
