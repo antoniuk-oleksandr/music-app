@@ -3,6 +3,8 @@ package project.musicapp.api.tokens.service;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.tokens.dto.JwtTokenDTO;
 import project.musicapp.api.tokens.type.TokenType;

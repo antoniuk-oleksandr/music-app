@@ -1,6 +1,7 @@
 package project.musicapp.api.users.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import project.musicapp.api.tokens.service.AccessTokenService;
 import project.musicapp.api.users.dto.UserBannerDTO;
@@ -63,5 +64,12 @@ public class UserService {
 
     public void setTrueIsArtistForUser(int userId) {
         this.userQueryService.setTrueIsArtistForUser(userId);
+    }
+
+    public User getUserFromTokenInHeaders(HttpHeaders headers) {
+        String accessToken = this.accessTokenService.extractTokenFromHeaders(headers);
+        return getUserFromAccessToken(accessToken).orElseThrow(
+            () -> new IllegalArgumentException("Invalid access token")
+        );
     }
 }

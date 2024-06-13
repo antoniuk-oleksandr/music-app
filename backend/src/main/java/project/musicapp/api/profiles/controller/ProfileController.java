@@ -21,8 +21,9 @@ public class ProfileController {
     }
 
     @GetMapping("/{userId}")
-    public ProfileUserDTO getProfileById(@PathVariable int userId) {
-        return this.profileService.getProfileUserById(userId);
+    public ResponseEntity<?> getProfileById(@RequestHeader HttpHeaders headers,
+                                         @PathVariable int userId) {
+        return this.profileService.getProfileUserById(headers, userId);
     }
 
     @GetMapping("/{userId}/{profileType}")

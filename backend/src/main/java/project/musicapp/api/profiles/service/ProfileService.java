@@ -16,8 +16,8 @@ public class ProfileService {
     private final ProfileByTokenService profileByTokenService;
     private final ProfileBannerAvatarService profileBannerAvatarService;
 
-    public ProfileUserDTO getProfileUserById(int userId) {
-        return this.profileDataService.getProfileUserById(userId);
+    public ResponseEntity<?> getProfileUserById(HttpHeaders headers, int userId) {
+        return this.profileDataService.getProfileUserById(headers, userId);
     }
 
     public ProfileDTO getProfileByIdAndType(String profileType, int userId, int limit, int offset) {

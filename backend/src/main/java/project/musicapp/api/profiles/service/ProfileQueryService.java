@@ -8,7 +8,9 @@ import project.musicapp.api.playlists.dto.PlaylistUserSongsDTO;
 import project.musicapp.api.playlists.service.PlaylistService;
 import project.musicapp.api.songs.dto.SongUserDTO;
 import project.musicapp.api.songs.service.SongService;
+import project.musicapp.api.subscribe.service.SubscribeService;
 import project.musicapp.api.users.dto.UserBannerDTO;
+import project.musicapp.api.users.model.User;
 import project.musicapp.api.users.service.UserService;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class ProfileQueryService {
     private final SongService songService;
     private final AlbumService albumService;
     private final PlaylistService playlistService;
+    private final SubscribeService subscribeService;
 
     public UserBannerDTO findUserBannerByUserId(int id){
         return this.userService.findUserBannerById(id);
@@ -35,5 +38,12 @@ public class ProfileQueryService {
 
     public List<PlaylistUserSongsDTO> findPlaylistsByUserId(int id, int limit, int offset){
         return this.playlistService.findAllPlaylistUserSongsByUserId(id, limit, offset);
+    }
+
+    public Boolean isSubscribedTo(User me, User toUser) {
+        if (me.getId().equals(toUser.getId())) {
+            return null;
+        }
+        return this.subscribeService.isSubscribed(me, toUser);
     }
 }
