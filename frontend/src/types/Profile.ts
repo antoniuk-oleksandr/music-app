@@ -8,4 +8,5 @@ export type Profile = {
     songs: Song[],
     albums: Album[],
     playlists: Playlist[],
+    isSubscribed: boolean | null,
 }

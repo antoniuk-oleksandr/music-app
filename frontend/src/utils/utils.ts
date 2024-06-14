@@ -23,7 +23,7 @@ export const capitalize = (str: any) => {
 }
 
 export const formatUrl = (url: string) => {
-    if (url.includes('files') || url.includes('blob'))  return url;
+    if (url.includes('files') || url.includes('blob')) return url;
 
     const ip = getIpAddress();
     return `http://${ip}:8030/files/${url}`;
@@ -94,9 +94,17 @@ export const showDialog = (
     dispatch: Dispatch<UnknownAction>,
     text: string,
     color: string,
+    dialogIds: any[],
 ) => {
-    dispatch(setDialog([true, text, color]));
-    setTimeout(() => dispatch(setIsDialogShown(false)), 3500);
+    for (let dialogId of dialogIds) {
+        dispatch(setIsDialogShown(false))
+        if(dialogId) clearTimeout(dialogId);
+    }
+
+    const id = setTimeout(() =>
+        dispatch(setIsDialogShown(false)), 3500);
+
+    dispatch(setDialog([true, text, color, id]));
 }
 
 export const formatListDates = (lists: Playlist[] | Album[]) => {

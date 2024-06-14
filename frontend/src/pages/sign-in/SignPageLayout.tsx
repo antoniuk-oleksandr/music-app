@@ -1,11 +1,11 @@
 import {LayoutProps} from "@/types/LayoutProps";
 import {motion} from "framer-motion";
-import {Dispatch, FormEventHandler, SetStateAction} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {SignInInputs, SignUpInputs} from "@/types/SignInInputs";
 import {handleSignSubmit} from "@/pages/sign-in/handlers";
 import {SignType} from "@/types/SignType";
 import {useRouter} from "next/router";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 type SignInPageLayoutProps = LayoutProps & {
     signInputsState: {
@@ -23,6 +23,8 @@ const SignPageLayout = (props: SignInPageLayoutProps) => {
     const {inputsData} = signInputsState;
     const router = useRouter();
     const dispatch = useDispatch();
+    const {ids} = useSelector((state: any) => state.dialog);
+
 
     return (
         <motion.div
@@ -31,12 +33,14 @@ const SignPageLayout = (props: SignInPageLayoutProps) => {
             transition={{duration: 0.3, easings: "easeOut"}}
             className="w-full h-svh grid place-items-center">
             <form
-                onSubmit={(e) => handleSignSubmit(e, inputsData, type, router, dispatch, verificationState, setVerificationState, digits)}
+                onSubmit={(e) => handleSignSubmit(e, inputsData, type, router,
+                    dispatch, verificationState, ids, setVerificationState, digits)}
                 className={"bg-white w-[500px] px-6 py-16 flex rounded-lg drop-shadow-sm flex-col items-center text-lg text-neutral-600"}>
                 {children}
             </form>
         </motion.div>
     )
 }
+
 
 export default SignPageLayout;

@@ -14,16 +14,17 @@ const ProfileUploader = (props: ProfileUploaderProps) => {
     const {menuRef, setRefs} = props;
     const tokenInfo: TokenInfo = useSelector((state: any) => state.token.tokens);
     const dispatch = useDispatch();
+    const {dialogIds} = useSelector((state: any) => state.dialog);
 
     const avatarRef = useRef<File | null>(null);
     const bannerRef = useRef<File | null>(null);
 
     const avatarClick = async () => {
-        await handleProfileUploadClick(avatarRef, tokenInfo, dispatch, 'avatar');
+        await handleProfileUploadClick(avatarRef, tokenInfo, dispatch, 'avatar', dialogIds);
         setRefs[0].current && setRefs[0].current(false);
     }
     const bannerClick = async () => {
-        await handleProfileUploadClick(bannerRef, tokenInfo, dispatch, 'banner');
+        await handleProfileUploadClick(bannerRef, tokenInfo, dispatch, 'banner', dialogIds);
         setRefs[1].current && setRefs[1].current(false);
     }
 

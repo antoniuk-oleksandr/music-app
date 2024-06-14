@@ -12,6 +12,7 @@ export const useUserProfileData = (jwt: string, dispatch: Dispatch<UnknownAction
 
     useEffect(() => {
         const getData = async () => {
+            // @ts-ignore
             let data = await userProfileRequest(jwt) as User;
             data.avatarPath = formatUrl(data.avatarPath);
             setUserProfileData(data);

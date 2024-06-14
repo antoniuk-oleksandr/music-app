@@ -17,7 +17,7 @@ export const useListData = (listType: ListType) => {
             const query = router.query as { [key: string]: string };
             const id = parseInt(query.id);
 
-            const response = await listRequest(id, listType);
+            const response = await listRequest(id, listType) as Playlist | Album;
             await getSongImagesForList(response);
 
             setListData(response);

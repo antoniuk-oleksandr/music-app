@@ -1,15 +1,14 @@
 import {setTokenStore} from "@/redux/reducers/token-slice";
 import {Dispatch} from "react";
 import {UnknownAction} from "redux";
-import {clearJwtCookies} from "@/utils/utils";
-import {setDialog, setIsDialogShown} from "@/redux/reducers/dialog-slice";
+import {clearJwtCookies, showDialog} from "@/utils/utils";
 
-export const handleSignOutButtonClick = (dispatch: Dispatch<UnknownAction>) => {
+export const handleSignOutButtonClick = (
+    dispatch: Dispatch<UnknownAction>,
+    dialogIds: any[],
+) => {
     dispatch(setTokenStore([false, null]));
     clearJwtCookies();
 
-    dispatch(setDialog([true, 'You have successfully logged out.', 'text-green-500']));
-    setTimeout(() => {
-        dispatch(setIsDialogShown(false));
-    }, 3500);
+    showDialog(dispatch, 'You have successfully logged out.', 'text-green-500', dialogIds);
 }

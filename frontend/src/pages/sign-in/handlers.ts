@@ -4,8 +4,8 @@ import {signRequest} from "@/api/sign-request";
 import {SignType} from "@/types/SignType";
 import {NextRouter} from "next/router";
 import {UnknownAction} from "redux";
-import {setDialog, setIsDialogShown} from "@/redux/reducers/dialog-slice";
-import {setTokensToCookies} from "@/utils/utils";
+import {setIsDialogShown} from "@/redux/reducers/dialog-slice";
+import {setTokensToCookies, showDialog} from "@/utils/utils";
 import {setTokenStore} from "@/redux/reducers/token-slice";
 
 export const handleInputFocus = (
@@ -38,33 +38,18 @@ const handleSignSuccess = async (
     router: NextRouter,
     dispatch: Dispatch<UnknownAction>,
     text: string,
+    dialogIds: any[],
 ) => {
     setTokensToCookies(response.data.jwt, response.data.refresh);
     dispatch(setTokenStore([true, response.data],))
 
     await router.push("/");
 
-    dispatch(setDialog([
-        true,
-        text,
-        'text-green-400',
-    ]));
-
-    setTimeout(() => {
-        dispatch(setIsDialogShown(false));
-    }, 3500);
+    showDialog(dispatch, text, 'text-green-400', dialogIds);
 }
 
-const handleError = (dispatch: Dispatch<UnknownAction>, message: string) => {
-    dispatch(setDialog([
-        true,
-        message,
-        'text-red-500',
-    ]));
-
-    setTimeout(() => {
-        dispatch(setIsDialogShown(false));
-    }, 3500);
+const handleError = (dispatch: Dispatch<UnknownAction>, message: string, dialogIds: any[]) => {
+    showDialog(dispatch, message, 'text-red-500', dialogIds)
 }
 
 export const handleSignSubmit = async (
@@ -74,6 +59,7 @@ export const handleSignSubmit = async (
     router: NextRouter,
     dispatch: Dispatch<UnknownAction>,
     verificationState: boolean,
+    dialogIds: any[],
     setVerificationState?: Dispatch<SetStateAction<boolean>>,
     digits?: number[],
 ) => {
@@ -87,13 +73,13 @@ export const handleSignSubmit = async (
         if (response.data === 'Email sent successfully with code') {
             setVerificationState && setVerificationState(true);
         } else if (!verificationState) {
-            await handleSignSuccess(response, router, dispatch, 'You have successfully signed in!');
+            await handleSignSuccess(response, router, dispatch, 'You have successfully signed in!', dialogIds);
         } else {
-            await handleSignSuccess(response, router, dispatch, 'You have successfully created an account!');
+            await handleSignSuccess(response, router, dispatch, 'You have successfully created an account!', dialogIds);
         }
     } else if (response.status === 404) {
-        handleError(dispatch, 'You have input incorrect credentials!');
+        handleError(dispatch, 'You have input incorrect credentials!', dialogIds);
     } else if (response.status === 400) {
-        handleError(dispatch, 'A user with such username or email already exists!');
+        handleError(dispatch, 'A user with such username or email already exists!', dialogIds);
     } else console.log(response);
 }

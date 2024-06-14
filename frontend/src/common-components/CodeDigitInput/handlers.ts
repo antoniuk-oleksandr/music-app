@@ -1,7 +1,5 @@
 import {Dispatch, FormEvent, MutableRefObject, SetStateAction} from "react";
 import {z} from "zod";
-import {UnknownAction} from "redux";
-import {setDialog, setIsDialogShown} from "@/redux/reducers/dialog-slice";
 
 export const handleCodeInput = (
     e: FormEvent<HTMLDivElement>,
@@ -48,17 +46,19 @@ export const handleRefObject = (
     inputRefs.current[id] = refToSet;
 }
 
-export const handleVerifyButtonClick = (
-    digits: number[],
-    dispatch: Dispatch<UnknownAction>
-) => {
-    if (digits.some((digit) => digit === null)) {
-        dispatch(setDialog([
-            true,
-            'Input verification code is incorrect!',
-            'text-red-500'
-        ]))
-
-        setTimeout(() => dispatch(setIsDialogShown(false)), 2000);
-    }
-}
+// export const handleVerifyButtonClick = (
+//     digits: number[],
+//     dispatch: Dispatch<UnknownAction>,
+//     dialogIds: any[],
+// ) => {
+//     if (digits.some((digit) => digit === null)) {
+//         showDialog(
+//             dispatch,
+//             'Input verification code is incorrect!',
+//             'text-red-500',
+//             dialogIds
+//         );
+//
+//         setTimeout(() => dispatch(setIsDialogShown(false)), 2000);
+//     }
+// }

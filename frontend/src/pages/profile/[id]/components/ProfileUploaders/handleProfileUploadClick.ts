@@ -12,6 +12,7 @@ export const handleProfileUploadClick = async (
     tokenInfo: TokenInfo,
     dispatch: Dispatch<UnknownAction>,
     type: 'banner' | 'avatar',
+    dialogIds: any[],
 ) => {
     if (!file.current) return;
 
@@ -23,7 +24,7 @@ export const handleProfileUploadClick = async (
     const status = await profileChangePictureRequest(type, file.current, token);
     if (status === 200) {
         const text = `${capitalize(type)} has been successfully changed!`;
-        showDialog(dispatch, text, 'text-green-400');
+        showDialog(dispatch, text, 'text-green-400', dialogIds);
 
         getUrlFromFile(file.current, (img) => {
             if (type === 'banner') profileBannerSignal.value = img;
@@ -32,7 +33,7 @@ export const handleProfileUploadClick = async (
 
     } else {
         const text = `An error occurred while updating the ${capitalize(type)}.`;
-        showDialog(dispatch, text, 'text-red-500');
+        showDialog(dispatch, text, 'text-red-500', dialogIds);
     }
 }
 
