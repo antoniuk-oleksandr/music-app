@@ -7,7 +7,7 @@ export const profileChangePictureRequest = async (
     jwt: string
 ) => {
     try {
-        const ip = await getIpAddress();
+        const ip = getIpAddress();
         const url = `http://${ip}:8080/api/profiles/update/${type}`;
 
         const formData = new FormData();

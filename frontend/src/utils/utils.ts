@@ -96,9 +96,11 @@ export const showDialog = (
     color: string,
     dialogIds: any[],
 ) => {
-    for (let dialogId of dialogIds) {
-        dispatch(setIsDialogShown(false))
-        if(dialogId) clearTimeout(dialogId);
+    if (dialogIds) {
+        for (let dialogId of dialogIds) {
+            dispatch(setIsDialogShown(false))
+            if (dialogId) clearTimeout(dialogId);
+        }
     }
 
     const id = setTimeout(() =>

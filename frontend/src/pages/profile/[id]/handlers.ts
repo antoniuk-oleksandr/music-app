@@ -37,6 +37,7 @@ export const handleSubscribeButtonClick = async (
     }
 
     await subscribeRequest(user.id, token, isSubscribed);
+    console.log("tyring to set to ", !isSubscribed);
     profileSubscribeSignal.value = !isSubscribed;
     const text = (!isSubscribed ? 'Subscribed to '  : 'Unsubscribed from ') + user.username;
     showDialog(dispatch, text, 'neutral-800', dialogIds);
